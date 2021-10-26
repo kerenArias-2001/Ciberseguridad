@@ -1,3 +1,9 @@
+<?php
+    include('../funciones.php');
+    $enviar=0;    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,131 +34,222 @@
     </head>
     <body>
 
-        <div id="wrapper">
-
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.php">Nombre proyecto</a>
-                </div>
-
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <ul class="nav navbar-right navbar-top-links">
-                
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <?php echo "$nombre";?><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li class="divider"></li>
-                            <li><a href="../cerrarsesion.php"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-         
-                            </li>
-                            <li>
-                                <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
-                            </li>
-                            <li>
-                                <a href="acuerdos.php"><i class="fa fa-table fa-fw"></i> Gestión de Acuerdos</a>
-                            </li>
-                            
-                            <li>
-                                <a href="#"><i class="fa fa-edit fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="crear_incidente.html">Crear Incidente</a>
-                                    </li>
-                                    <li>
-                                        <a href="morris.html">Crear Incidente</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            
-                            
-                            <li>
-                                <a href="#"><i class="fa fa-cogs fa-fw"></i> Módulo Gestión de Activos  <span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="panels-wells.html">Eventos de incidentes de seguridad</a>
-                                    </li>
-                                    <li>
-                                        <a href="buttons.html">Registro de Actualización de Activos</a>
-                                    </li>
-                                    <li>
-                                        <a href="notifications.html">Registro de Actualización de Inventario</a>
-                                    </li>
-                                  
-                                </ul>
+<div id="wrapper">
+<?php
+ $miconexion=conectar_bd("",'bd_ciberseguridad');
+ session_start();
+$busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
     
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Módulo Gestión de Riesgos <span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="crear_riesgo.html">Crear eventos de Riesgos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Modificar eventos de Riesgos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                        </ul>
-                                        <!-- /.nav-third-level -->
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li class="active">
-                                <a href="#"><i class="fa fa-chart-bar"></i> Módulo Gestión de Reportes   <span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a class="active" href="blank.html">Generar Reportes</a>
-                                    </li>
-                            
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.sidebar-collapse -->
-                </div>
-                <!-- /.navbar-static-side -->
-            </nav>
+/*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
+ */        $fila1 = $busqueda->fetch_object(); 
+        $nombre=$fila1->nombre_adm;
+        $i=0;
+        $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+        while ($valores = mysqli_fetch_array($query)) {
+                $i=$i+1;
+        } 
+/*         echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";
+ */        
+
+    include('../nabvar.php');
+    ?>
         
+<section id="acuerdo">
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Gestión de Riesgos</h2>
+                </div>
+            </div>
+            <div class="cont-b">
+        <form >
+
+            <center><div class="cont_inc"><br><br>
+                    
+                <div class="text_acta">
+                    <br><br>
+                    
+                    <table>
+                        <tr class="fondo_sub2">
+                            <th colspan="3" style="text-align: center;">Gestión de Riesgos 
+                                <br>
+                            </th>
+                            <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" >
+                                <!-- <input type="text" class="texc1" id="inc_1" ></input> -->
+                            
+
+                                Fecha:<!-- <input type="text" class="texc1" id="inc_2" readonly="readonly"></input> -->
+                                <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+
+                                Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
+                                <input id="resp_i" name="resp_i2" type="text" class="form-control3" >
+
+                            
+                            </td>
+                        </tr>
+                        
+                        <tr class="fondo_sub">
+                            <td colspan="4" style="text-align: center;">ANÁLISIS DEL RIESGO </td>
+                        </tr>
+                       
+                       
+                        <tr>
+                            <td colspan="2">Proceso:
+                            </td> 
+                            <td colspan="2">
+<!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+
+                            </td>
+                        </tr>
+
+                            <tr>
+                            <td colspan="2">Objetivo:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+
+                            </td>
+                        </tr>
+                      <!--   <tr>
+                            <td rowspan="2"  style="text-align: center;">RIESGO</td>
+                            <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
+                            <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
+                            <td rowspan=""  style="text-align: center;">Evaluación</td>
+                            <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
+                        </tr> -->
+            
+                       
+                            
+                 
+                            
+                        <tr>
+                            <td colspan="2">Fecha y hora del incidente:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_10" readonly="readonly"></input>
+-->                                    <input id="fech_hora" name="fech_hora2" type="datetime-local" class="form-control3" >
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">Tipo:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
+-->                                   
+                                
+
+
+                                    <select id="m1" class="form-control3" name="tipoinc" require/>                        
+                                        
+                                        <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                            <?php
+                                            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                                            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                                            while ($valores = mysqli_fetch_array($query)) {
+                                                echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                                            
+                                                    $i=$i+1;
+                                            } 
+
+                                            
+                                        ?>         
+                                    </select>
+
+
+                            </td>
+                        </tr>
+                                                
+                        <tr>
+                            <td colspan="2">Priorización:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
+-->                                   
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                            <option value="" selected>Seleccione una opción</option>
+                                            <option value="critico">Crítico</option>
+                                            <option value="alto">Alto</option>
+                                            <option value="medio">Medio</option>
+                                            <option value="bajo">Bajo</option>
+                                    </select>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">Escalamiento:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
+-->                                   
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                            <option value="" selected>Seleccione una opción</option>
+                                            <option value="alto">Alto</option>
+                                            <option value="medio">Medio</option>
+                                            <option value="bajo">Bajo</option>
+                                    </select>
+
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td colspan="2">Lugar o sede del incidente:
+                            </td> 
+                            <td colspan="2">
+<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
+-->                                    <input id="lugar_i" name="lugar_i2" type="text" class="form-control3" >
+
+                            </td>
+                        </tr>
+
+
+                        <tr class="fondo_sub">
+                            <td colspan="4" style="text-align: center;">Descripción del Incidente</td>
+                        </tr>
+                        <th colspan="4">
+                                <label>
+                                <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+<!--                                         <input id="descrip_i" name="descrip_i2" type="text" class="form-control3" >
+-->
+                                </label>
+                        </th>
+                    
+                        </tr>
+                        
+                    </table>
+                    <br><br> 
+                    <center>
+                        <button type="submit" value="1" name="guardar" id="btnNuevaFactura" class="btn btn-success">Guardar</button>
+                    </center>
+                    <br><br>
+                    </div>
+                
+                </div></center>
+
+        </form>
+    
+        </div>
+        
+
+        </div>
+    </div>  
+</section>  
+<br>
+<br>
+
+
+        
+        </div>   
 <section id="acuerdo">
 
             <!-- Page Content -->
@@ -289,14 +386,7 @@
 
                 </div>
             </div>  
-</section>  
-<br>
-<br>
-
-
-        
-        </div>   
-
+</section>
         
 
 
