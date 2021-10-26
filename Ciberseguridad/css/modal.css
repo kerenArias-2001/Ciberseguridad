@@ -1,0 +1,227 @@
+.modal{
+    background-color: rgb(0 0 0 / 79%);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefeb8;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%;
+
+/*     background-image: url(../img/cyber-4610993_1920.jpg) !important; */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.modal-content2 {
+    background-color: #fefefeb8;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%;
+    height: 577px;
+/*     background-image: url(../img/abstract-3291293_1280.jpg) !important; */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.close {
+    position: absolute;
+    right: 25px;
+    top: -13px;
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+.moda12 {
+    width: 47%;
+
+}
+.sesion {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.login {
+    background-color: #087f08;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    right: 263px;
+    border-radius: 17px;
+}
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+.psw .olvi-cont {
+    /* float: left; */
+    position: relative;
+    width: 120px;
+    top: -12px;
+    height: 15px;
+    left: -4px;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    padding: 12px;
+    background-color: #ff7246;
+    text-decoration: revert;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 4px;
+}
+.psw .olvi-cont:hover {
+    opacity: 0.8;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+.cont-re-ad {
+    position: relative;
+    top: 6px; 
+    background-color: #ff110000;
+    margin: 0px;
+    width: 75%;
+    height: 389px;
+    border: solid #00d4ff00;
+    right: 264px;
+}
+
+.cont-re-ad2 {
+    position: relative;
+    bottom: 293px;
+    background-color: #10ff3000;
+    margin: 0px;
+    width: 75%;
+    height: 389px;
+    border: solid #00d4ff00;
+    left: 264px;
+}
+.registrarse {
+    background-color: #087f08;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    position: relative;
+    top: 21px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+}
+
+.fe_nac{
+
+        display: block;
+        width: 100%;
+        height: 51px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+ 
+}
+
+.campo {
+    position: relative;
+}
+ 
+label {
+    width: 100%;
+}
+ 
+input {
+    width: 100%;
+    padding: 7px;
+}
+ 
+.campo span {
+    position: absolute;
+    right: 5px;
+    top: 39px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 2px 10px;
+    background-color: #dadada;
+}
+
+
+@media screen and (max-width: 500px){
+
+    .modal-content {
+        border: 1px solid #888;
+        width: 100%;
+        height: 753px;
+    }
+
+    .cont-re-ad {
+        position: relative;
+        top:0px; 
+        background-color: #ff110000;
+        margin: 0px;
+        width: 75%;
+        height: 389px;
+        border: solid #00d4ff00;
+      right: 0px; 
+    }
+    
+    .cont-re-ad2 {
+        position: relative;
+        bottom: 0px; 
+        background-color: #10ff3000;
+        margin: 0px;
+        width: 75%;
+        height: 389px;
+        border: solid #00d4ff00;
+        left: 0px; 
+    }
+
+    .navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: relative;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+}
