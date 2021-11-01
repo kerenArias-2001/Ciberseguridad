@@ -102,7 +102,7 @@
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Módulo Gestión de Riesgos <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="crear_riesgo.html">Crear eventos de Riesgos</a>
+                                <a href="crear_riesgo.php">Crear eventos de Riesgos</a>
                             </li>
                             <li>
                                 <a href="https://docs.google.com/spreadsheets/d/1Yk07670QWSzcfR7ZrMUOBlBQ1swClns768AH_b4EXBg/edit#gid=0">Modificar eventos de Riesgos</a>

@@ -75,7 +75,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                     
                     <table>
                         <tr class="fondo_sub2">
-                            <th colspan="3" style="text-align: center;">Gestión de Riesgos 
+                            <th colspan="5" style="text-align: center;">GESTIÓN DE RIESGOS
                                 <br>
                             </th>
                             <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" >
@@ -93,14 +93,14 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                         </tr>
                         
                         <tr class="fondo_sub">
-                            <td colspan="4" style="text-align: center;">ANÁLISIS DEL RIESGO </td>
+                            <td colspan="6" style="text-align: center;">ANÁLISIS DEL RIESGO </td>
                         </tr>
                        
                        
                         <tr>
-                            <td colspan="2">Proceso:
+                            <td colspan="1">Proceso:
                             </td> 
-                            <td colspan="2">
+                            <td colspan="5">
 <!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
                             <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
 
@@ -108,25 +108,56 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                         </tr>
 
                             <tr>
-                            <td colspan="2">Objetivo:
+                            <td colspan="1">Objetivo:
                             </td> 
-                            <td colspan="2">
+                            <td colspan="5">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
                             <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
 
                             </td>
                         </tr>
-                      <!--   <tr>
-                            <td rowspan="2"  style="text-align: center;">RIESGO</td>
-                            <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
-                            <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
-                            <td rowspan=""  style="text-align: center;">Evaluación</td>
-                            <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
-                        </tr> -->
-            
-                       
+
                             
                  
+              
+                        <tr>
+                                        <td rowspan="2"  style="text-align: center;">RIESGO</td>
+                                        <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
+                                        <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
+                                        <td rowspan=""  style="text-align: center;">Evaluación</td>
+                                        <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Probabilidad</td>
+                                        <td>Impacto</td>
+                                        <td  style="text-align: center;">Zona de Riesgo</td>
+                                       
+                                    </tr>
+                                
+                             
+                                
+
+
+                                <tr>
+                                    <td colspan="">
+                                        <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>
+
+                                    </td> 
+                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                   
+                                </tr>
+ 
+
+
+
+
+
+
+
                             
                         <tr>
                             <td colspan="2">Fecha y hora del incidente:
@@ -203,7 +234,8 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
 
 
                         <tr>
-                            <td colspan="2">Lugar o sede del incidente:
+                            <td colspan="
+                            2">Lugar o sede del incidente:
                             </td> 
                             <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
@@ -214,7 +246,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
 
 
                         <tr class="fondo_sub">
-                            <td colspan="4" style="text-align: center;">Descripción del Incidente</td>
+                            <td colspan="4" style="text-align: center;">Descripción del riesgo</td>
                         </tr>
                         <th colspan="4">
                                 <label>
@@ -250,143 +282,6 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
 
         
         </div>   
-<section id="acuerdo">
-
-            <!-- Page Content -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h2 class="page-header">Gestión de Riesgos</h2>
-                        </div>
-                    </div>
-                <div class="cont-b">
-                    <form>
-                        <div class="form-group2">
-                            <label>Versión</label>
-                            <input id="version_i" name="version_i2" type="number" class="form-control2" placeholder="Número">
-                      
-                        </div>
-                        <div class="form-group2">
-                            <label>Fecha</label>
-                            <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control2" placeholder="fecha">
-                      
-                        </div>
-                        <div class="form-group2">
-                            <label>Responsable</label>
-                            <input id="resp_i" name="resp_i2" type="text" class="form-control2" placeholder="Nombre">
-                      
-                        </div>
-                        <div class="form-group2">
-                            <label>Fecha y hora</label>
-                            <input id="fecha_hora" name="fecha_hora2" type="datetime-local" class="form-control2">
-                      
-                        </div>
-                        <div class="form-group2">
-                            <label>Reportador</label>
-                            <input id="rep_i" name="rep_i2" type="text" class="form-control2" placeholder="Nombre">
-                      
-                        </div>
-
-                        <div class="form-group2">
-                            <label>Cargo</label>
-                            <input id="cargo_i" name="cargo_i2" type="text" class="form-control2" placeholder="Cargo">
-                      
-                        </div>
-
-                    
-                        <div class="form-group2">
-                            <label>Dependencia y Extensión</label>
-                            <input id="dep_i" name="dep_i2" type="text" class="form-control2" placeholder="Número">
-                      
-                        </div>
-
-                        <div class="form-group2">
-                            <label>Sede</label>
-                            <input id="sede_i" name="sede_i2" type="text" class="form-control2" placeholder="Lugar">
-                      
-                        </div>
-
-                            <br>
-                        
-                        <div class="cont_r"><br><br>
-                            
-                           <center><div class="text_acta">
-                           <br><br>
-                            
-                            <table>
-                                <tr>
-                                  <th colspan="6" style="text-align: center;">ANÁLISIS DEL RIESGO
-                                      <br>
-                                  </th>
-                                </tr>
-                                
-                                <tr>
-                                    <td colspan="6" style="text-align: center;">PROCESO:
-                                    <input type="text" class="texc1" id="inc_14" readonly="readonly"></input>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="6">OBJETIVO:
-                                    <label>
-                                        <textarea class="texc1" id="inc_13" name="textarea" rows="2" readonly="readonly" ></textarea>
-                                    </label>
-                                    </td>
-                                </tr>
-
-
-                               
-                                    <tr>
-                                        <td rowspan="2"  style="text-align: center;">RIESGO</td>
-                                        <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
-                                        <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
-                                        <td rowspan=""  style="text-align: center;">Evaluación</td>
-                                        <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Probabilidad</td>
-                                        <td>Impacto</td>
-                                        <td  style="text-align: center;">Zona de Riesgo</td>
-                                       
-                                    </tr>
-                                
-                             
-                                
-
-
-                                <tr>
-                                    <td colspan="">
-                                        <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>
-
-                                    </td> 
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                   
-                                </tr>
- 
-                                  
-                                
-                            </table>
-                            <br><br>  <br><br>
-                            </div></center>
-                        </div>
-
-
-                    <center>
-                        <button type="submit" value="1" name="guardar" id="btnNuevaFactura" class="btn btn-success">Guardar</button>
-                    </center>
-                    </form>
-
-                </div>
-                <button class="btn btn-success" onclick="enviartexto2()" > llenar</button>
-
-                </div>
-            </div>  
-</section>
         
 
 

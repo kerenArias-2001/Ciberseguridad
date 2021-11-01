@@ -9,6 +9,7 @@ body{
 
 
 td {
+    text-align: center;
    /*  vertical-align: bottom; */
     border-bottom: 2px solid #dee2e6;
     border: solid 1px rgb(0, 0, 0); 
@@ -42,7 +43,7 @@ table{
 
 .text_acta {
     text-align: justify;
-    width: 84%;
+    width: 88%;
 }
 
 button, input, select, textarea {
