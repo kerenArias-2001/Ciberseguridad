@@ -119,20 +119,20 @@
 
                             
                  
-              
-                        <tr>
-                                        <td rowspan="2"  style="text-align: center;">RIESGO</td>
-                                        <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
-                                        <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
-                                        <td rowspan=""  style="text-align: center;">Evaluación</td>
-                                        <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Probabilidad</td>
-                                        <td>Impacto</td>
-                                        <td  style="text-align: center;">Zona de Riesgo</td>
-                                       
-                                    </tr>
+        
+                            <tr>
+                                <td rowspan="2"  style="text-align: center;">RIESGO</td>
+                                <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
+                                <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
+                                <td rowspan=""  style="text-align: center;">Evaluación</td>
+                                <td rowspan="2"  style="text-align: center;">Medidas de Respuesta</td>
+                            </tr>
+                            <tr>
+                                <td>Probabilidad</td>
+                                <td>Impacto</td>
+                                <td  style="text-align: center;">Zona de Riesgo</td>
+                                
+                            </tr>
                                 
                              
                                 

@@ -91,7 +91,7 @@ include('../nabvar.php');
                     </tr>
                     
                     <tr class="fondo_sub">
-                        <td colspan="6" style="text-align: center;">ANÁLISIS DEL ACTIVO </td>
+                        <td colspan="6" style="text-align: center;">IDENTIFICACIÓN DEL ACTIVO </td>
                     </tr>
                    
                    
@@ -100,11 +100,10 @@ include('../nabvar.php');
                         </td> 
                         <td colspan="2"><input id="version_i" name="version_i2" type="number" class="form-control3" >
                         </td>
-                        <td colspan="1">Nombre del Activo:
+                        <td colspan="1">Nombre:
                         </td> 
                         <td colspan="5">
                         <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
-
                         </td>
                     </tr>
 
@@ -114,10 +113,9 @@ include('../nabvar.php');
                     </td> 
                     <td colspan="3">
                     <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
-
                     </td>
-                    <td colspan="1">Tipo de Activo:
-                        </td> 
+                    <td colspan="1">Tipo:
+                    </td> 
                         <td colspan="2">
 
                             <select   class="form-control3"  name="tipo_id" required>
@@ -135,21 +133,106 @@ include('../nabvar.php');
                         </td>
                     </tr>
 
-                    <tr>
-                        <td colspan="1">Ubicación: </td>
+            
+                                
+                            <tr>
+                                <td rowspan="3">CALIFICACIÓN</td>
+                                <td>Confidencialidad</td>
+                                <td colspan="4"> 
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                    <option value="" selected>Seleccione una opción</option>
+                                    <option value="critico">Información pública Reservada</option>
+                                    <option value="critico">Información pública Clasificada</option>
+                                    <option value="critico">Información pública</option>
+                                    <option value="critico">No clasificada</option>
+                                    </select>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>Integridad</td>
+                                <td colspan="4"> 
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                    <option value="" selected>Seleccione una opción</option>
+                                    <option value="critico">Alta</option>
+                                    <option value="critico">Media</option>
+                                    <option value="critico">Baja</option>
+                                    <option value="critico">No clasificada</option>
+                                    </select>
+                            </td>
+                                </tr>
+                                <tr>
+                                <td>Disponibilidad</td>
+                                <td colspan="4">
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                    <option value="" selected>Seleccione una opción</option>
+                                    <option value="critico">Alta</option>
+                                    <option value="critico">Media</option>
+                                    <option value="critico">Baja</option>
+                                    <option value="critico">No clasificada</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                        <td colspan="1">Ubicación:
+                        </td> 
                         <td colspan="2">
-                        <select   class="form-control3"  name="tipo_id" required>
+                            <select   class="form-control3"  name="tipo_id" required>
                                 <option value="" selected>Seleccione una opción</option>
                                 <option value="critico">Física</option>
                                 <option value="critico">Electrónica</option>
-
-
                             </select>
-                        </td> 
-                    </td>
+                        </td>
+                        <td>Nivel de Criticidad:</td>
+                        <td colspan="2">
+                            <select   class="form-control3"  name="tipo_id" required>
+                            <option value="" selected>Seleccione una opción</option>
+                            <option value="critico">Alta</option>
+                            <option value="critico">Media</option>
+                            <option value="critico">Baja</option>
+                            </select>
+                            </td>
                     </tr>
-             
-          
+                    
+                    <tr>
+                        <td colspan="1">Justificación:
+                        </td> 
+                        <td colspan="5">
+                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                        </td>
+                    </tr>
+
+                    <tr class="fondo_sub">
+                        <td colspan="6" style="text-align: center;">PROPIEDAD - ACCESO - GESTIÓN </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Propietario:
+                        </td> 
+                        <td colspan="5">
+                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Producción de la Información" >                                
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Custodio:
+                        </td> 
+                        <td colspan="5">
+                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Información" >                                
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Fecha ingreso del Activo:
+                        </td> 
+                        <td colspan="3">
+                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                        </td>
+                        <td colspan="1">Fecha salida del Activo:
+                        </td> 
+                        <td colspan="2">
+                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                        </td>
+                    </tr>
+
                 </table>
                 <br><br> 
                 <center>
@@ -173,47 +256,8 @@ include('../nabvar.php');
 
 
     
-    </div>   
+</div>   
     
-
-
-    <!-- <section>
-        <div id="modal_c" class="modal">
-         
-          <center><div  class="marco_modal">
-            <div class="imgcontainer">
-              <span onclick="document.getElementById('modal_c').style.display='none'" class="close" title="Close Modal">&times;</span>
-            </div>
-    
-            <form class="formulario" method="post"  >
-              <label>Tipo:</label>
-              <select id="doc" name="tip_id">
-                <option class="" value="0"> Tipo de documento</option>
-                <?php
-               /*  $mysqli = new mysqli('127.0.0.1', 'root', '', 'facturacion');
-                $query =  $mysqli-> query ("select * from tipo_documentos");
-                while ($valores = mysqli_fetch_array($query)) {
-                  echo '<option value="'.$valores['id_tipo_doc'].'">'.$valores['tipo_doc'].'</option>';
-    
-                }  */
-                ?>
-    
-              </select>
-    
-              <label>Documento:</label>
-              <input class="" name="numdoc" placeholder="Número de documento">
-                <br>
-              <button type="submit" value="1" name="consulta" id="btnNuevaFactura" class="btn btn-success">Consultar</button>
-    
-            </form>
-    
-    
-          </div></center>
-    
-        </div>
-    </section> -->
-
-
 
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
