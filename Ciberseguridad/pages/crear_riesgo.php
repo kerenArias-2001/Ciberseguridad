@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Ciberseguridad</title>
+        <title>Riesgo | Ciberseguridad</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -35,22 +35,22 @@
     <body>
 
 <div id="wrapper">
-<?php
- $miconexion=conectar_bd("",'bd_ciberseguridad');
- session_start();
-$busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
-    
-/*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
- */        $fila1 = $busqueda->fetch_object(); 
-        $nombre=$fila1->nombre_adm;
-        $i=0;
-        $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-        while ($valores = mysqli_fetch_array($query)) {
-                $i=$i+1;
-        } 
-/*         echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";
- */        
+    <?php
+    $miconexion=conectar_bd("",'bd_ciberseguridad');
+    session_start();
+    $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
+        
+    /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
+    */        $fila1 = $busqueda->fetch_object(); 
+            $nombre=$fila1->nombre_adm;
+            $i=0;
+            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+            while ($valores = mysqli_fetch_array($query)) {
+                    $i=$i+1;
+            } 
+    /*         echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";
+    */        
 
     include('../nabvar.php');
     ?>

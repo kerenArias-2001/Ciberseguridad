@@ -86,13 +86,13 @@
                         <a href="#"><i class="fa fa-cogs fa-fw"></i> Módulo Gestión de Activos  <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">Eventos de incidentes de seguridad</a>
+                                <a href="crear_activo.php">Eventos de incidentes de seguridad</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Registro de Actualización de Activos</a>
+                                <a href="crear_activo.php">Registro de Actualización de Activos</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Registro de Actualización de Inventario</a>
+                                <a href="crear_activo.php">Registro de Actualización de Inventario</a>
                             </li>
                             
                         </ul>
