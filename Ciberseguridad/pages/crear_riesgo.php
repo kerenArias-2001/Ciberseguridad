@@ -140,7 +140,21 @@
 
                                 <tr>
                                     <td colspan="">
-                                        <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>
+                                    <select id="m1" class="form-control3" name="tipoinc" require/>                        
+                                        
+                                        <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                            <?php
+                                            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                                            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                                            while ($valores = mysqli_fetch_array($query)) {
+                                                echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                                            
+                                                   
+                                            } 
+
+                                            
+                                        ?>         
+                                    </select>
 
                                     </td> 
                                     <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
