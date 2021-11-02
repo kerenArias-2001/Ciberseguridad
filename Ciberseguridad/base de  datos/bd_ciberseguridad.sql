@@ -69,12 +69,12 @@ LOCK TABLES `gestion_activo` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `gestion_riesgo` */
+/*Table structure for table `gestion_incidente` */
 
-DROP TABLE IF EXISTS `gestion_riesgo`;
+DROP TABLE IF EXISTS `gestion_incidente`;
 
-CREATE TABLE `gestion_riesgo` (
-  `id_riesgo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+CREATE TABLE `gestion_incidente` (
+  `id_in` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `create_time` datetime DEFAULT NULL COMMENT 'create time',
   `update_time` datetime DEFAULT NULL COMMENT 'update time',
   `categoria_in` varchar(255) DEFAULT NULL,
@@ -89,6 +89,46 @@ CREATE TABLE `gestion_riesgo` (
   `impacto_in` varchar(255) DEFAULT NULL,
   `solu_in` varchar(255) DEFAULT NULL,
   `obs_in` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_in`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `gestion_incidente` */
+
+LOCK TABLES `gestion_incidente` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `gestion_riesgo` */
+
+DROP TABLE IF EXISTS `gestion_riesgo`;
+
+CREATE TABLE `gestion_riesgo` (
+  `id_riesgo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `create_time` datetime DEFAULT NULL COMMENT 'Create Time',
+  `update_time` datetime DEFAULT NULL COMMENT 'Update Time',
+  `proceso` varchar(1000) DEFAULT NULL,
+  `codigo` varchar(1000) DEFAULT NULL,
+  `riesgo` varchar(255) DEFAULT NULL,
+  `clasificacion` varchar(255) DEFAULT NULL,
+  `causas` varchar(1000) DEFAULT NULL,
+  `probabilidad` varchar(255) DEFAULT NULL,
+  `impacto` varchar(255) DEFAULT NULL,
+  `riesgo_indivi` varchar(255) DEFAULT NULL,
+  `opciones_manejo` varchar(255) DEFAULT NULL,
+  `actividad_control` varchar(1000) DEFAULT NULL,
+  `soporte` varchar(1000) DEFAULT NULL,
+  `responsable` varchar(1000) DEFAULT NULL,
+  `tiempo` varchar(255) DEFAULT NULL,
+  `indicador_efi_comentario` varchar(1000) DEFAULT NULL,
+  `indicador_eficacia` varchar(255) DEFAULT NULL,
+  `indicador_efec_comentario` varchar(1000) DEFAULT NULL,
+  `indicador_efectividad` varchar(255) DEFAULT NULL,
+  `tipo_riesgo` varchar(255) DEFAULT NULL,
+  `amenaza` varchar(255) DEFAULT NULL,
+  `origen` varchar(255) DEFAULT NULL,
+  `fuente_amenaza` varchar(255) DEFAULT NULL,
+  `motivacion` varchar(255) DEFAULT NULL,
+  `acciones_amenazante` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_riesgo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -114,6 +154,26 @@ CREATE TABLE `tipo_incidentes` (
 LOCK TABLES `tipo_incidentes` WRITE;
 
 insert  into `tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`,`cambiogenerado`) values (1,'Manejo inadecuado de los datos',1),(2,'Uso inadecuado de credenciales',NULL),(3,'Violación a Políticas de Seguridad de la Información',3),(4,'Acceso no autorizado a los activos de información',NULL),(5,'Intrusión',NULL),(6,'Intentos de actividad',NULL),(7,'Ingeniería Social',NULL),(8,'Negación de servicio',NULL),(9,'Vulnerabilidades',NULL),(10,'Malware',NULL);
+
+UNLOCK TABLES;
+
+/*Table structure for table `vulnerabilidades` */
+
+DROP TABLE IF EXISTS `vulnerabilidades`;
+
+CREATE TABLE `vulnerabilidades` (
+  `id_vul` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `create_time` datetime DEFAULT NULL COMMENT 'Create Time',
+  `update_time` datetime DEFAULT NULL COMMENT 'Update Time',
+  `tipo_activo` varchar(1000) DEFAULT NULL,
+  `vulnerabilidad` varchar(1000) DEFAULT NULL,
+  `amenaza` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_vul`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `vulnerabilidades` */
+
+LOCK TABLES `vulnerabilidades` WRITE;
 
 UNLOCK TABLES;
 
