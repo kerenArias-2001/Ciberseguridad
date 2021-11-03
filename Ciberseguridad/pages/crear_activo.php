@@ -76,15 +76,15 @@ include('../nabvar.php');
                         <th colspan="5" style="text-align: center;">GESTIÓN DE ACTIVOS
                             <br>
                         </th>
-                        <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" >
+                        <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" required>
                             <!-- <input type="text" class="texc1" id="inc_1" ></input> -->
                         
 
                             Fecha:<!-- <input type="text" class="texc1" id="inc_2" readonly="readonly"></input> -->
-                            <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                            <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" required >
 
                             Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
-                            <input id="resp_i" name="resp_i2" type="text" class="form-control3" >
+                            <input id="resp_i" name="resp_i2" type="text" class="form-control3" required>
 
                         
                         </td>
@@ -98,12 +98,12 @@ include('../nabvar.php');
                     <tr>
                         <td colspan="1">Identificador:
                         </td> 
-                        <td colspan="2"><input id="version_i" name="version_i2" type="number" class="form-control3" >
+                        <td colspan="2"><input id="version_i" name="version_i2" type="number" class="form-control3" required>
                         </td>
                         <td colspan="1">Nombre:
                         </td> 
                         <td colspan="5">
-                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
                         </td>
                     </tr>
 
@@ -112,13 +112,13 @@ include('../nabvar.php');
                     <td colspan="1">Descripción / Observaciones:
                     </td> 
                     <td colspan="3">
-                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
                     </td>
                     <td colspan="1">Tipo:
                     </td> 
                         <td colspan="2">
 
-                            <select   class="form-control3"  name="tipo_id" required>
+                            <select   class="form-control3"  name="tipo_activo" required>
                                 <option value="" selected>Seleccione una opción</option>
                                 <option value="critico">Hardware</option>
                                 <option value="alto">Información</option>
@@ -126,9 +126,13 @@ include('../nabvar.php');
                                 <option value="bajo">Organización</option>
                                 <option value="alto">Recurso Humano</option>
                                 <option value="medio">Red</option>
-                                <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Otro" >                                
+                                <option value="otro">Otro</option>
                             </select>
-
+                             <!--    <?php
+                            /*     if (tipo_activo) */ {
+                                    # code...
+                                }
+                                ?> -->
 
                         </td>
                     </tr>
@@ -183,6 +187,7 @@ include('../nabvar.php');
                                 <option value="critico">Física</option>
                                 <option value="critico">Electrónica</option>
                             </select>
+                            <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Describa la ubicación del activo" required>                                
                         </td>
                         <td>Nivel de Criticidad:</td>
                         <td colspan="2">
@@ -199,7 +204,7 @@ include('../nabvar.php');
                         <td colspan="1">Justificación:
                         </td> 
                         <td colspan="5">
-                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
                         </td>
                     </tr>
 
@@ -210,26 +215,26 @@ include('../nabvar.php');
                         <td colspan="1">Propietario:
                         </td> 
                         <td colspan="5">
-                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Producción de la Información" >                                
+                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Producción de la Información" required>                                
                         </td>
                     </tr>
                     <tr>
                         <td colspan="1">Custodio:
                         </td> 
                         <td colspan="5">
-                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Información" >                                
+                        <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder="Responsable de la Información" required>                                
                         </td>
                     </tr>
                     <tr>
                         <td colspan="1">Fecha ingreso del Activo:
                         </td> 
                         <td colspan="3">
-                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" required>
                         </td>
                         <td colspan="1">Fecha salida del Activo:
                         </td> 
                         <td colspan="2">
-                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                        <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" required>
                         </td>
                     </tr>
 

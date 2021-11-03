@@ -78,41 +78,41 @@
                             <th colspan="5" style="text-align: center;">GESTIÓN DE RIESGOS
                                 <br>
                             </th>
-                            <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" >
+                            <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" required>
                                 <!-- <input type="text" class="texc1" id="inc_1" ></input> -->
                             
 
                                 Fecha:<!-- <input type="text" class="texc1" id="inc_2" readonly="readonly"></input> -->
-                                <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                                <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" required>
 
                                 Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
-                                <input id="resp_i" name="resp_i2" type="text" class="form-control3" >
+                                <input id="resp_i" name="resp_i2" type="text" class="form-control3" required>
 
                             
                             </td>
                         </tr>
                         
                         <tr class="fondo_sub">
-                            <td colspan="6" style="text-align: center;">ANÁLISIS DEL RIESGO </td>
+                            <td colspan="7" style="text-align: center;">ANÁLISIS DEL RIESGO </td>
                         </tr>
                        
                        
                         <tr>
                             <td colspan="1">Proceso:
                             </td> 
-                            <td colspan="5">
+                            <td colspan="6">
 <!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
 
-                            <tr>
+                        <tr>
                             <td colspan="1">Objetivo:
                             </td> 
-                            <td colspan="5">
+                            <td colspan="6">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -121,7 +121,7 @@
                  
         
                             <tr>
-                                <td rowspan="2"  style="text-align: center;">RIESGO</td>
+                                <td rowspan="2" colspan="2" style="text-align: center;">RIESGO</td>
                                 <td colspan="2"  style="text-align: center;">CALIFICACIÓN</td>
                                 <td rowspan="2"  style="text-align: center;">Tipo de Impacto</td>
                                 <td rowspan=""  style="text-align: center;">Evaluación</td>
@@ -134,143 +134,125 @@
                                 
                             </tr>
                                 
-                             
-                                
-
 
                                 <tr>
-                                    <td colspan="">
-                                    <select id="m1" class="form-control3" name="tipoinc" require/>                        
-                                        
-                                        <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
-                                            <?php
-                                            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-                                            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-                                            while ($valores = mysqli_fetch_array($query)) {
-                                                echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
-                                            
-                                                   
-                                            } 
-
-                                            
-                                        ?>         
+                                    <td colspan="2">
+                                    <select   class="form-control3"  name="tipo_id" required>
+                                            <option value="" selected>Seleccione una opción</option>
+                                            <option value="medio">Riesgos de Cumplimiento</option>
+                                            <option value="alto">Riesgos de Imagen</option>
+                                            <option value="bajo">Riesgos de Tecnología </option>
+                                            <option value="critico">Riesgo Estratégico</option>
+                                            <option value="bajo">Riesgos Financieros </option>
+                                            <option value="medio">Riesgos Operativos</option>
                                     </select>
 
                                     </td> 
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
-                                    <td><!-- <input type="text" class="texc1" id="inc_4" readonly="readonly"></input> --></td>
+                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                            <option value="" selected>Seleccione una opción</option>
+                                            <option value="medio">1</option>
+                                            <option value="alto">2</option>
+                                            <option value="bajo">3 </option>
+                                            <option value="critico">4</option>
+                                            <option value="bajo">5 </option>
+                                    </select></td>
+                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <option value="" selected>Seleccione una opción</option>
+                                            <option value="medio">1</option>
+                                            <option value="alto">2</option>
+                                            <option value="bajo">3 </option>
+                                            <option value="critico">4</option>
+                                            <option value="bajo">5 </option>
+                                    </select></td>
+                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                            <option value="" selected>Seleccione una opción</option>
+                                            <option value="medio">B</option>
+                                            <option value="alto">M</option>
+                                            <option value="bajo">A </option>
+                                            <option value="critico">E</option>
+                                    </select></td>
+                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <option value="" selected>Seleccione una opción</option>
+                                            <option value="medio">B</option>
+                                            <option value="alto">M</option>
+                                            <option value="bajo">A </option>
+                                            <option value="critico">E</option>
+                                    </select></td>
+                                    <td> 
+                                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+
+                                    </td>
                                    
                                 </tr>
- 
-
-
-
-
-
-
-
-                            
-                        <tr>
-                            <td colspan="2">Fecha y hora del incidente:
-                            </td> 
-                            <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_10" readonly="readonly"></input>
--->                                    <input id="fech_hora" name="fech_hora2" type="datetime-local" class="form-control3" >
-
-                            </td>
+   
+                        <tr class="fondo_sub">
+                            <td colspan="7" style="text-align: center;">VALORACIÓN DEL RIESGO </td>
                         </tr>
-
                         <tr>
-                            <td colspan="2">Tipo:
-                            </td> 
-                            <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
--->                                   
+                                <td rowspan="2" colspan="2" style="text-align: center;">CONTROLES</td>
+                                <td colspan="5"  style="text-align: center;">VALORACIÓN</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Tipo de controles</td>
+                                <td colspan="1">Puntaje herramientas para ejercer el control</td>
+                                <td colspan="1">Puntaje seguimiento al control</td>
+                                <td colspan="1">Puntaje final</td>                               
+                            </tr>
                                 
 
+                                <tr>
+                                    <td colspan="2">
+                                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                                    </td> 
+                                    <td colspan="2"> <select   class="form-control3"  name="tipo_id" required>
+                                        <option value="" selected>Seleccione una opción</option>
+                                        <option value="medio">Probabilidad</option>
+                                        <option value="alto">Impacto</option>
+                                    </select></td>
+                                    <td> 
+                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0" required>
+                                    </td>
+                                    <td> 
+                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0"  required>
+                                    </td>
+                                    <td> 
+                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0"  required>
+                                    </td>
+                                   
+                                </tr>
 
-                                    <select id="m1" class="form-control3" name="tipoinc" require/>                        
-                                        
-                                        <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
-                                            <?php
-                                            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-                                            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-                                            while ($valores = mysqli_fetch_array($query)) {
-                                                echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
-                                            
-                                                    $i=$i+1;
-                                            } 
-
-                                            
-                                        ?>         
-                                    </select>
-
-
-                            </td>
-                        </tr>
-                                                
-                        <tr>
-                            <td colspan="2">Priorización:
+                                <tr class="fondo_sub">
+                                    <td colspan="7" style="text-align: center;">MAPA DE RIESGOS </td>
+                                </tr>
+                                <tr>
+                            <td colspan="1">Acciones:
                             </td> 
-                            <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
--->                                   
-                                    <select   class="form-control3"  name="tipo_id" required>
-                                            <option value="" selected>Seleccione una opción</option>
-                                            <option value="critico">Crítico</option>
-                                            <option value="alto">Alto</option>
-                                            <option value="medio">Medio</option>
-                                            <option value="bajo">Bajo</option>
-                                    </select>
+                            <td colspan="6">
+<!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
 
                         <tr>
-                            <td colspan="2">Escalamiento:
+                            <td colspan="1">Responsable:
                             </td> 
-                            <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
--->                                   
-                                    <select   class="form-control3"  name="tipo_id" required>
-                                            <option value="" selected>Seleccione una opción</option>
-                                            <option value="alto">Alto</option>
-                                            <option value="medio">Medio</option>
-                                            <option value="bajo">Bajo</option>
-                                    </select>
+                            <td colspan="6">
+<!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
-
-
-
                         <tr>
-                            <td colspan="
-                            2">Lugar o sede del incidente:
+                            <td colspan="1">Indicador:
                             </td> 
-                            <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
--->                                    <input id="lugar_i" name="lugar_i2" type="text" class="form-control3" >
+                            <td colspan="6">
+<!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
+                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
-
-
-                        <tr class="fondo_sub">
-                            <td colspan="4" style="text-align: center;">Descripción del riesgo</td>
-                        </tr>
-                        <th colspan="4">
-                                <label>
-                                <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
-<!--                                         <input id="descrip_i" name="descrip_i2" type="text" class="form-control3" >
--->
-                                </label>
-                        </th>
-                    
-                        </tr>
+                        
                         
                     </table>
                     <br><br> 
