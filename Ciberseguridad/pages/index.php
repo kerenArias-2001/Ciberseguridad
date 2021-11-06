@@ -56,6 +56,11 @@
             $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm='{$_SESSION['nusuario']}'");
             $fila1 = $busqueda->fetch_object(); 
             $nombre=$fila1->nombre_adm;
+            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+            while ($valores = mysqli_fetch_array($query)) {
+                $i=$i+1;
+        } 
 
             include('../nabvar.php');
         

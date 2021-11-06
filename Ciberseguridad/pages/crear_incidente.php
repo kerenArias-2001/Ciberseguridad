@@ -62,7 +62,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                         </div>
                     </div>
                 <div class="cont-b">
-                    <form >
+                    <form  id="" class="modal-content animate" method="post" action="" >
 
                     <center><div class="cont_inc"><br><br>
                             
@@ -74,11 +74,22 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                   <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD 
                                       <br>
                                   </th>
-                                  <td colspan="3">  Versión:<!-- <input type="text" class="texc1" id="inc_1" ></input> -->
-                                  <input id="version_i" name="version_i2" type="number" class="form-control3" >
+                                <td colspan="3">  Versión:
+                                <?php
+                                    $miconexion=conectar_bd("",'bd_ciberseguridad');               
+                                    $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
+                                    $fila = $guardado->fetch_object();
+                                    $valor=$fila->id_in;
+                                
+                                ?>                                      
+                                  <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
 
-                                      Fecha:<!-- <input type="text" class="texc1" id="inc_2" readonly="readonly"></input> -->
-                                      <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" >
+                                      Fecha:
+                                      <?php
+                                        // Obteniendo la fecha actual con hora, minutos y segundos en PHP
+                                        $fechaActual = date('d-m-Y H:i:s');
+                                        ?>
+                                      <input id="fecha_r" name="fecha_r2"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
 
                                       Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                       <input id="resp_i" name="resp_i2" type="text" class="form-control3" >
@@ -154,11 +165,6 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <td colspan="2">Tipo:
                                     </td> 
                                     <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
- -->                                   
-                                        
-
-
                                             <select id="m1" class="form-control3" name="tipoinc" require/>                        
                                                 
                                                 <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
@@ -170,8 +176,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                                     
                                                             $i=$i+1;
                                                     } 
-
-                                                   
+   
                                                 ?>         
                                             </select>
 
@@ -199,9 +204,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                 <tr>
                                     <td colspan="2">Escalamiento:
                                     </td> 
-                                    <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
- -->                                   
+                                    <td colspan="2">                                 
                                             <select   class="form-control3"  name="tipo_id" required>
                                                     <option value="" selected>Seleccione una opción</option>
                                                     <option value="alto">Alto</option>
@@ -231,8 +234,6 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                 <th colspan="4">
                                         <label>
                                         <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
-<!--                                         <input id="descrip_i" name="descrip_i2" type="text" class="form-control3" >
- -->
                                         </label>
                                 </th>
                             
@@ -264,46 +265,6 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
         
         </div>   
 
-        
-
-
-        <!-- <section>
-            <div id="modal_c" class="modal">
-             
-              <center><div  class="marco_modal">
-                <div class="imgcontainer">
-                  <span onclick="document.getElementById('modal_c').style.display='none'" class="close" title="Close Modal">&times;</span>
-                </div>
-        
-                <form class="formulario" method="post"  >
-                  <label>Tipo:</label>
-                  <select id="doc" name="tip_id">
-                    <option class="" value="0"> Tipo de documento</option>
-                    <?php
-                   /*  $mysqli = new mysqli('127.0.0.1', 'root', '', 'facturacion');
-                    $query =  $mysqli-> query ("select * from tipo_documentos");
-                    while ($valores = mysqli_fetch_array($query)) {
-                      echo '<option value="'.$valores['id_tipo_doc'].'">'.$valores['tipo_doc'].'</option>';
-        
-                    }  */
-                    ?>
-        
-                  </select>
-        
-                  <label>Documento:</label>
-                  <input class="" name="numdoc" placeholder="Número de documento">
-                    <br>
-                  <button type="submit" value="1" name="consulta" id="btnNuevaFactura" class="btn btn-success">Consultar</button>
-        
-                </form>
-        
-        
-              </div></center>
-        
-            </div>
-        </section> -->
-
-
 
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
@@ -322,27 +283,73 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
         <script src="../js/enviarTexto.js"></script>
 
    
-        <?php
-         if ($_SERVER['REQUEST_METHOD']==='POST') { 
-           
-            $control=$_POST['guardar'];
-            if ($control==1){
-                $vnombre=$_POST['nom_e'];
-                $vtipod=$_POST['tip_id'];
-                $vcodigoi=$_POST['cod_i'];
-                $vdoc=$_POST['numdoc'];
-                $vrol=$_POST['rol'];
-                $vnit=$_POST['nit'];
-                $vdescrip=$_POST['descrip'];
-                $vobser=$_POST['obser'];
+<?php
+    if ($_SERVER['REQUEST_METHOD']==='POST') { 
 
-            }
-           
+    /* Activar alerta */
+        echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo"<script src='sweetalert2.all.min.js'></script>";
+        echo"<script src='sweetalert2.min.js'></script>";
+        echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
+    /* Activar alerta */
+
+    
+        $guardar=$_POST['guardar'];
+        if( $guardar==1){
+             
+          $miconexion=conectar_bd("",'bd_ciberseguridad');
+           $id_in=$_POST['id_in'];
+           $categoria_in=$_POST['categoria_in'];
+          $codigo_in=$_POST['codigo_in'];
+          $descripcion_in=$_POST['descripcion_in'];
+          $estado_in=$_POST['estado_in'];
+          $priorizacion_in=$_POST['priorizacion_in'];
+          $fecha_in=$_POST['fecha_in'];
+          $consecutivo_event_in=$_POST['consecutivo_event_in'];
+          $tipo_in=$_POST['tipo_in'];
+          $causa_in=$_POST['causa_in'];
+          $impacto_in=$_POST['impacto_in'];
+          $solu_in=$_POST['solu_in'];
+          $obs_in=$_POST['obs_in'];
+     
+    
+             $guardado=consulta($miconexion,"insert into gestion_incidente (id_in,categoria_in,codigo_in,descripcion_in,estado_in,priorizacion_in,fecha_in,consecutivo_event_in,tipo_in,causa_in,impacto_in,solu_in,obs_in)
+              values('$id_in','$categoria_in', '$codigo_in','$descripcion_in','$estado_in','$priorizacion_in','$fecha_in','$consecutivo_event_in','$tipo_in','$causa_in','$impacto_in','$solu_in','$obs_in')");            
+    
+                 if($resultado)
+                  {  /* -----------------Alerta para notificar registro ------------------------*/
+                        echo "<script>
+                          Swal.fire({type: 'success',
+                          text: 'Guardado Exitoso',
+                          
+                      }).then(function() {
+                          window.location = 'login.php';
+                      });
+                      </script>" ; 
+                      
+                      /* -----------------Alerta para notificar registro ------------------------*/
+                                          
+                            } 
+                            else{
+                                echo "<script>
+                                    Swal.fire({type: 'error',
+                                        title: 'error',
+                                        text: 'Por favor intente de nuevo',
+                                        
+                                    }).then(function() {
+                                        window.location = 'crear_incidente.php';
+                                    });
+                                    </script>" ;
+                            }          
+                        
+                                
+                            } 
+    
+    
+    
             
-          
-            
-        }  
-        ?>
+}  
+?>
 
     
     </body>

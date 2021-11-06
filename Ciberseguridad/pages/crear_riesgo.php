@@ -78,12 +78,22 @@
                             <th colspan="5" style="text-align: center;">GESTIÓN DE RIESGOS
                                 <br>
                             </th>
-                            <td colspan="3">  Versión:<input id="version_i" name="version_i2" type="number" class="form-control3" required>
-                                <!-- <input type="text" class="texc1" id="inc_1" ></input> -->
-                            
+                            <td colspan="3">  Versión:
+                                <?php
+                                    $miconexion=conectar_bd("",'bd_ciberseguridad');               
+                                    $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
+                                    $fila = $guardado->fetch_object();
+                                    $valor=$fila->id_in;
+                                
+                                ?>                                      
+                                  <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
 
-                                Fecha:<!-- <input type="text" class="texc1" id="inc_2" readonly="readonly"></input> -->
-                                <input id="fecha_r" name="fecha_r2" type="datetime-local" class="form-control3" required>
+                                      Fecha:
+                                      <?php
+                                        // Obteniendo la fecha actual con hora, minutos y segundos en PHP
+                                        $fechaActual = date('d-m-Y H:i:s');
+                                        ?>
+                                      <input id="fecha_r" name="fecha_r2"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
 
                                 Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                 <input id="resp_i" name="resp_i2" type="text" class="form-control3" required>
