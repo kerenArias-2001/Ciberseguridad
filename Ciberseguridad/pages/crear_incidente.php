@@ -82,7 +82,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     $valor=$fila->id_in;
                                 
                                 ?>                                      
-                                  <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
+                                  <input id="version_i" name="version_in" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
 
                                       Fecha:
                                       <?php
@@ -92,7 +92,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                       <input id="fecha_r" name="fecha_r2"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
 
                                       Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
-                                      <input id="resp_i" name="resp_i2" type="text" class="form-control3" >
+                                      <input id="resp_i" name="responsable_in" type="text" class="form-control3" >
 
                                  
                                   </td>
@@ -107,7 +107,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     </td> 
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>
- -->                                    <input id="fecha_hora" name="fecha_hora2" type="datetime-local" class="form-control3">
+ -->                                    <input id="fecha_hora" name="fecha_hora_reporte" type="datetime-local" class="form-control3">
 
                                     </td>
                                 </tr>
@@ -117,7 +117,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     </td> 
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>
- -->                                    <input id="rep_i" name="rep_i2" type="text" class="form-control3" >
+ -->                                    <input id="rep_i" name="nombre_quien_reporta" type="text" class="form-control3" >
 
                                     </td>
                                 </tr>
@@ -125,24 +125,24 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                 <tr>
                                     <td>Cargo:</td>
                                     <td> <!-- <input type="text" class="texc1" id="inc_6" readonly="readonly"></input> -->
-                                    <input id="cargo_i" name="cargo_i2" type="text" class="form-control3" >
+                                    <input id="cargo_i" name="cargo_in" type="text" class="form-control3" >
 
                                 </td>
                                     <td>Dependencia y Extensión:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_7" readonly="readonly"></input> -->
-                                    <input id="dep_i" name="dep_i2" type="text" class="form-control3" >
+                                    <input id="dep_i" name="dependencia_in" type="text" class="form-control3" >
 
                                 </td>
                                 </tr>
                                 <tr>
                                     <td>Sede:</td>
                                     <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
-                                    <input id="sede_i" name="sede_i2" type="text" class="form-control3" >
+                                    <input id="sede_i" name="sede_in" type="text" class="form-control3" >
 
                                 </td>
                                     <td>E-mail:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_9" readonly="readonly"></input><br> -->
-                                    <input id="mail_i" name="mail_i2" type="email" class="form-control3" placeholder="correo@ejemplo.com">
+                                    <input id="mail_i" name="mail_in" type="email" class="form-control3" placeholder="correo@ejemplo.com">
 
                                 </td>
                                 </tr>
@@ -156,7 +156,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     </td> 
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_10" readonly="readonly"></input>
- -->                                    <input id="fech_hora" name="fech_hora2" type="datetime-local" class="form-control3" >
+ -->                                    <input id="fech_hora" name="fech_hora_in" type="datetime-local" class="form-control3" >
 
                                     </td>
                                 </tr>
@@ -165,7 +165,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <td colspan="2">Tipo:
                                     </td> 
                                     <td colspan="2">
-                                            <select id="m1" class="form-control3" name="tipoinc" require/>                        
+                                            <select id="m1" class="form-control3" name="tipo_in" require/>                        
                                                 
                                                 <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                     <?php
@@ -190,7 +190,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
  -->                                   
-                                            <select   class="form-control3"  name="tipo_id" required>
+                                            <select   class="form-control3"  name="priorizacion_in" required>
                                                     <option value="" selected>Seleccione una opción</option>
                                                     <option value="critico">Crítico</option>
                                                     <option value="alto">Alto</option>
@@ -205,7 +205,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <td colspan="2">Escalamiento:
                                     </td> 
                                     <td colspan="2">                                 
-                                            <select   class="form-control3"  name="tipo_id" required>
+                                            <select   class="form-control3"  name="escalamiento_in" required>
                                                     <option value="" selected>Seleccione una opción</option>
                                                     <option value="alto">Alto</option>
                                                     <option value="medio">Medio</option>
@@ -222,7 +222,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     </td> 
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
- -->                                    <input id="lugar_i" name="lugar_i2" type="text" class="form-control3" >
+ -->                                    <input id="lugar_i" name="lugar_in" type="text" class="form-control3" >
 
                                     </td>
                                 </tr>
@@ -233,7 +233,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                 </tr>
                                 <th colspan="4">
                                         <label>
-                                        <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
+                                        <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
                                         </label>
                                 </th>
                             
@@ -298,23 +298,28 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
         if( $guardar==1){
              
           $miconexion=conectar_bd("",'bd_ciberseguridad');
-           $id_in=$_POST['id_in'];
-           $categoria_in=$_POST['categoria_in'];
-          $codigo_in=$_POST['codigo_in'];
-          $descripcion_in=$_POST['descripcion_in'];
-          $estado_in=$_POST['estado_in'];
-          $priorizacion_in=$_POST['priorizacion_in'];
-          $fecha_in=$_POST['fecha_in'];
-          $consecutivo_event_in=$_POST['consecutivo_event_in'];
-          $tipo_in=$_POST['tipo_in'];
-          $causa_in=$_POST['causa_in'];
-          $impacto_in=$_POST['impacto_in'];
-          $solu_in=$_POST['solu_in'];
-          $obs_in=$_POST['obs_in'];
+         
+          $id_in=$_POST['id_in'];
+          $version=$_POST['version_in'];
+          $fecha=$_POST['fecha_in'];
+          $responsable=$_POST['responsable_in'];
+           
+           
+           $fecha_hora=$_POST['fecha_hora_reporte'];
+           $nombre_rep=$_POST['nombre_quien_reporta'];
+           $cargo_in=$_POST['cargo_in'];
+           $dependencia_in=$_POST['dependencia_in'];
+           $sede_in=$_POST['sede_in'];
+           $mail_in=$_POST['mail_in'];
+           $fech_hora_in=$_POST['fech_hora_in'];
+           $tipo_in=$_POST['tipo_in'];
+           $priorizacion_in=$_POST['priorizacion_in'];
+           $escalamiento_in=$_POST['escalamiento_in'];
+           $lugar_in=$_POST['lugar_in'];
+           $descripcion_in=$_POST['descripcion_in'];
      
-    
-             $guardado=consulta($miconexion,"insert into gestion_incidente (id_in,categoria_in,codigo_in,descripcion_in,estado_in,priorizacion_in,fecha_in,consecutivo_event_in,tipo_in,causa_in,impacto_in,solu_in,obs_in)
-              values('$id_in','$categoria_in', '$codigo_in','$descripcion_in','$estado_in','$priorizacion_in','$fecha_in','$consecutivo_event_in','$tipo_in','$causa_in','$impacto_in','$solu_in','$obs_in')");            
+             $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`( `categoria_in`, `codigo_in`, `descripcion_in`, `estado_in`, `priorizacion_in`, `fecha_inc`, `consecutivo_event_in`, `tipo_in`, `causa_in`, `impacto_in`, `solu_in`, `obs_in`) 
+             VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15])");            
     
                  if($resultado)
                   {  /* -----------------Alerta para notificar registro ------------------------*/

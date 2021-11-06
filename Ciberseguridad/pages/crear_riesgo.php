@@ -86,14 +86,14 @@
                                     $valor=$fila->id_in;
                                 
                                 ?>                                      
-                                  <input id="version_i" name="version_i2" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
+                                  <input id="version_i" name="version_riesgo" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
 
                                       Fecha:
                                       <?php
                                         // Obteniendo la fecha actual con hora, minutos y segundos en PHP
                                         $fechaActual = date('d-m-Y H:i:s');
                                         ?>
-                                      <input id="fecha_r" name="fecha_r2"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
+                                      <input id="fecha_r" name="fecha_actual"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
 
                                 Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                 <input id="resp_i" name="resp_i2" type="text" class="form-control3" required>
@@ -112,7 +112,7 @@
                             </td> 
                             <td colspan="6">
 <!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                            <textarea class="form-control3" id="inc_13" name="proceso_riesgo" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -122,7 +122,7 @@
                             </td> 
                             <td colspan="6">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                            <textarea class="form-control3" id="inc_13" name="objetivo_riesgo" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -147,7 +147,7 @@
 
                                 <tr>
                                     <td colspan="2">
-                                    <select   class="form-control3"  name="tipo_id" required>
+                                    <select   class="form-control3"  name="tipo_riesgo" required>
                                             <option value="" selected>Seleccione una opción</option>
                                             <option value="medio">Riesgos de Cumplimiento</option>
                                             <option value="alto">Riesgos de Imagen</option>
@@ -158,7 +158,7 @@
                                     </select>
 
                                     </td> 
-                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <td> <select   class="form-control3"  name="probabilidad_riesgo" required>
                                             <option value="" selected>Seleccione una opción</option>
                                             <option value="medio">1</option>
                                             <option value="alto">2</option>
@@ -166,7 +166,7 @@
                                             <option value="critico">4</option>
                                             <option value="bajo">5 </option>
                                     </select></td>
-                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <td> <select   class="form-control3"  name="impacto_riesgo" required>
                                     <option value="" selected>Seleccione una opción</option>
                                             <option value="medio">1</option>
                                             <option value="alto">2</option>
@@ -174,14 +174,14 @@
                                             <option value="critico">4</option>
                                             <option value="bajo">5 </option>
                                     </select></td>
-                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <td> <select   class="form-control3"  name="tipo_impacto_riesgo" required>
                                             <option value="" selected>Seleccione una opción</option>
                                             <option value="medio">B</option>
                                             <option value="alto">M</option>
                                             <option value="bajo">A </option>
                                             <option value="critico">E</option>
                                     </select></td>
-                                    <td> <select   class="form-control3"  name="tipo_id" required>
+                                    <td> <select   class="form-control3"  name="zona_riesgo" required>
                                     <option value="" selected>Seleccione una opción</option>
                                             <option value="medio">B</option>
                                             <option value="alto">M</option>
@@ -189,7 +189,7 @@
                                             <option value="critico">E</option>
                                     </select></td>
                                     <td> 
-                                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                                    <textarea class="form-control3" id="inc_13" name="medidas_respuesta" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                                     </td>
                                    
@@ -212,21 +212,21 @@
 
                                 <tr>
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                                    <textarea class="form-control3" id="inc_13" name="control" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
                                     </td> 
-                                    <td colspan="2"> <select   class="form-control3"  name="tipo_id" required>
+                                    <td colspan="2"> <select   class="form-control3"  name="tipo_controles" required>
                                         <option value="" selected>Seleccione una opción</option>
                                         <option value="medio">Probabilidad</option>
                                         <option value="alto">Impacto</option>
                                     </select></td>
                                     <td> 
-                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0" required>
+                                    <input id="version_i" name="puntaje_control" type="number" class="form-control3" max="100" min="0" required>
                                     </td>
                                     <td> 
-                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0"  required>
+                                    <input id="version_i" name="puntaje_seguimiento" type="number" class="form-control3" max="100" min="0"  required>
                                     </td>
                                     <td> 
-                                    <input id="version_i" name="version_i2" type="number" class="form-control3" max="100" min="0"  required>
+                                    <input id="version_i" name="puntaje_final" type="number" class="form-control3" max="100" min="0"  required>
                                     </td>
                                    
                                 </tr>
@@ -239,7 +239,7 @@
                             </td> 
                             <td colspan="6">
 <!--                          <input type="text" class="texc1" id="inc_4" readonly="readonly"></input>-->
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                            <textarea class="form-control3" id="inc_13" name="acciones" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -249,7 +249,7 @@
                             </td> 
                             <td colspan="6">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                            <textarea class="form-control3" id="inc_13" name="responsable" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -258,7 +258,7 @@
                             </td> 
                             <td colspan="6">
 <!--                                     <input type="text" class="texc1" id="inc_5" readonly="readonly"></input>-->                                    
-                            <textarea class="form-control3" id="inc_13" name="textarea" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
+                            <textarea class="form-control3" id="inc_13" name="indicador" rows="8" cols="70" placeholder="Máximo 200 caracteres" required></textarea>
 
                             </td>
                         </tr>
@@ -352,13 +352,14 @@
             $control=$_POST['guardar'];
             if ($control==1){
                 $vnombre=$_POST['nom_e'];
-                $vtipod=$_POST['tip_id'];
-                $vcodigoi=$_POST['cod_i'];
-                $vdoc=$_POST['numdoc'];
-                $vrol=$_POST['rol'];
-                $vnit=$_POST['nit'];
-                $vdescrip=$_POST['descrip'];
-                $vobser=$_POST['obser'];
+               $version_riesgo=$_POST['version_riesgo'];
+               $fecha_actual=$_POST['fecha_actual'];
+               $Responsable_riesgo=$_POST['Responsable_riesgo'];
+               $proceso_riesgo=$_POST['proceso_riesgo'];
+               $
+
+
+
 
             }
            
