@@ -291,44 +291,6 @@
         
 
 
-        <!-- <section>
-            <div id="modal_c" class="modal">
-             
-              <center><div  class="marco_modal">
-                <div class="imgcontainer">
-                  <span onclick="document.getElementById('modal_c').style.display='none'" class="close" title="Close Modal">&times;</span>
-                </div>
-        
-                <form class="formulario" method="post"  >
-                  <label>Tipo:</label>
-                  <select id="doc" name="tip_id">
-                    <option class="" value="0"> Tipo de documento</option>
-                    <?php
-                   /*  $mysqli = new mysqli('127.0.0.1', 'root', '', 'facturacion');
-                    $query =  $mysqli-> query ("select * from tipo_documentos");
-                    while ($valores = mysqli_fetch_array($query)) {
-                      echo '<option value="'.$valores['id_tipo_doc'].'">'.$valores['tipo_doc'].'</option>';
-        
-                    }  */
-                    ?>
-        
-                  </select>
-        
-                  <label>Documento:</label>
-                  <input class="" name="numdoc" placeholder="Número de documento">
-                    <br>
-                  <button type="submit" value="1" name="consulta" id="btnNuevaFactura" class="btn btn-success">Consultar</button>
-        
-                </form>
-        
-        
-              </div></center>
-        
-            </div>
-        </section> -->
-
-
-
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
 
@@ -356,7 +318,7 @@
                $fecha_actual=$_POST['fecha_actual'];
                $Responsable_riesgo=$_POST['Responsable_riesgo'];
                $proceso_riesgo=$_POST['proceso_riesgo'];
-               $
+              
 
 
 

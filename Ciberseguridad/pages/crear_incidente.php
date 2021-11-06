@@ -32,9 +32,9 @@
 
 <div id="wrapper">
     <?php
- $miconexion=conectar_bd("",'bd_ciberseguridad');
- session_start();
-$busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
+        $miconexion=conectar_bd("",'bd_ciberseguridad');
+        session_start();
+        $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
     
 /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
  */        $fila1 = $busqueda->fetch_object(); 
@@ -62,7 +62,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                         </div>
                     </div>
                 <div class="cont-b">
-                    <form  id="" class="modal-content animate" method="post" action="" >
+                    <form  id=""  method="post" action="" >
 
                     <center><div class="cont_inc"><br><br>
                             
@@ -74,7 +74,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                   <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD 
                                       <br>
                                   </th>
-                                <td colspan="3">  Versión:
+                                <td colspan="3">  Código del incidente:
                                 <?php
                                     $miconexion=conectar_bd("",'bd_ciberseguridad');               
                                     $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
@@ -82,7 +82,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     $valor=$fila->id_in;
                                 
                                 ?>                                      
-                                  <input id="version_i" name="version_in" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
+                                  <input id="version_i" name="version_in" type="text" class="form-control3" placeholder='<?php echo "".$valor; ?>' disabled>
 
                                       Fecha:
                                       <?php
@@ -99,7 +99,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                 </tr>
                                 
                                 <tr class="fondo_sub">
-                                    <td colspan="4" style="text-align: center;">INFORMACIÓN GENERAL DEL REPORTE </td>
+                                    <td colspan="4" style="text-align: center;">INFORMACIÓN DEL ENCARGADO </td>
                                 </tr>
                              
                                 <tr>
@@ -128,7 +128,7 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <input id="cargo_i" name="cargo_in" type="text" class="form-control3" >
 
                                 </td>
-                                    <td>Dependencia y Extensión:</td>
+                                    <td>Código del empleado:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_7" readonly="readonly"></input> -->
                                     <input id="dep_i" name="dependencia_in" type="text" class="form-control3" >
 
@@ -160,6 +160,27 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
 
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td colspan="2">Categoría:
+                                    </td> 
+                                    <td colspan="2"> <select   class="form-control3"  name="priorizacion_in" required>
+                                                    <option value="" selected>Seleccione una opción</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                            </select>
+
+                                    </td>
+                                </tr>
      
                                 <tr>
                                     <td colspan="2">Tipo:
@@ -183,7 +204,22 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
 
                                     </td>
                                 </tr>
-                                                       
+                                <tr>
+                                    <td colspan="2">Estado:
+                                    </td> 
+                                    <td colspan="2"> <select   class="form-control3"  name="priorizacion_in" required>
+                                                    <option value="" selected>Seleccione una opción</option>
+                                                    <option value="1">Sin proceso</option>
+                                                    <option value="2">En Proceso</option>
+                                                    <option value="3">Finalizado</option>
+
+                                            </select>
+
+                                    </td>
+                                </tr>
+                                <tr class="fondo_sub">
+                                    <td colspan="4" style="text-align: center;">VALORACIÓN DEL INCIDENTE</td>
+                                </tr>             
                                 <tr>
                                     <td colspan="2">Priorización:
                                     </td> 
@@ -221,21 +257,67 @@ $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{
                                     <td colspan="2">Lugar o sede del incidente:
                                     </td> 
                                     <td colspan="2">
-<!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
- -->                                    <input id="lugar_i" name="lugar_in" type="text" class="form-control3" >
+
+                                     <input id="lugar_i" name="lugar_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
 
                                     </td>
                                 </tr>
 
     
                                 <tr class="fondo_sub">
-                                    <td colspan="4" style="text-align: center;">Descripción del Incidente</td>
+                                    <td colspan="4" style="text-align: center;">DIAGNÓSTICO, SOLUCIÓN Y OBSERVACIONES PARA EL INCIDENTE REPORTADO</td>
                                 </tr>
-                                <th colspan="4">
-                                        <label>
-                                        <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" placeholder="Máximo 200 caracteres" ></textarea>
-                                        </label>
-                                </th>
+                                <tr>
+                                    <td colspan="2">Descripción:
+                                    </td> 
+                                    <td colspan="2">
+                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200"  placeholder="Máximo 200 caracteres" ></textarea>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Causa:
+                                    </td> 
+                                    <td colspan="2">
+                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Impacto:
+                                    </td> 
+                                    <td colspan="2">                                 
+                                            <select   class="form-control3"  name="escalamiento_in" required>
+                                                    <option value="" selected>Seleccione una opción</option>
+                                                    <option value="alto">Alto</option>
+                                                    <option value="medio">Medio</option>
+                                                    <option value="bajo">Bajo</option>
+                                            </select>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">Solución:
+                                    </td> 
+                                    <td colspan="2">
+                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Observaciones:
+                                    </td> 
+                                    <td colspan="2">
+                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+
+
+                                    </td>
+                                </tr>
+
                             
                                 </tr>
                               
