@@ -73,11 +73,48 @@
                         <a href="#"><i class="fa fa-edit fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
+                               
+                                <li>
+                                    <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                    <li>
+                                    <a href="../datos/tipo_inc.php">tipo Incidente</a>
+                                    </li>
+                                    <li>
+                                    <a href="morris.html">cargo</a>
+                                    </li>
+                                    <li>
+                                    <a href="morris.html">sede</a>
+                                    </li>
+                                    <li>
+                                    <a href="morris.html">codigo</a>
+                                    </li>
+                                     </ul>
+                                     
+
+                                     
+                        
+                                     <li>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i>  gestionar Incidentes<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
                                 <a href="crear_incidente.php">Crear Incidente</a>
                             </li>
                             <li>
-                                <a href="morris.html">Crear Incidente</a>
+                                <a href="morris.html">consultar Incidente</a>
                             </li>
+                            <li>
+                                <a href="morris.html">modificar Incidente</a>
+                            </li>
+                            <li>
+                                <a href="morris.html">eliminar Incidente</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </li>
+                    
+                            </li>
+                         
                         </ul>
                     </li>
                     

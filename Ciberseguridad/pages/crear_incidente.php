@@ -76,20 +76,20 @@
                                   </th>
                                 <td colspan="3">  Código del incidente:
                                 <?php
-                                    $miconexion=conectar_bd("",'bd_ciberseguridad');               
+                                 /*    $miconexion=conectar_bd("",'bd_ciberseguridad');               
                                     $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
                                     $fila = $guardado->fetch_object();
-                                    $valor=$fila->id_in;
+                                    $valor=$fila->id_in; */
                                 
                                 ?>                                      
-                                  <input id="version_i" name="version_in" type="text" class="form-control3" placeholder='<?php echo "".$valor; ?>' disabled>
+                                  <input id="version_i" name="cod_in" type="text" class="form-control3" placeholder='' >
 
                                       Fecha:
                                       <?php
                                         // Obteniendo la fecha actual con hora, minutos y segundos en PHP
                                         $fechaActual = date('d-m-Y H:i:s');
                                         ?>
-                                      <input id="fecha_r" name="fecha_r2"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
+                                      <input id="fecha_r" name="fecha_r" type="datetime-local" class="form-control3" >
 
                                       Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                       <input id="resp_i" name="responsable_in" type="text" class="form-control3" >
@@ -130,8 +130,8 @@
                                 </td>
                                     <td>Código del empleado:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_7" readonly="readonly"></input> -->
-                                    <input id="dep_i" name="dependencia_in" type="text" class="form-control3" >
-
+                                    <input id="dep_i" name="codigo_emp" type="text" class="form-control3" >
+                                                                             
                                 </td>
                                 </tr>
                                 <tr>
@@ -142,7 +142,7 @@
                                 </td>
                                     <td>E-mail:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_9" readonly="readonly"></input><br> -->
-                                    <input id="mail_i" name="mail_in" type="email" class="form-control3" placeholder="correo@ejemplo.com">
+                                <input name="email_in" type="text">    
 
                                 </td>
                                 </tr>
@@ -164,19 +164,20 @@
                                 <tr>
                                     <td colspan="2">Categoría:
                                     </td> 
-                                    <td colspan="2"> <select   class="form-control3"  name="priorizacion_in" required>
-                                                    <option value="" selected>Seleccione una opción</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
+                                    <td colspan="2"> 
+                                    <select id="m1" class="form-control3" name="tipo_in" require/>                        
+                                                
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM categoria");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_categoria].'">'.$valores[nombre_categoria].'</option>';
+                                                    
+                                                            
+                                                    } 
+   
+                                                ?>         
                                             </select>
 
                                     </td>
@@ -190,12 +191,12 @@
                                                 
                                                 <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                     <?php
-                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                                                     $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
                                                     while ($valores = mysqli_fetch_array($query)) {
                                                         echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
                                                     
-                                                            $i=$i+1;
+                                                            
                                                     } 
    
                                                 ?>         
@@ -207,12 +208,20 @@
                                 <tr>
                                     <td colspan="2">Estado:
                                     </td> 
-                                    <td colspan="2"> <select   class="form-control3"  name="priorizacion_in" required>
-                                                    <option value="" selected>Seleccione una opción</option>
-                                                    <option value="1">Sin proceso</option>
-                                                    <option value="2">En Proceso</option>
-                                                    <option value="3">Finalizado</option>
-
+                                    <td colspan="2"> 
+                                    <select id="m1" class="form-control3" name="tipo_in" require/>                        
+                                                
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM estado");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_estado].'">'.$valores[nombre_estado].'</option>';
+                                                    
+                                                            
+                                                    } 
+   
+                                                ?>         
                                             </select>
 
                                     </td>
@@ -226,12 +235,13 @@
                                     <td colspan="2">
 <!--                                     <input type="text" class="texc1" id="inc_11" readonly="readonly"></input>
  -->                                   
-                                            <select   class="form-control3"  name="priorizacion_in" required>
+                                            <select   class="form-control3"  name="importante" required>
                                                     <option value="" selected>Seleccione una opción</option>
-                                                    <option value="critico">Crítico</option>
+                                                   
                                                     <option value="alto">Alto</option>
                                                     <option value="medio">Medio</option>
                                                     <option value="bajo">Bajo</option>
+                                                    <option value="critico">Crítico</option>
                                             </select>
 
                                     </td>
@@ -241,7 +251,7 @@
                                     <td colspan="2">Escalamiento:
                                     </td> 
                                     <td colspan="2">                                 
-                                            <select   class="form-control3"  name="escalamiento_in" required>
+                                            <select   class="form-control3"  name="escal" required>
                                                     <option value="" selected>Seleccione una opción</option>
                                                     <option value="alto">Alto</option>
                                                     <option value="medio">Medio</option>
@@ -280,7 +290,7 @@
                                     <td colspan="2">Causa:
                                     </td> 
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+                                    <textarea class="form-control3" id="inc_13" name="causa_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
 
 
                                     </td>
@@ -289,7 +299,7 @@
                                     <td colspan="2">Impacto:
                                     </td> 
                                     <td colspan="2">                                 
-                                            <select   class="form-control3"  name="escalamiento_in" required>
+                                            <select   class="form-control3"  name="impacto_in" required>
                                                     <option value="" selected>Seleccione una opción</option>
                                                     <option value="alto">Alto</option>
                                                     <option value="medio">Medio</option>
@@ -303,7 +313,7 @@
                                     <td colspan="2">Solución:
                                     </td> 
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+                                    <textarea class="form-control3" id="inc_13" name="solucion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
 
 
                                     </td>
@@ -312,7 +322,7 @@
                                     <td colspan="2">Observaciones:
                                     </td> 
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="inc_13" name="descripcion_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+                                    <textarea class="form-control3" id="inc_13" name="observaciones_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
 
 
                                     </td>
@@ -379,31 +389,44 @@
         $guardar=$_POST['guardar'];
         if( $guardar==1){
              
-          $miconexion=conectar_bd("",'bd_ciberseguridad');
          
-          $id_in=$_POST['id_in'];
-          $version=$_POST['version_in'];
-          $fecha=$_POST['fecha_in'];
-          $responsable=$_POST['responsable_in'];
-           
-           
-           $fecha_hora=$_POST['fecha_hora_reporte'];
-           $nombre_rep=$_POST['nombre_quien_reporta'];
-           $cargo_in=$_POST['cargo_in'];
-           $dependencia_in=$_POST['dependencia_in'];
-           $sede_in=$_POST['sede_in'];
-           $mail_in=$_POST['mail_in'];
-           $fech_hora_in=$_POST['fech_hora_in'];
-           $tipo_in=$_POST['tipo_in'];
-           $priorizacion_in=$_POST['priorizacion_in'];
-           $escalamiento_in=$_POST['escalamiento_in'];
-           $lugar_in=$_POST['lugar_in'];
-           $descripcion_in=$_POST['descripcion_in'];
+   
+           /*  $codigo_in=$_POST['cod_in'];
+            $fecha=$_POST['fecha_r'];
+            $responsable_in=$_POST['responsable_in'];
+              */
+             /* ------------------------------------ */
+/*              $fecha_hora=$_POST['fecha_hora_reporte']; 
+             $nombre_rep=$_POST['nombre_quien_reporta'];
+             $cargo_ain=$_POST['cargo_in'];
+             $codigo_emp=$_POST['codigo_emp'];
+             $sede_in=$_POST['sede_in'];
+             $mail_1=$_POST['email_in'];*/
+             /* ----------------------------------- */
+              /*$fech_hora_in=$_POST['fech_hora_in'];
+             $tipo=$_POST['tipo_in'];
+             $categoria=$_POST['categoria_in'];
+             $estado=$_POST['estado_in']; */
+              /* --------------------------------------- */
+               $priorizacionin=$_POST['importante'];
+             $escalamientoin=$_POST['escal'];
+             $lugarin=$_POST['lugar_in']; 
+        
+             /* ---------------------------------- */
+            /*  $descripcion_in=$_POST['descripcion_in'];
+             $causa_in=$_POST['causa_in'];
+             $impacto_in=$_POST['impacto_in'];
+             $solucion_in=$_POST['solucion_in'];
+             $observaciones=$_POST['observaciones_in']; */
+             /* ------------------------- */
+              /* $SN_in=$_POST['SN_in'];
+              $marca_in=$_POST['marca_in'];
+              $modelo_in=$_POST['modelo_in']; */
+  
      
-             $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`( `categoria_in`, `codigo_in`, `descripcion_in`, `estado_in`, `priorizacion_in`, `fecha_inc`, `consecutivo_event_in`, `tipo_in`, `causa_in`, `impacto_in`, `solu_in`, `obs_in`) 
-             VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15])");            
-    
-                 if($resultado)
+             $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`(`priorizacion_in`, `escalamiento`, `lugar` ) 
+             VALUES ($priorizacionin,$escalamientoin,$lugar)");
+                 if($guardado)
                   {  /* -----------------Alerta para notificar registro ------------------------*/
                         echo "<script>
                           Swal.fire({type: 'success',
