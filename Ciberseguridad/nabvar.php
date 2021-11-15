@@ -70,48 +70,46 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-edit fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-tasks fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                               
-                                <li>
-                                    <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level">
-                                    <li>
-                                    <a href="../datos/tipo_inc.php">tipo Incidente</a>
-                                    </li>
-                                    <li>
-                                    <a href="morris.html">cargo</a>
-                                    </li>
-                                    <li>
-                                    <a href="morris.html">sede</a>
-                                    </li>
-                                    <li>
-                                    <a href="morris.html">codigo</a>
-                                    </li>
-                                     </ul>
-                                     
-
-                                     
-                        
-                                     <li>
+                        <li>
+                                  
                         <a href="#"><i class="fa fa-edit fa-fw"></i>  gestionar Incidentes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="crear_incidente.php">Crear Incidente</a>
+                                <a href="../pages/crear_incidente.php">Crear Incidente</a>
                             </li>
                             <li>
-                                <a href="morris.html">consultar Incidente</a>
+                                <a href="../pages/morris.html">Consultar Incidente</a>
                             </li>
                             <li>
-                                <a href="morris.html">modificar Incidente</a>
+                                <a href="../pages/morris.html">Modificar Incidente</a>
                             </li>
                             <li>
-                                <a href="morris.html">eliminar Incidente</a>
+                                <a href="../pages/morris.html">Eliminar Incidente</a>
                             </li>
                         </ul>
                     </li>
-                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                        <li>
+                        <a href="../datos/tipo_inc.php">Tipo Incidente</a>
+                        </li>
+                        <li>
+                        <a href="../datos/cargo_inc.php">Cargo</a>
+                        </li>
+                        <li>
+                        <a href="../datos/escalamiento_inc.php">Escalamiento</a>
+                        </li>
+                        <li>
+                        <a href="../datos/sede_inc.php">Sede</a>
+                        </li>
+                        <li>
+                        <a href="../datos/codigo_inc.php">Codigo</a>
+                        </li>
+                            </ul>
+                   
                     
                             </li>
                          
@@ -131,8 +129,30 @@
                             <li>
                                 <a href="crear_activo.php">Registro de Actualización de Inventario</a>
                             </li>
-                            
+
+
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                <li>
+                                <a href="../datos/tipo_inc.php">Tipo Incidente</a>
+                                </li>
+                                <li>
+                                <a href="morris.html">Cargo</a>
+                                </li>
+                                <li>
+                                <a href="morris.html">Sede</a>
+                                </li>
+                                <li>
+                                <a href="morris.html">Codigo</a>
+                                </li>
+                                    </ul>
+
+
+                                    </li>
+                       
                         </ul>
+                        
 
                     </li>
                     <li>

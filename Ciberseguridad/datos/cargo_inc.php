@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificación tipo de incidentes | Ciberseguridad</title>
+    <title>Modificación cargo de incidentes | Ciberseguridad</title>
        <!-- Bootstrap Core CSS -->
        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -37,7 +37,7 @@
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+        $query = $mysqli -> query ("SELECT * FROM cargo");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -60,25 +60,25 @@
         
     <tr  ><td>
              
-    <label class="" for="incidente">Agregar nuevo tipo  de incidente </label><br>
+    <label class="" for="incidente">Agregar nuevo cargo de incidente </label><br>
 
-    <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente"><br>
+    <input class="btn btn-lg btn-success btn-block" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente"><br>
 
     <button type="submit" name="enviar" value="1" class="btn btn-lg btn-success btn-block" >Agregar</button>
     </td>
     </tr>
 
     <tr  ><td>
-    <label class="" for="Mincidente">Modificar tipo  de incidente </label><br>
+    <label class="" for="Mincidente">Modificar cargo de incidente </label><br>
 
     <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                $query = $mysqli -> query ("SELECT * FROM cargo");
                 while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                    echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
                 
                         
                 } 
@@ -86,23 +86,23 @@
             ?>         
         </select>
 
-    <label for="Mincidente">ingrese nuevo tipo  de incidente </label><br>
+    <label for="Mincidente">ingrese nuevo cargo de incidente </label><br>
 
-    <input id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
+    <input id="Mincidente" class="btn btn-lg btn-success btn-block"name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
 
     <button type="submit" name="enviar" value="2" class="btn btn-lg btn-success btn-block">Guardar</button>
     </td>
     </tr>
     <tr  ><td>
-    <label for="Eincidente">Eliminar tipo  de incidente </label><br>
+    <label for="Eincidente">Eliminar cargo de incidente </label><br>
     <select id="m1" class="form-control3" name="nomb_iE" require/>                        
                                                 
         <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
             <?php
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+            $query = $mysqli -> query ("SELECT * FROM cargo");
             while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
             
                     
             } 
@@ -118,31 +118,32 @@
 </center>
 
  <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
+ <script src="../js/jquery.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../js/metisMenu.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <!-- mostrar y ocultar elementos -->
+<!-- Custom Theme JavaScript -->
+<script src="../js/startmin.js"></script>
+<!-- mostrar y ocultar elementos -->
 
-        <!-- enviar texto de input a label -->
-        <script src="../js/enviarTexto.js"></script>
+<!-- enviar texto de input a label -->
+<script src="../js/enviarTexto.js"></script>
+
 
 
 </body>
 <?php
     if ($_SERVER['REQUEST_METHOD']==='POST') { 
-              /* Activar alerta */
-              echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-              echo"<script src='sweetalert2.all.min.js'></script>";
-              echo"<script src='sweetalert2.min.js'></script>";
-              echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
           /* Activar alerta */
+          echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+          echo"<script src='sweetalert2.all.min.js'></script>";
+          echo"<script src='sweetalert2.min.js'></script>";
+          echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
+      /* Activar alerta */
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
        
@@ -151,9 +152,9 @@
            
 
             $nomb_in=$_POST['nomb_i'];
-
-            echo "---------------------",$nomb_in;
-            $consulta=consulta($miconexion,"INSERT INTO `tipo_incidentes`(`nombre_tipo_in`) VALUES ('$nomb_in')");
+/* 
+            echo "---------------------",$nomb_in; */
+            $consulta=consulta($miconexion,"INSERT INTO `cargo`(`nombre_cargo`) VALUES ('$nomb_in')");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
@@ -161,7 +162,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = '../pages/index.php';
+                    window.location = 'login.php';
                 });
                 </script>" ; 
                 
@@ -175,21 +176,23 @@
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location ='tipo_inc.php';
+                                  window.location = 'crear_incidente.php';
                               });
                               </script>" ;
                       }          
-           
+                  
+        }
            
         }
         if ($enviar==2) {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_tipo_in;
+            $valor=$fila0->id_cargo;
 
-            $consulta=consulta($miconexion,"UPDATE `tipo_incidentes` SET `nombre_tipo_in`='$nomb_in1' WHERE id_tipo_in like '$valor'");
+            $consulta=consulta($miconexion,"UPDATE `cargo` SET `nombre_cargo`='$nomb_in1' WHERE id_cargo like '$valor'");
+            # code...
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
@@ -197,35 +200,37 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = '../pages/index.ph';
+                    window.location = 'login.php';
                 });
                 </script>" ; 
                 
                 /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                      } 
-                      else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location ='tipo_inc.php';
-                              });
-                              </script>" ;
-                      }          
-           
+        } 
+        else{
+            echo "<script>
+                Swal.fire({type: 'error',
+                    title: 'error',
+                    text: 'Por favor intente de nuevo',
+                    
+                }).then(function() {
+                    window.location = 'crear_incidente.php';
+                });
+                </script>" ;
+        }          
+                  
         }
+        
         if ($enviar==3) {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_tipo_in; 
+            $valor=$fila0->id_cargo; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `tipo_incidentes` WHERE  id_tipo_in like '$nomb_in'");
+            $consulta=consulta($miconexion,"DELETE FROM `cargo` WHERE  id_cargo like '$nomb_in'");
+            # code...
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
@@ -233,60 +238,26 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = '../pages/index.php';
+                    window.location = 'login.php';
                 });
                 </script>" ; 
                 
                 /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                      } 
-                      else{
+            } 
+         else{
                           echo "<script>
                               Swal.fire({type: 'error',
                                   title: 'error',
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location ='tipo_inc.php';
+                                  window.location = 'crear_incidente.php';
                               });
                               </script>" ;
-                      }          
-           
-          if($consulta)  {  /* -----------------Alerta para notificar registro ------------------------*/
-                echo "<script>
-                  Swal.fire({type: 'success',
-                  text: 'Guardado Exitoso',
+        }          
                   
-              }).then(function() {
-                  window.location = '../pages/index.php';
-              });
-              </script>" ; 
-              
-              /* -----------------Alerta para notificar registro ------------------------*/
-                                  
-                    } 
-                    else{
-                        echo "<script>
-                            Swal.fire({type: 'error',
-                                title: 'error',
-                                text: 'Por favor intente de nuevo',
-                                
-                            }).then(function() {
-                                window.location ='tipo_inc.php';
-                            });
-                            </script>" ;
-                    }          
         }
-
     
-     
-     
-
-    
-
-
-
-
-    }
     ?>
 </html>

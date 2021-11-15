@@ -5,7 +5,10 @@ body{
     background-color: black;
     height: 512px;
 }
-
+.marco_d{
+    width: 30%;
+    height: 400px;
+}
 
 
 td {

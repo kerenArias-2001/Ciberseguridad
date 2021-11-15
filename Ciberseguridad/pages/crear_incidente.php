@@ -125,8 +125,20 @@
                                 <tr>
                                     <td>Cargo:</td>
                                     <td> <!-- <input type="text" class="texc1" id="inc_6" readonly="readonly"></input> -->
-                                    <input id="cargo_i" name="cargo_in" type="text" class="form-control3" >
-
+                                     <select id="m1" class="form-control3" name="cargo_in" require/>                        
+                                                
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM cargo");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
+                                                    
+                                                            
+                                                    } 
+                                        
+                                                ?>         
+                                            </select>
                                 </td>
                                     <td>Código del empleado:</td>
                                     <td><!-- <input type="text" class="texc1" id="inc_7" readonly="readonly"></input> -->
@@ -165,7 +177,7 @@
                                     <td colspan="2">Categoría:
                                     </td> 
                                     <td colspan="2"> 
-                                    <select id="m1" class="form-control3" name="tipo_in" require/>                        
+                                    <select id="m1" class="form-control3" name="categoria_in" require/>                        
                                                 
                                                 <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                     <?php
@@ -209,7 +221,7 @@
                                     <td colspan="2">Estado:
                                     </td> 
                                     <td colspan="2"> 
-                                    <select id="m1" class="form-control3" name="tipo_in" require/>                        
+                                    <select id="m1" class="form-control3" name="estado_in" require/>                        
                                                 
                                                 <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                     <?php
@@ -250,13 +262,22 @@
                                 <tr>
                                     <td colspan="2">Escalamiento:
                                     </td> 
-                                    <td colspan="2">                                 
-                                            <select   class="form-control3"  name="escal" required>
-                                                    <option value="" selected>Seleccione una opción</option>
-                                                    <option value="alto">Alto</option>
-                                                    <option value="medio">Medio</option>
-                                                    <option value="bajo">Bajo</option>
+                                    <td colspan="2"> 
+                                            <select id="m1" class="form-control3" name="escal" require/>                        
+                                                
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM escalamiento");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_escalamiento].'">'.$valores[nombre_escalamiento].'</option>';
+                                                    
+                                                            
+                                                    } 
+                                        
+                                                ?>         
                                             </select>
+                                           
 
                                     </td>
                                 </tr>
@@ -391,41 +412,42 @@
              
          
    
-           /*  $codigo_in=$_POST['cod_in'];
+             $codigo_in=$_POST['cod_in'];
             $fecha=$_POST['fecha_r'];
             $responsable_in=$_POST['responsable_in'];
-              */
+              
              /* ------------------------------------ */
-/*              $fecha_hora=$_POST['fecha_hora_reporte']; 
+             $fecha_hora=$_POST['fecha_hora_reporte']; 
              $nombre_rep=$_POST['nombre_quien_reporta'];
              $cargo_ain=$_POST['cargo_in'];
              $codigo_emp=$_POST['codigo_emp'];
              $sede_in=$_POST['sede_in'];
-             $mail_1=$_POST['email_in'];*/
+             $mail_1=$_POST['email_in'];
              /* ----------------------------------- */
-              /*$fech_hora_in=$_POST['fech_hora_in'];
+              $fech_hora_in=$_POST['fech_hora_in'];
              $tipo=$_POST['tipo_in'];
              $categoria=$_POST['categoria_in'];
-             $estado=$_POST['estado_in']; */
-              /* --------------------------------------- */
+             $estado=$_POST['estado_in']; 
+               /*--------------------------------------- */
                $priorizacionin=$_POST['importante'];
              $escalamientoin=$_POST['escal'];
              $lugarin=$_POST['lugar_in']; 
         
              /* ---------------------------------- */
-            /*  $descripcion_in=$_POST['descripcion_in'];
+              $descripcion_in=$_POST['descripcion_in'];
              $causa_in=$_POST['causa_in'];
              $impacto_in=$_POST['impacto_in'];
              $solucion_in=$_POST['solucion_in'];
-             $observaciones=$_POST['observaciones_in']; */
-             /* ------------------------- */
+             $observaciones=$_POST['observaciones_in']; 
+             /* ------------------------- *|||||||||||||||||/
               /* $SN_in=$_POST['SN_in'];
               $marca_in=$_POST['marca_in'];
               $modelo_in=$_POST['modelo_in']; */
   
      
-             $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`(`priorizacion_in`, `escalamiento`, `lugar` ) 
-             VALUES ($priorizacionin,$escalamientoin,$lugar)");
+             $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`
+             ( `codigo_in`, `responsable_in`, `fecha_r`, `nombre_R`, `cargo`, `cod_emp`, `sede`, `email_in`, `categoria_in`, `tipo_in`, `estado`, `priorizacion_in`, `escalamiento`, `lugar`, `descripcion_in`, `fecha_inc`, `causa_in`, `impacto_in`, `solu_in`, `observaciones`) 
+             VALUES  ('$codigo_in','$responsable_in','$fecha','$nombre_rep','$cargo_ain','$codigo_emp','$sede_in','$mail_1','$categoria','$tipo','$estado','$priorizacionin','$escalamientoin','$lugarin','$descripcion_in','$fech_hora_in','$causa_in','$impacto_in','$solucion_in','$observaciones')");
                  if($guardado)
                   {  /* -----------------Alerta para notificar registro ------------------------*/
                         echo "<script>
