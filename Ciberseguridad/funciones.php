@@ -1,6 +1,4 @@
 <?php
-
-
     function conectar_bd($clave,$basedatos)
     {
         $conexion = new mysqli("127.0.0.1", "root", $clave, $basedatos);

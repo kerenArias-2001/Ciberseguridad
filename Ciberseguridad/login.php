@@ -11,14 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
         <title>Ciberseguridad</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/metisMenu.min.css" rel="stylesheet">
         <link href="css/startmin.css" rel="stylesheet">
-      
-       
-     
         <link href="css/modal.css" rel="stylesheet">
         <!-- iconos -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -29,7 +25,7 @@
         <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         
     </head>
-    <body>
+<body>
 
         <div id="wrapper">
 
