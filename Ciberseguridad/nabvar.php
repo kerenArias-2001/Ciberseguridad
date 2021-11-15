@@ -63,7 +63,7 @@
 
                     </li>
                     <li>
-                        <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                        <a href="../pages/index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                     </li>
                     <li>
                         <a href="acuerdos.php"><i class="fa fa-table fa-fw"></i> Gestión de Acuerdos</a>
