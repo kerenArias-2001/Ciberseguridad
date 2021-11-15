@@ -138,6 +138,10 @@
 </body>
 <?php
     if ($_SERVER['REQUEST_METHOD']==='POST') { 
+        echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo"<script src='sweetalert2.all.min.js'></script>";
+        echo"<script src='sweetalert2.min.js'></script>";
+        echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
        
@@ -155,7 +159,7 @@
                   text: 'Guardado Exitoso',
                   
               }).then(function() {
-                  window.location = '../pages/index.php';
+                  window.location = 'escalamiento_inc.php';
               });
               </script>" ; 
               
@@ -169,7 +173,7 @@
                                 text: 'Por favor intente de nuevo',
                                 
                             }).then(function() {
-                                window.location ='tipo_inc.php';
+                                window.location ='escalamiento_inc.php';
                             });
                             </script>" ;
                     } 
@@ -189,7 +193,7 @@
                   text: 'Guardado Exitoso',
                   
               }).then(function() {
-                  window.location = '../pages/index.php';
+                  window.location = 'escalamiento_inc.php';
               });
               </script>" ; 
               
@@ -203,7 +207,7 @@
                                 text: 'Por favor intente de nuevo',
                                 
                             }).then(function() {
-                                window.location ='tipo_inc.php';
+                                window.location ='escalamiento_inc.php';
                             });
                             </script>" ;
                     } 
@@ -223,7 +227,7 @@
                   text: 'Guardado Exitoso',
                   
               }).then(function() {
-                  window.location = '../pages/index.php';
+                  window.location = 'escalamiento_inc.php';
               });
               </script>" ; 
               
@@ -237,7 +241,7 @@
                                 text: 'Por favor intente de nuevo',
                                 
                             }).then(function() {
-                                window.location ='tipo_inc.php';
+                                window.location ='escalamiento_inc.php';
                             });
                             </script>" ;
                     } 

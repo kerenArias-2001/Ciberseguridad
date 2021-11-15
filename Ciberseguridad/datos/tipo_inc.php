@@ -146,42 +146,42 @@
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
        
-        if ($enviar==1) {
-            
-           
-
-            $nomb_in=$_POST['nomb_i'];
-
-            echo "---------------------",$nomb_in;
-            $consulta=consulta($miconexion,"INSERT INTO `tipo_incidentes`(`nombre_tipo_in`) VALUES ('$nomb_in')");
-            if($consulta)
-            {  /* -----------------Alerta para notificar registro ------------------------*/
-                  echo "<script>
-                    Swal.fire({type: 'success',
-                    text: 'Guardado Exitoso',
-                    
-                }).then(function() {
-                    window.location = '../pages/index.php';
-                });
-                </script>" ; 
+            if ($enviar==1) {
                 
-                /* -----------------Alerta para notificar registro ------------------------*/
-                                    
-                      } 
-                      else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location ='tipo_inc.php';
-                              });
-                              </script>" ;
-                      }          
-           
-           
-        }
+            
+
+                $nomb_in=$_POST['nomb_i'];
+
+                echo "---------------------",$nomb_in;
+                $consulta=consulta($miconexion,"INSERT INTO `tipo_incidentes`(`nombre_tipo_in`) VALUES ('$nomb_in')");
+                if($consulta)
+                {  /* -----------------Alerta para notificar registro ------------------------*/
+                    echo "<script>
+                        Swal.fire({type: 'success',
+                        text: 'Guardado Exitoso',
+                        
+                    }).then(function() {
+                        window.location = 'tipo_inc.php';
+                    });
+                    </script>" ; 
+                    
+                    /* -----------------Alerta para notificar registro ------------------------*/
+                                        
+                        } 
+                else{
+                    echo "<script>
+                    Swal.fire({type: 'error',
+                        title: 'error',
+                        text: 'Por favor intente de nuevo',
+                        
+                    }).then(function() {
+                        window.location ='tipo_inc.php';
+                    });
+                    </script>" ;
+            }          
+            
+            
+            }
         if ($enviar==2) {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
@@ -197,25 +197,25 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = '../pages/index.ph';
+                    window.location = 'tipo_inc.php';
                 });
                 </script>" ; 
                 
                 /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                      } 
-                      else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location ='tipo_inc.php';
-                              });
-                              </script>" ;
-                      }          
-           
+            } 
+            else{
+                echo "<script>
+                    Swal.fire({type: 'error',
+                        title: 'error',
+                        text: 'Por favor intente de nuevo',
+                        
+                    }).then(function() {
+                        window.location ='tipo_inc.php';
+                    });
+                    </script>" ;
+            }          
+
         }
         if ($enviar==3) {
             $nomb_in=$_POST['nomb_iE'];
@@ -230,52 +230,28 @@
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
-                    text: 'Guardado Exitoso',
+                    text: 'se  ha eliminado  Exitosamente',
                     
                 }).then(function() {
-                    window.location = '../pages/index.php';
+                    window.location = 'tipo_inc.php';
                 });
                 </script>" ; 
                 
                 /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                      } 
-                      else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location ='tipo_inc.php';
-                              });
-                              </script>" ;
+            } 
+            else{
+            echo "<script>
+                Swal.fire({type: 'error',
+                    title: 'error',
+                    text: 'Por favor intente de nuevo',
+                    
+                }).then(function() {
+                    window.location ='tipo_inc.php';
+                });
+                </script>" ;
                       }          
-           
-          if($consulta)  {  /* -----------------Alerta para notificar registro ------------------------*/
-                echo "<script>
-                  Swal.fire({type: 'success',
-                  text: 'Guardado Exitoso',
-                  
-              }).then(function() {
-                  window.location = '../pages/index.php';
-              });
-              </script>" ; 
-              
-              /* -----------------Alerta para notificar registro ------------------------*/
-                                  
-                    } 
-                    else{
-                        echo "<script>
-                            Swal.fire({type: 'error',
-                                title: 'error',
-                                text: 'Por favor intente de nuevo',
-                                
-                            }).then(function() {
-                                window.location ='tipo_inc.php';
-                            });
-                            </script>" ;
-                    }          
+                 
         }
 
     

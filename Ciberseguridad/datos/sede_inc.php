@@ -37,7 +37,7 @@
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM cargo");
+        $query = $mysqli -> query ("SELECT * FROM sede");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -60,7 +60,7 @@
         
     <tr  ><td>
              
-    <label class="" for="incidente">Agregar nuevo cargo de incidente </label><br>
+    <label class="" for="incidente">Agregar nuevo sede de incidente </label><br>
 
     <input class="btn btn-lg btn-success btn-block" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente"><br>
 
@@ -69,16 +69,16 @@
     </tr>
 
     <tr  ><td>
-    <label class="" for="Mincidente">Modificar cargo de incidente </label><br>
+    <label class="" for="Mincidente">Modificar sede de incidente </label><br>
 
     <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                $query = $mysqli -> query ("SELECT * FROM cargo");
+                $query = $mysqli -> query ("SELECT * FROM sede");
                 while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
+                    echo '<option value="'.$valores[id_sede].'">'.$valores[nombre_sede].'</option>';
                 
                         
                 } 
@@ -86,7 +86,7 @@
             ?>         
         </select>
 
-    <label for="Mincidente">ingrese nuevo cargo de incidente </label><br>
+    <label for="Mincidente">ingrese nuevo sede de incidente </label><br>
 
     <input id="Mincidente" class="btn btn-lg btn-success btn-block"name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
 
@@ -94,15 +94,15 @@
     </td>
     </tr>
     <tr  ><td>
-    <label for="Eincidente">Eliminar cargo de incidente </label><br>
+    <label for="Eincidente">Eliminar sede de incidente </label><br>
     <select id="m1" class="form-control3" name="nomb_iE" require/>                        
                                                 
         <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
             <?php
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM cargo");
+            $query = $mysqli -> query ("SELECT * FROM sede");
             while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
+                echo '<option value="'.$valores[id_sede].'">'.$valores[nombre_sede].'</option>';
             
                     
             } 
@@ -154,7 +154,7 @@
             $nomb_in=$_POST['nomb_i'];
 /* 
             echo "---------------------",$nomb_in; */
-            $consulta=consulta($miconexion,"INSERT INTO `cargo`(`nombre_cargo`) VALUES ('$nomb_in')");
+            $consulta=consulta($miconexion,"INSERT INTO `sede`(`nombre_sede`) VALUES ('$nomb_in')");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
@@ -162,7 +162,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'sede_inc.php';
                 });
                 </script>" ; 
                 
@@ -176,7 +176,7 @@
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location = 'crear_incidente.php';
+                                  window.location = 'sede_inc.php';
                               });
                               </script>" ;
                       }          
@@ -187,11 +187,11 @@
         if ($enviar==2) {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `sede` WHERE `id_sede` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_cargo;
+            $valor=$fila0->id_sede;
 
-            $consulta=consulta($miconexion,"UPDATE `cargo` SET `nombre_cargo`='$nomb_in1' WHERE id_cargo like '$valor'");
+            $consulta=consulta($miconexion,"UPDATE `sede` SET `nombre_sede`='$nomb_in1' WHERE id_sede like '$valor'");
             # code...
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
@@ -200,7 +200,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'sede_inc.php';
                 });
                 </script>" ; 
                 
@@ -214,7 +214,7 @@
                     text: 'Por favor intente de nuevo',
                     
                 }).then(function() {
-                    window.location = 'crear_incidente.php';
+                    window.location = 'sede_inc.php';
                 });
                 </script>" ;
         }          
@@ -224,12 +224,12 @@
         if ($enviar==3) {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `sede` WHERE `id_sede` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_cargo; 
+            $valor=$fila0->id_sede; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `cargo` WHERE  id_cargo like '$nomb_in'");
+            $consulta=consulta($miconexion,"DELETE FROM `sede` WHERE  id_sede like '$nomb_in'");
             # code...
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
@@ -238,7 +238,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'sede_inc.php';
                 });
                 </script>" ; 
                 
@@ -252,7 +252,7 @@
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location = 'crear_incidente.php';
+                                  window.location = 'sede_inc.php';
                               });
                               </script>" ;
         }          

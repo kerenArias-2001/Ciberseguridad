@@ -162,7 +162,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'cargo_inc.php';
                 });
                 </script>" ; 
                 
@@ -176,7 +176,7 @@
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location = 'crear_incidente.php';
+                                  window.location = 'cargo_inc.php';
                               });
                               </script>" ;
                       }          
@@ -196,11 +196,12 @@
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
-                    Swal.fire({type: 'success',
+                    Swal.
+                    fire({type: 'success',
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'cargo_inc.php';
                 });
                 </script>" ; 
                 
@@ -214,7 +215,7 @@
                     text: 'Por favor intente de nuevo',
                     
                 }).then(function() {
-                    window.location = 'crear_incidente.php';
+                    window.location = 'cargo_inc.php';
                 });
                 </script>" ;
         }          
@@ -238,7 +239,7 @@
                     text: 'Guardado Exitoso',
                     
                 }).then(function() {
-                    window.location = 'login.php';
+                    window.location = 'cargo_inc.php';
                 });
                 </script>" ; 
                 
@@ -252,7 +253,7 @@
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location = 'crear_incidente.php';
+                                  window.location = 'cargo_inc.php';
                               });
                               </script>" ;
         }          

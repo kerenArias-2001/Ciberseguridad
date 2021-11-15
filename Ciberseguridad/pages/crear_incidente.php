@@ -349,7 +349,7 @@
                                     </td>
                                 </tr>
                                 <tr class="fondo_sub">
-                                    <td colspan="4" style="text-align: center;">caracteristica   del  activo</td>
+                                    <td colspan="4" style="text-align: center;">CARACTERISTICAS DEL ACTIVO</td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">S/N
