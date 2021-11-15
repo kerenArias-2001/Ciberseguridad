@@ -348,7 +348,35 @@
 
                                     </td>
                                 </tr>
+                                <tr class="fondo_sub">
+                                    <td colspan="4" style="text-align: center;">caracteristica   del  activo</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">S/N
+                                    </td> 
+                                    <td colspan="1">
+                                    <input id="lugar_i" name="SN_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
 
+
+                                    </td>
+                                    <td colspan="1">Marca
+                                    </td> 
+                                    <td colspan="1">
+                                    <input id="lugar_i" name="marca_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">modelo
+                                    </td> 
+                                    <td colspan="2">
+
+                                     <input id="lugar_i" name="modelo_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
+
+                                    </td>
+                                </tr>
+                                
                             
                                 </tr>
                               
@@ -439,15 +467,21 @@
              $impacto_in=$_POST['impacto_in'];
              $solucion_in=$_POST['solucion_in'];
              $observaciones=$_POST['observaciones_in']; 
-             /* ------------------------- *|||||||||||||||||/
-              /* $SN_in=$_POST['SN_in'];
+             /* ------------------------- */
+               $SN_in=$_POST['SN_in'];
               $marca_in=$_POST['marca_in'];
-              $modelo_in=$_POST['modelo_in']; */
+              $modelo_in=$_POST['modelo_in']; 
   
      
              $guardado=consulta($miconexion,"INSERT INTO `gestion_incidente`
-             ( `codigo_in`, `responsable_in`, `fecha_r`, `nombre_R`, `cargo`, `cod_emp`, `sede`, `email_in`, `categoria_in`, `tipo_in`, `estado`, `priorizacion_in`, `escalamiento`, `lugar`, `descripcion_in`, `fecha_inc`, `causa_in`, `impacto_in`, `solu_in`, `observaciones`) 
-             VALUES  ('$codigo_in','$responsable_in','$fecha','$nombre_rep','$cargo_ain','$codigo_emp','$sede_in','$mail_1','$categoria','$tipo','$estado','$priorizacionin','$escalamientoin','$lugarin','$descripcion_in','$fech_hora_in','$causa_in','$impacto_in','$solucion_in','$observaciones')");
+             ( `codigo_in`, `responsable_in`, `fecha_r`, `nombre_R`, `cargo`, `cod_emp`, `sede`, `email_in`,
+              `categoria_in`, `tipo_in`, `estado`, `priorizacion_in`, `escalamiento`, `lugar`, `descripcion_in`,
+              
+               `fecha_inc`, `causa_in`, `impacto_in`, `solu_in`, `observaciones`, `SN`, `marca`, `modelo`) 
+             VALUES  ('$codigo_in','$responsable_in','$fecha','$nombre_rep','$cargo_ain','$codigo_emp',
+             '$sede_in','$mail_1','$categoria','$tipo','$estado','$priorizacionin','$escalamientoin',
+             '$lugarin','$descripcion_in','$fech_hora_in','$causa_in','$impacto_in','$solucion_in',
+             '$observaciones','','','')");
                  if($guardado)
                   {  /* -----------------Alerta para notificar registro ------------------------*/
                         echo "<script>
