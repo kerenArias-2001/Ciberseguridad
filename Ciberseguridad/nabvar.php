@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.php">Nombre proyecto</a>
+        <a class="navbar-brand" href="../pages/index.php">Nombre proyecto</a>
     </div>
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -61,14 +61,14 @@
                     <a href="../pages/index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                 </li>
                 <li>
-                    <a href="acuerdos.php"><i class="fa fa-table fa-fw"></i> Gestión de Acuerdos</a>
+                    <a href="../pages/acuerdos.php"><i class="fa fa-table fa-fw"></i> Gestión de Acuerdos</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-tasks fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>           
                             <a href="#"><i class="fa fa-edit fa-fw"></i>  gestionar Incidentes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                            <ul class="nav nav-third-level">
                                 <li>
                                     <a href="../pages/crear_incidente.php">Crear Incidente</a>
                                 </li>
@@ -84,8 +84,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar-Modificar-Eliminar <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
                                 <li>
                                     <a href="../datos/tipo_inc.php">Tipo Incidente</a>
                                 </li>
@@ -120,7 +120,7 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                            <ul class="nav nav-third-level">
                                 <li>
                                     <a href="../datos/tipo_inc.php">Tipo Incidente</a>
                                 </li>
