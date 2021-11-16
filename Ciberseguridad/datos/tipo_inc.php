@@ -123,20 +123,20 @@ input[type=submit]:hover {
 <center><div class="text_acta">
 <center> 
 <section id="agg_in">
-  <form method="post" >
-  <div class="row_in">
-    <div class="col-25_in" >
+    <form method="post" >
+    <div class="row_in">
+        <div class="col-25_in" >
             <img src="add-button.png" width="50%" height="6%">   
+        </div>
+        <div class="col-75_in">
+        <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente" ><br>
+        </div>
     </div>
-    <div class="col-75_in">
-    <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente" required><br>
-    </div>
-  </div>
  
-  <div class="row_in">
+    <div class="row_in">
         <button type="submit" name="enviar" value="1" class="btn_g" >Agregar</button><br>
 
-  </div>
+    </div>
 
 </section >
 
@@ -149,12 +149,12 @@ input[type=submit]:hover {
     <form method="post" >
    
    
-    <div class="row_in">
-      <div class="col-25_in">
+        <div class="row_in">
+        <div class="col-25_in">
    <!--      <label for="country">Modificar tipo de incidente</label> -->
-    <label >
-    <img src="edit.png" width="50%" height="6%">   
-    </label>
+        <label >
+            <img src="edit.png" width="50%" height="6%">   
+        </label>
       </div>
       <div class="col-75_in">
         
@@ -172,7 +172,7 @@ input[type=submit]:hover {
     
             ?>         
         </select><br>
-        <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
+            <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
       </div>
     </div>
 
@@ -184,30 +184,28 @@ input[type=submit]:hover {
 
 <section id="agg_in" >
     <form method="post" >
-    <div class="row_in">
-      <div class="col-25_in">
-       <!--  <label for="fname">Eliminar tipo de incidente</label> -->
-       <label >
-        <img src="delete.png" width="50%" height="6%">   
-        </label>
+        <div class="row_in">
+            <div class="col-25_in">
+        <!--  <label for="fname">Eliminar tipo de incidente</label> -->
+            <label >
+                <img src="delete.png" width="50%" height="6%">   
+            </label>
       </div>
-      <div class="col-75_in">
-      <select id="m1" class="form-control3" name="nomb_iE" require/>                        
+        <div class="col-75_in">
+            <select id="m1" class="form-control3" name="nomb_iE" require/>                        
                                                 
-          <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
-              <?php
-              $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-              $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-              while ($valores = mysqli_fetch_array($query)) {
-                  echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
-              
-                      
-              } 
+                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                <?php
+                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                    $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                    while ($valores = mysqli_fetch_array($query)) {
+                        echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';  
+                    } 
   
-          ?>         
-      </select><br>
+                ?>         
+            </select><br>
       
-      </div>
+        </div>
     </div>
    
     <div class="row_in">
@@ -217,23 +215,20 @@ input[type=submit]:hover {
   
 </section>
 
-                            </div></center>
+</div></center>
 
 
         
-                        </form> 
+</form> 
           
-                </div>
+</div>
 
-                </div>
-            </div>  
+</div>
+</div>  
 </section>  
 <br>
 <br>
-
-
-        
-        </div>   
+</div>   
 
 
         <!-- jQuery -->
@@ -265,7 +260,7 @@ input[type=submit]:hover {
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
        
-            if ($enviar==1) {
+            if ($enviar==1 & $_POST['nomb_i'] !='' ) {
                 
             
 
@@ -301,7 +296,7 @@ input[type=submit]:hover {
             
             
             }
-        if ($enviar==2) {
+        if ($enviar==2 & $_POST['nomb_iM1'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
             $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
@@ -313,8 +308,7 @@ input[type=submit]:hover {
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
-                    text: 'Guardado Exitoso',
-                    
+                        text: 'Actualizado Exitosamente',                    
                 }).then(function() {
                     window.location = 'tipo_inc.php';
                 });
@@ -336,7 +330,7 @@ input[type=submit]:hover {
             }          
 
         }
-        if ($enviar==3) {
+        if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
            
             $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
@@ -349,8 +343,7 @@ input[type=submit]:hover {
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
-                    text: 'se  ha eliminado  Exitosamente',
-                    
+                        text: 'Eliminado Exitosamente',                    
                 }).then(function() {
                     window.location = 'tipo_inc.php';
                 });
