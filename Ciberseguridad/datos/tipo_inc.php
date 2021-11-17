@@ -160,7 +160,7 @@ input[type=submit]:hover {
         
         <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
-            <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                 $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
@@ -259,7 +259,7 @@ input[type=submit]:hover {
           /* Activar alerta */
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
-       
+        if($enviar!=0){
             if ($enviar==1 & $_POST['nomb_i'] !='' ) {
                 
             
@@ -296,7 +296,7 @@ input[type=submit]:hover {
             
             
             }
-        if ($enviar==2 & $_POST['nomb_iM1'] !='') {
+        if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
             $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
@@ -369,7 +369,7 @@ input[type=submit]:hover {
     
      
      
-
+    }
     
 
 
