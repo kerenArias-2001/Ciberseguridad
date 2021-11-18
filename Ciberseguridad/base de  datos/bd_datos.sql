@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.14-MariaDB : Database - bd_datos
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -175,6 +176,98 @@ LOCK TABLES `tipo_incidentes` WRITE;
 insert  into `tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`) values (2,'Uso inadecuado de credenciales'),(3,'Violación a Políticas de Seguridad de la Información'),(4,'Acceso no autorizado a los activos de información'),(5,'Intrusión'),(6,'Intentos de actividad'),(7,'Ingeniería Social'),(8,'Negación de servicio'),(9,'Vulnerabilidades'),(10,'Malware'),(12,'Uso inadecuado de credenciales');
 
 UNLOCK TABLES;
+
+
+
+UNLOCK TABLES;
+
+/*Table structure for table `confidencialidad` */
+
+DROP TABLE IF EXISTS `confidencialidad`;
+
+CREATE TABLE `confidencialidad` (
+  `id_confidencialidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_confidencialidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_confidencialidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `confidencialidad` */
+
+LOCK TABLES `confidencialidad` WRITE;
+
+
+
+UNLOCK TABLES;
+
+/*Table structure for table `disponibilidad` */
+
+DROP TABLE IF EXISTS `disponibilidad`;
+
+CREATE TABLE `disponibilidad` (
+  `id_disponibilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_disponibilidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_disponibilidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `disponibilidad` */
+
+LOCK TABLES `disponibilidad` WRITE;
+
+
+
+UNLOCK TABLES;
+
+/*Table structure for table `integridad` */
+
+DROP TABLE IF EXISTS `integridad`;
+
+CREATE TABLE `integridad` (
+  `id_integridad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_integridad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_integridad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `integridad` */
+
+LOCK TABLES `integridad` WRITE;
+
+
+
+UNLOCK TABLES;
+
+/*Table structure for table `nivel de criticidad` */
+
+DROP TABLE IF EXISTS `nivel_criticidad`;
+
+CREATE TABLE `nivel_criticidad` (
+  `id_nivel_criticidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_nivel_criticidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_nivel_criticidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `nivel de criticidad` */
+
+LOCK TABLES `nivel_criticidad` WRITE;
+
+
+
+
+UNLOCK TABLES;
+
+/*Table structure for table `tipo de activo` */
+
+DROP TABLE IF EXISTS `tipo_activo`;
+
+CREATE TABLE `tipo_activo` (
+  `id_tipo_activo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_tipo_activo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_activo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tipo_activo` */
+
+LOCK TABLES `tipo_activo` WRITE;
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
