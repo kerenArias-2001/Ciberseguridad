@@ -96,6 +96,10 @@
                         <div class="form-group">
                             <input class="form-control" placeholder="Contraseña" name="psw" type="password" required>
                         </div>
+
+                        <div class="form-group">
+                        <a class="small" href="recuperar.php">Olvidó su contraseña?</a>
+                        </div>
                             <button class="btn btn-lg btn-success btn-block"  >Entrar</button>
                     </fieldset>
                 </form>

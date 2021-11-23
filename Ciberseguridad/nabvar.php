@@ -57,6 +57,7 @@
                         </span>
                     </div>
                 </li>
+                
                 <li>
                     <a href="../pages/index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                 </li>
@@ -85,23 +86,39 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar-Modificar-Eliminar <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="../datos/tipo_inc.php">Tipo Incidente</a>
-                                </li>
-                                <li>
-                                    <a href="../datos/cargo_inc.php">Cargo</a>
-                                </li>
-                                <li>
-                                    <a href="../datos/escalamiento_inc.php">Escalamiento</a>
-                                </li>
-                                <li>
-                                    <a href="../datos/sede_inc.php">Sede</a>
-                                </li>
-                                <li>
-                                    <a href="../datos/codigo_inc.php">Codigo</a>
-                                </li>
-                            </ul>
+                            <div class="scroll">
+                                <ul class="nav nav-third-level">
+                                    
+                                    <li>
+                                        <a href="../datos/cargo_inc.php">Cargo</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/categoria_inc.php">Categoría</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/causa_inc.php">Causa</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/codigo_inc.php">Codigo</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/escalamiento_inc.php">Escalamiento</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/estado_inc.php">Estado</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/priorizacion_inc.php">Priorización</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/sede_inc.php">Sede</a>
+                                    </li>
+                                    <li>
+                                        <a href="../datos/tipo_inc.php">Tipo Incidente</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </li>
                             
                     </ul>
@@ -179,13 +196,3 @@
 </nav>
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="js/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/startmin.js"></script>

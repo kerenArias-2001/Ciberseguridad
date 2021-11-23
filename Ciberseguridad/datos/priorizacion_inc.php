@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para tipos de Incidentes </h2>
+                            <h2 class="page-header"> Modificaciones para priorización de Incidentes </h2>
                         </div>
                     </div>
                 <div class="cont-b">
@@ -158,7 +158,7 @@ input[type=submit]:hover {
       </div>
       <div class="col-75_in">
         
-      <select id="m1" class="form-control3" name="nomb_iE" require/>                        
+      <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
         <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
             <?php

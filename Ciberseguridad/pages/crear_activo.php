@@ -51,7 +51,7 @@ include('../nabvar.php');
                             <br><br>
                             <table>
                                 <tr class="fondo_sub2">
-                                    <th colspan="5" style="text-align: center;">GESTIÓN DE ACTIVOS
+                                    <th colspan="5" style="text-align: center;">REGISTRO DE ACTIVOS
                                         <br>
                                     </th>
                                     <td colspan="3">  Versión:

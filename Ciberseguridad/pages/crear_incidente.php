@@ -114,8 +114,20 @@
                                 <tr>
                                         <td>Sede:</td>
                                         <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
-                                        <input id="sede_i" name="sede_in" type="text" class="form-control3" >
-
+                                        <select id="sede_i" class="form-control3" name="sede_in" require/>                        
+                                                
+                                                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM sede");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_sede].'">'.$valores[nombre_sede].'</option>';
+                                                    
+                                                            
+                                                        } 
+                                        
+                                                    ?>         
+                                            </select>
                                     </td>
                                     <td>E-mail:</td>
                                     <td>
@@ -186,20 +198,26 @@
                                 <tr>
                                     <td colspan="2">Priorización:</td> 
                                     <td colspan="2">                          
-                                            <select   class="form-control3"  name="importante" required>
-                                                <option value="" selected>Seleccione una opción</option>
+                                    <select  class="form-control3" name="importante" require/>                        
                                                 
-                                                <option value="alto">Alto</option>
-                                                <option value="medio">Medio</option>
-                                                <option value="bajo">Bajo</option>
-                                                <option value="critico">Crítico</option>
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM priorizacion");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_priorizacion].'">'.$valores[nombre_priorizacion].'</option>';
+                                                    
+                                                                
+                                                        } 
+                                            
+                                                    ?>         
                                             </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Escalamiento:</td> 
                                     <td colspan="2"> 
-                                        <select id="m1" class="form-control3" name="escal" require/>                        
+                                        <select id="m1" class="form-control3" name="escal" require>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -231,8 +249,21 @@
                                     <td colspan="2">Causa:
                                     </td> 
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="inc_13" name="causa_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
-                                    </td>
+
+                                    <select id="m1" class="form-control3" name="nomb_iM" require/>                        
+                                                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM causa_inc");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[id_causa].'">'.$valores[nombre_causa].'</option>';
+                                                    
+                                                                
+                                                        } 
+                                            
+                                                    ?>         
+                                            </select>                                    
+                                        </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Impacto:</td> 
