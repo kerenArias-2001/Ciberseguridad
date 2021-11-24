@@ -1,9 +1,8 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.4.14-MariaDB : Database - bd_datos
+MySQL - 5.5.5-10.4.20-MariaDB : Database - bd_datos
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -17,131 +16,245 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`bd_datos` /*!40100 DEFAULT CHARACTER SE
 
 USE `bd_datos`;
 
-/*Table structure for table `cargo` */
+/*Table structure for table `act_confidencialidad` */
 
-DROP TABLE IF EXISTS `cargo`;
+DROP TABLE IF EXISTS `act_confidencialidad`;
 
-CREATE TABLE `cargo` (
+CREATE TABLE `act_confidencialidad` (
+  `id_confidencialidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_confidencialidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_confidencialidad`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_confidencialidad` */
+
+LOCK TABLES `act_confidencialidad` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_disponibilidad` */
+
+DROP TABLE IF EXISTS `act_disponibilidad`;
+
+CREATE TABLE `act_disponibilidad` (
+  `id_disponibilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_disponibilidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_disponibilidad`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_disponibilidad` */
+
+LOCK TABLES `act_disponibilidad` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_integridad` */
+
+DROP TABLE IF EXISTS `act_integridad`;
+
+CREATE TABLE `act_integridad` (
+  `id_integridad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_integridad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_integridad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_integridad` */
+
+LOCK TABLES `act_integridad` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_nivel_criticidad` */
+
+DROP TABLE IF EXISTS `act_nivel_criticidad`;
+
+CREATE TABLE `act_nivel_criticidad` (
+  `id_nivel_criticidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_nivel_criticidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_nivel_criticidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_nivel_criticidad` */
+
+LOCK TABLES `act_nivel_criticidad` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_tipo_activo` */
+
+DROP TABLE IF EXISTS `act_tipo_activo`;
+
+CREATE TABLE `act_tipo_activo` (
+  `id_tipo_activo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_tipo_activo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_activo`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_tipo_activo` */
+
+LOCK TABLES `act_tipo_activo` WRITE;
+
+insert  into `act_tipo_activo`(`id_tipo_activo`,`nombre_tipo_activo`) values (1,'nombre1'),(2,'Información'),(3,'nombre3'),(4,'nombre3'),(5,'nombre4'),(6,'nombre5'),(17,'nombre6'),(19,'uso inadecuado de señalizaciones de aseo');
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_ubicacion` */
+
+DROP TABLE IF EXISTS `act_ubicacion`;
+
+CREATE TABLE `act_ubicacion` (
+  `id_ubicacion` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_ubicacion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_ubicacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_ubicacion` */
+
+LOCK TABLES `act_ubicacion` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `inc_cargo` */
+
+DROP TABLE IF EXISTS `inc_cargo`;
+
+CREATE TABLE `inc_cargo` (
   `id_cargo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_cargo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-/*Data for the table `cargo` */
+/*Data for the table `inc_cargo` */
 
-LOCK TABLES `cargo` WRITE;
+LOCK TABLES `inc_cargo` WRITE;
 
-insert  into `cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'secretario administrador'),(3,'hoy'),(4,'mañana');
+insert  into `inc_cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'secretario administrador'),(3,'hoy'),(4,'mañana');
 
 UNLOCK TABLES;
 
-/*Table structure for table `categoria` */
+/*Table structure for table `inc_categoria` */
 
-DROP TABLE IF EXISTS `categoria`;
+DROP TABLE IF EXISTS `inc_categoria`;
 
-CREATE TABLE `categoria` (
+CREATE TABLE `inc_categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_categoria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
-/*Data for the table `categoria` */
+/*Data for the table `inc_categoria` */
 
-LOCK TABLES `categoria` WRITE;
+LOCK TABLES `inc_categoria` WRITE;
 
-insert  into `categoria`(`id_categoria`,`nombre_categoria`) values (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8');
+insert  into `inc_categoria`(`id_categoria`,`nombre_categoria`) values (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8');
 
 UNLOCK TABLES;
 
-/*Table structure for table `codigo` */
+/*Table structure for table `inc_causa` */
 
-DROP TABLE IF EXISTS `codigo`;
+DROP TABLE IF EXISTS `inc_causa`;
 
-CREATE TABLE `codigo` (
+CREATE TABLE `inc_causa` (
+  `id_causa` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_causa` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_causa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `inc_causa` */
+
+LOCK TABLES `inc_causa` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `inc_codigo` */
+
+DROP TABLE IF EXISTS `inc_codigo`;
+
+CREATE TABLE `inc_codigo` (
   `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_codigo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-/*Data for the table `codigo` */
+/*Data for the table `inc_codigo` */
 
-LOCK TABLES `codigo` WRITE;
+LOCK TABLES `inc_codigo` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `escalamiento` */
+/*Table structure for table `inc_escalamiento` */
 
-DROP TABLE IF EXISTS `escalamiento`;
+DROP TABLE IF EXISTS `inc_escalamiento`;
 
-CREATE TABLE `escalamiento` (
+CREATE TABLE `inc_escalamiento` (
   `id_escalamiento` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_escalamiento` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_escalamiento`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
-/*Data for the table `escalamiento` */
+/*Data for the table `inc_escalamiento` */
 
-LOCK TABLES `escalamiento` WRITE;
+LOCK TABLES `inc_escalamiento` WRITE;
 
-insert  into `escalamiento`(`id_escalamiento`,`nombre_escalamiento`) values (1,'Crítico'),(2,'Alto'),(3,'Medio'),(4,'Bajo');
+insert  into `inc_escalamiento`(`id_escalamiento`,`nombre_escalamiento`) values (1,'Crítico'),(2,'Alto'),(3,'Medio'),(4,'Bajo');
 
 UNLOCK TABLES;
 
-/*Table structure for table `estado` */
+/*Table structure for table `inc_estado` */
 
-DROP TABLE IF EXISTS `estado`;
+DROP TABLE IF EXISTS `inc_estado`;
 
-CREATE TABLE `estado` (
+CREATE TABLE `inc_estado` (
   `id_estado` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_estado` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-/*Data for the table `estado` */
+/*Data for the table `inc_estado` */
 
-LOCK TABLES `estado` WRITE;
+LOCK TABLES `inc_estado` WRITE;
 
-insert  into `estado`(`id_estado`,`nombre_estado`) values (1,'ACTIVO'),(2,'EN  PROCESO'),(3,'FINALIZADO');
+insert  into `inc_estado`(`id_estado`,`nombre_estado`) values (1,'ACTIVO'),(2,'EN  PROCESO'),(3,'FINALIZADO');
 
 UNLOCK TABLES;
 
-/*Table structure for table `impacto` */
+/*Table structure for table `inc_impacto` */
 
-DROP TABLE IF EXISTS `impacto`;
+DROP TABLE IF EXISTS `inc_impacto`;
 
-CREATE TABLE `impacto` (
+CREATE TABLE `inc_impacto` (
   `id_impacto` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_impacto` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_impacto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-/*Data for the table `impacto` */
+/*Data for the table `inc_impacto` */
 
-LOCK TABLES `impacto` WRITE;
+LOCK TABLES `inc_impacto` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `priorizacion` */
+/*Table structure for table `inc_priorizacion` */
 
-DROP TABLE IF EXISTS `priorizacion`;
+DROP TABLE IF EXISTS `inc_priorizacion`;
 
-CREATE TABLE `priorizacion` (
+CREATE TABLE `inc_priorizacion` (
   `id_priorizacion` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_priorizacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_priorizacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-/*Data for the table `priorizacion` */
+/*Data for the table `inc_priorizacion` */
 
-LOCK TABLES `priorizacion` WRITE;
+LOCK TABLES `inc_priorizacion` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `sede` */
+/*Table structure for table `inc_sede` */
 
-DROP TABLE IF EXISTS `sede`;
+DROP TABLE IF EXISTS `inc_sede`;
 
-CREATE TABLE `sede` (
+CREATE TABLE `inc_sede` (
   `id_sede` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_sede` varchar(255) DEFAULT NULL,
   `nit_sede` varchar(255) DEFAULT NULL,
@@ -151,123 +264,193 @@ CREATE TABLE `sede` (
   `direccion_sede` varchar(255) DEFAULT NULL,
   `telefono_sede` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_sede`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-/*Data for the table `sede` */
+/*Data for the table `inc_sede` */
 
-LOCK TABLES `sede` WRITE;
+LOCK TABLES `inc_sede` WRITE;
+
+insert  into `inc_sede`(`id_sede`,`nombre_sede`,`nit_sede`,`pais_sede`,`ciudad_sede`,`barrio_sede`,`direccion_sede`,`telefono_sede`) values (2,'valledupar',NULL,NULL,NULL,NULL,NULL,NULL);
 
 UNLOCK TABLES;
 
-/*Table structure for table `tipo_incidentes` */
+/*Table structure for table `inc_tipo_incidentes` */
 
-DROP TABLE IF EXISTS `tipo_incidentes`;
+DROP TABLE IF EXISTS `inc_tipo_incidentes`;
 
-CREATE TABLE `tipo_incidentes` (
+CREATE TABLE `inc_tipo_incidentes` (
   `id_tipo_in` int(100) NOT NULL AUTO_INCREMENT,
   `nombre_tipo_in` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_tipo_in`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `tipo_incidentes` */
+/*Data for the table `inc_tipo_incidentes` */
 
-LOCK TABLES `tipo_incidentes` WRITE;
+LOCK TABLES `inc_tipo_incidentes` WRITE;
 
-insert  into `tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`) values (2,'Uso inadecuado de credenciales'),(3,'Violación a Políticas de Seguridad de la Información'),(4,'Acceso no autorizado a los activos de información'),(5,'Intrusión'),(6,'Intentos de actividad'),(7,'Ingeniería Social'),(8,'Negación de servicio'),(9,'Vulnerabilidades'),(10,'Malware'),(12,'Uso inadecuado de credenciales');
-
-UNLOCK TABLES;
-
-
+insert  into `inc_tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`) values (2,'Uso inadecuado de credenciales'),(3,'Violación a Políticas de Seguridad de la Información'),(4,'Acceso no autorizado a los activos de información'),(5,'Intrusión'),(6,'Intentos de actividad'),(7,'Ingeniería Social'),(8,'Negación de servicio'),(9,'Vulnerabilidades'),(10,'Malware'),(12,'3');
 
 UNLOCK TABLES;
 
-/*Table structure for table `confidencialidad` */
+/*Table structure for table `rie_control_riesgo` */
 
-DROP TABLE IF EXISTS `confidencialidad`;
+DROP TABLE IF EXISTS `rie_control_riesgo`;
 
-CREATE TABLE `confidencialidad` (
-  `id_confidencialidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `nombre_confidencialidad` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_confidencialidad`)
+CREATE TABLE `rie_control_riesgo` (
+  `id_control_riesgo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_control_riesgo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_control_riesgo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `confidencialidad` */
+/*Data for the table `rie_control_riesgo` */
 
-LOCK TABLES `confidencialidad` WRITE;
-
-
+LOCK TABLES `rie_control_riesgo` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `disponibilidad` */
+/*Table structure for table `rie_impacto` */
 
-DROP TABLE IF EXISTS `disponibilidad`;
+DROP TABLE IF EXISTS `rie_impacto`;
 
-CREATE TABLE `disponibilidad` (
-  `id_disponibilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `nombre_disponibilidad` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_disponibilidad`)
+CREATE TABLE `rie_impacto` (
+  `id_impacto` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_impacto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_impacto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `disponibilidad` */
+/*Data for the table `rie_impacto` */
 
-LOCK TABLES `disponibilidad` WRITE;
-
-
+LOCK TABLES `rie_impacto` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `integridad` */
+/*Table structure for table `rie_probabilidad` */
 
-DROP TABLE IF EXISTS `integridad`;
+DROP TABLE IF EXISTS `rie_probabilidad`;
 
-CREATE TABLE `integridad` (
-  `id_integridad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `nombre_integridad` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_integridad`)
+CREATE TABLE `rie_probabilidad` (
+  `id_probabilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_probabilidad` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_probabilidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `integridad` */
+/*Data for the table `rie_probabilidad` */
 
-LOCK TABLES `integridad` WRITE;
-
-
+LOCK TABLES `rie_probabilidad` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `nivel de criticidad` */
+/*Table structure for table `rie_puntaje` */
 
-DROP TABLE IF EXISTS `nivel_criticidad`;
+DROP TABLE IF EXISTS `rie_puntaje`;
 
-CREATE TABLE `nivel_criticidad` (
-  `id_nivel_criticidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `nombre_nivel_criticidad` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_nivel_criticidad`)
+CREATE TABLE `rie_puntaje` (
+  `id_puntaje` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_puntaje` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_puntaje`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `nivel de criticidad` */
+/*Data for the table `rie_puntaje` */
 
-LOCK TABLES `nivel_criticidad` WRITE;
-
-
-
+LOCK TABLES `rie_puntaje` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `tipo de activo` */
+/*Table structure for table `rie_puntaje_herramienta` */
 
-DROP TABLE IF EXISTS `tipo_activo`;
+DROP TABLE IF EXISTS `rie_puntaje_herramienta`;
 
-CREATE TABLE `tipo_activo` (
-  `id_tipo_activo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `nombre_tipo_activo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_tipo_activo`)
+CREATE TABLE `rie_puntaje_herramienta` (
+  `id_puntaje_herramienta` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_puntaje_herramienta` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_puntaje_herramienta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tipo_activo` */
+/*Data for the table `rie_puntaje_herramienta` */
 
-LOCK TABLES `tipo_activo` WRITE;
+LOCK TABLES `rie_puntaje_herramienta` WRITE;
 
+UNLOCK TABLES;
+
+/*Table structure for table `rie_seguimento` */
+
+DROP TABLE IF EXISTS `rie_seguimento`;
+
+CREATE TABLE `rie_seguimento` (
+  `id_seguimento` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_seguimento` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_seguimento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `rie_seguimento` */
+
+LOCK TABLES `rie_seguimento` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `rie_tipo_control` */
+
+DROP TABLE IF EXISTS `rie_tipo_control`;
+
+CREATE TABLE `rie_tipo_control` (
+  `id_tipo_control` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_tipo_control` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_control`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `rie_tipo_control` */
+
+LOCK TABLES `rie_tipo_control` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `rie_tipo_impacto` */
+
+DROP TABLE IF EXISTS `rie_tipo_impacto`;
+
+CREATE TABLE `rie_tipo_impacto` (
+  `id_tipo_impacto` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_tipo_impacto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_impacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `rie_tipo_impacto` */
+
+LOCK TABLES `rie_tipo_impacto` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `rie_tipo_riesgo` */
+
+DROP TABLE IF EXISTS `rie_tipo_riesgo`;
+
+CREATE TABLE `rie_tipo_riesgo` (
+  `id_tipo_riesgo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_tipo_riesgo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_riesgo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `rie_tipo_riesgo` */
+
+LOCK TABLES `rie_tipo_riesgo` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `rie_zona_riesgo` */
+
+DROP TABLE IF EXISTS `rie_zona_riesgo`;
+
+CREATE TABLE `rie_zona_riesgo` (
+  `id_zona_riesgo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_zona_riesgo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_zona_riesgo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `rie_zona_riesgo` */
+
+LOCK TABLES `rie_zona_riesgo` WRITE;
+
+UNLOCK TABLES;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -158,14 +158,14 @@ input[type=submit]:hover {
       </div>
       <div class="col-75_in">
         
-      <select id="m1" class="form-control3" name="nomb_iE" require/>                        
+      <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
-        <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+        <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
             <?php
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM tipo_activo");
+            $query = $mysqli -> query ("SELECT * FROM inc_codigo");
             while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_tipo_activo].'">'.$valores[nombre_tipo_activo].'</option>';
+                echo '<option value="'.$valores[id_codigo].'">'.$valores[nombre_codigo].'</option>';
             
                     
             } 
@@ -197,9 +197,9 @@ input[type=submit]:hover {
         <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
             <?php
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM tipo_activo");
+            $query = $mysqli -> query ("SELECT * FROM inc_codigo");
             while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_tipo_activo].'">'.$valores[nombre_tipo_activo].'</option>';
+                echo '<option value="'.$valores[id_codigo].'">'.$valores[nombre_codigo].'</option>';
             
                     
             } 
@@ -264,29 +264,29 @@ input[type=submit]:hover {
       /* Activar alerta */
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
-        if ($enviar==1) {
+        if($enviar!=0){
         if ($enviar==1 & $_POST['nomb_i'] !='') {
             
            
 
-                            $nomb_in=$_POST['nomb_i'];
-                            /* 
-                            echo "---------------------",$nomb_in; */
-                            $consulta=consulta($miconexion,"INSERT INTO `tipo_activo`(`nombre_tipo_activo`) VALUES ('$nomb_in')");
-                            if($consulta)
-                            {  /* -----------------Alerta para notificar registro ------------------------*/
-                                echo "<script>
-                                    Swal.fire({type: 'success',
-                                    text: 'Guardado Exitoso',
+            $nomb_in=$_POST['nomb_i'];
+/* 
+            echo "---------------------",$nomb_in; */
+            $consulta=consulta($miconexion,"INSERT INTO `inc_codigo`(`nombre_codigo`) VALUES ('$nomb_in')");
+            if($consulta)
+            {  /* -----------------Alerta para notificar registro ------------------------*/
+                  echo "<script>
+                    Swal.fire({type: 'success',
+                    text: 'Guardado Exitoso',
+                    
+                }).then(function() {
+                    window.location = 'inc_codigo.php';
+                });
+                </script>" ; 
+                
+                /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                                }).then(function() {
-                                    window.location = 'tipo_activo_inc.php';
-                                });
-                                </script>" ; 
-                                
-                                /* -----------------Alerta para notificar registro ------------------------*/
-                                                    
-                        } 
+                      } 
                       else{
                           echo "<script>
                               Swal.fire({type: 'error',
@@ -294,122 +294,87 @@ input[type=submit]:hover {
                                   text: 'Por favor intente de nuevo',
                                   
                               }).then(function() {
-                                  window.location = 'tipo_activo_inc.php';
+                                  window.location = 'inc_codigo.php';
                               });
                               </script>" ;
                       }          
                   
-            }
+        }
            
         }
-        else {
-            ?>
-            <script>
-                 document.getElementById("error").classList.add("mostrar");
-                 function validarContraseña(){
-                    if($("#pass").val() === $("#passC").val()){
-                        //Si son iguales
-                        console.log("Las contraseñas son iguales");
-                    }else if($("#pass").val() !== $("#passC").val()){
-                        //Si no son iguales
-                        console.log("Las contraseñas no son iguales");
-                    }
-                }
-            </script>
-            <?php
-          
-        }
-    }
-    if ($enviar==2) {
-        if ($enviar==2 & $_POST['nomb_iM1'] !='') {
-                                $nomb_in=$_POST['nomb_iM'];
-                                $nomb_in1=$_POST['nomb_iM1'];
-                                $resultado=consulta($miconexion,"SELECT * FROM `tipo_activo` WHERE `id_tipo_activo` like '$nomb_in' ");
-                                $fila0=$resultado->fetch_object(); 
-                                $valor=$fila0->id_tipo_activo;
+        if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
+            $nomb_in=$_POST['nomb_iM'];
+            $nomb_in1=$_POST['nomb_iM1'];
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_codigo` WHERE `id_codigo` like '$nomb_in' ");
+            $fila0=$resultado->fetch_object(); 
+            $valor=$fila0->id_codigo;
 
-                                $consulta=consulta($miconexion,"UPDATE `tipo_activo` SET `nombre_tipo_activo`='$nomb_in1' WHERE id_tipo_activo like '$valor'");
-                                # code...
-                            if($consulta)
-                            {  /* -----------------Alerta para notificar registro ------------------------*/
-                                echo "<script>
-                                    Swal.fire({type: 'success',
-                                        text: 'Actualizado Exitosamente',                    
-                                }).then(function() {
-                                    window.location = 'tipo_activo_inc.php';
-                                });
-                                </script>" ; 
-                                
-                                /* -----------------Alerta para notificar registro ------------------------*/
-                                                    
-                    } 
-                    else{
-                        echo "<script>
-                            Swal.fire({type: 'error',
-                                title: 'error',
-                                text: 'Por favor intente de nuevo',
-                                
-                            }).then(function() {
-                                window.location = 'tipo_activo_inc.php';
-                            });
-                            </script>" ;
-                    }          
-                            
-        }
-        else {
-            ?>
-             <script>
-                  document.getElementById("error").classList.add("mostrar");
-             </script>
-            <?php
-        }
-    }
-        if ($enviar==3) {
-        if ($enviar==3 & $_POST['nomb_iE'] !='') {
-                            $nomb_in=$_POST['nomb_iE'];
-                        
-                            $resultado=consulta($miconexion,"SELECT * FROM `tipo_activo` WHERE `id_tipo_activo` like '$nomb_in' ");
-                            $fila0=$resultado->fetch_object(); 
-                            $valor=$fila0->id_tipo_activo; 
-                        
-
-                            $consulta=consulta($miconexion,"DELETE FROM `tipo_activo` WHERE  id_tipo_activo like '$nomb_in'");
-                            # code...
-                            if($consulta)
-                            {  /* -----------------Alerta para notificar registro ------------------------*/
-                                echo "<script>
-                                    Swal.fire({type: 'success',
-                                    text: 'Eliminado Exitosamente',
+            $consulta=consulta($miconexion,"UPDATE `inc_codigo` SET `nombre_codigo`='$nomb_in1' WHERE id_codigo like '$valor'");
+            # code...
+            if($consulta)
+            {  /* -----------------Alerta para notificar registro ------------------------*/
+                  echo "<script>
+                    Swal.fire({type: 'success',
+                        text: 'Actualizado Exitosamente',                    
+                }).then(function() {
+                    window.location = 'inc_codigo.php';
+                });
+                </script>" ; 
+                
+                /* -----------------Alerta para notificar registro ------------------------*/
                                     
-                                }).then(function() {
-                                    window.location = 'tipo_activo_inc.php';
-                                });
-                                </script>" ; 
-                                
-                                /* -----------------Alerta para notificar registro ------------------------*/
-                                                    
-                            } 
-                        else{
-                                        echo "<script>
-                                            Swal.fire({type: 'error',
-                                                title: 'error',
-                                                text: 'Por favor intente de nuevo',
-                                                
-                                            }).then(function() {
-                                                window.location = 'tipo_activo_inc.php';
-                                            });
-                                            </script>" ;
-                        }          
-                                
+        } 
+        else{
+            echo "<script>
+                Swal.fire({type: 'error',
+                    title: 'error',
+                    text: 'Por favor intente de nuevo',
+                    
+                }).then(function() {
+                    window.location = 'inc_codigo.php';
+                });
+                </script>" ;
+        }          
+                  
         }
-        else {
-            ?>
-             <script>
-                  document.getElementById("error").classList.add("mostrar");
-             </script>
-            <?php
-        }
-        }
+        
+        if ($enviar==3 & $_POST['nomb_iE'] !='') {
+            $nomb_in=$_POST['nomb_iE'];
+           
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_codigo` WHERE `id_codigo` like '$nomb_in' ");
+            $fila0=$resultado->fetch_object(); 
+            $valor=$fila0->id_codigo; 
+           
+
+            $consulta=consulta($miconexion,"DELETE FROM `inc_codigo` WHERE  id_codigo like '$nomb_in'");
+            # code...
+            if($consulta)
+            {  /* -----------------Alerta para notificar registro ------------------------*/
+                  echo "<script>
+                    Swal.fire({type: 'success',
+                        text: 'Eliminado Exitosamente',                    
+                }).then(function() {
+                    window.location = 'inc_codigo.php';
+                });
+                </script>" ; 
+                
+                /* -----------------Alerta para notificar registro ------------------------*/
+                                    
+            } 
+         else{
+                          echo "<script>
+                              Swal.fire({type: 'error',
+                                  title: 'error',
+                                  text: 'Por favor intente de nuevo',
+                                  
+                              }).then(function() {
+                                  window.location = 'inc_codigo.php';
+                              });
+                              </script>" ;
+        }          
+                  
+        }}
+    
     ?>
     
     </body>

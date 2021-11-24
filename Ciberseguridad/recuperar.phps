@@ -1,6 +1,9 @@
 <?php
     include('funciones.php');
     $enviar=0;
+    ini_set("SMTP","smtp.gmail.com");
+    ini_set("sendmail_from","kerenesther2001@gmail.com");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +65,13 @@
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     $recuperar=$_POST['recuperar'];
     if($recuperar==1){
+       
 
         $correo = $_POST['correo'];
         $miconexion=conectar_bd("",'bd_ciberseguridad');
         $queryusuario 	= consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm = '$correo'");
         $nr 			= mysqli_num_rows($queryusuario); 
+        
         if ($nr == 1)
         {
             $mostrar		= mysqli_fetch_array($queryusuario); 
@@ -75,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
             $paracorreo 		= $correo;
             $titulo				= 'Recuperar contraseña';
             $mensaje			= $enviarpass;
-            $tucorreo			= 'From: kerenesther2001@gmail.com';
+            $tucorreo			= 'From: kerenesther2001@gmail.com'. phpversion();
 
             if (mail($paracorreo, $titulo, $mensaje, $tucorreo))
             {

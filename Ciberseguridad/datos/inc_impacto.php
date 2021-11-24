@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para Cargos </h2>
+                            <h2 class="page-header"> Modificaciones para impacto de Incidentes </h2>
                         </div>
                     </div>
                 <div class="cont-b">
@@ -123,20 +123,20 @@ input[type=submit]:hover {
 <center><div class="text_acta">
 <center> 
 <section id="agg_in">
-  <form method="post" >
-  <div class="row_in">
-    <div class="col-25_in" >
+    <form method="post" >
+    <div class="row_in">
+        <div class="col-25_in" >
             <img src="add-button.png" width="50%" height="6%">   
+        </div>
+        <div class="col-75_in">
+        <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente" ><br>
+        </div>
     </div>
-    <div class="col-75_in">
-    <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente" ><br>
-    </div>
-  </div>
  
-  <div class="row_in">
+    <div class="row_in">
         <button type="submit" name="enviar" value="1" class="btn_g" >Agregar</button><br>
 
-  </div>
+    </div>
 
 </section >
 
@@ -149,30 +149,30 @@ input[type=submit]:hover {
     <form method="post" >
    
    
-    <div class="row_in">
-      <div class="col-25_in">
+        <div class="row_in">
+        <div class="col-25_in">
    <!--      <label for="country">Modificar tipo de incidente</label> -->
-    <label >
-    <img src="edit.png" width="50%" height="6%">   
-    </label>
+        <label >
+            <img src="edit.png" width="50%" height="6%">   
+        </label>
       </div>
       <div class="col-75_in">
         
-      <select id="m1" class="form-control3" name="nomb_iE" require/>                        
+        <select id="m1" class="form-control3" name="nomb_iM" require/>                        
                                                 
-        <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
-            <?php
-            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM cargo");
-            while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
-            
-                    
-            } 
-
-        ?>         
-    </select><br>
-        <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
+            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                <?php
+                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                $query = $mysqli -> query ("SELECT * FROM inc_impacto");
+                while ($valores = mysqli_fetch_array($query)) {
+                    echo '<option value="'.$valores[id_impacto].'">'.$valores[nombre_impacto].'</option>';
+                
+                        
+                } 
+    
+            ?>         
+        </select><br>
+            <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
       </div>
     </div>
 
@@ -184,30 +184,28 @@ input[type=submit]:hover {
 
 <section id="agg_in" >
     <form method="post" >
-    <div class="row_in">
-      <div class="col-25_in">
-       <!--  <label for="fname">Eliminar tipo de incidente</label> -->
-       <label >
-        <img src="delete.png" width="50%" height="6%">   
-        </label>
+        <div class="row_in">
+            <div class="col-25_in">
+        <!--  <label for="fname">Eliminar tipo de incidente</label> -->
+            <label >
+                <img src="delete.png" width="50%" height="6%">   
+            </label>
       </div>
-      <div class="col-75_in">
-      <select id="m1" class="form-control3" name="nomb_iE" require/>                        
+        <div class="col-75_in">
+            <select id="m1" class="form-control3" name="nomb_iE" require/>                        
                                                 
-        <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
-            <?php
-            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("SELECT * FROM cargo");
-            while ($valores = mysqli_fetch_array($query)) {
-                echo '<option value="'.$valores[id_cargo].'">'.$valores[nombre_cargo].'</option>';
-            
-                    
-            } 
-
-        ?>         
-    </select><br>
+                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                <?php
+                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                    $query = $mysqli -> query ("SELECT * FROM inc_impacto");
+                    while ($valores = mysqli_fetch_array($query)) {
+                        echo '<option value="'.$valores[id_impacto].'">'.$valores[nombre_impacto].'</option>';  
+                    } 
+  
+                ?>         
+            </select><br>
       
-      </div>
+        </div>
     </div>
    
     <div class="row_in">
@@ -217,23 +215,20 @@ input[type=submit]:hover {
   
 </section>
 
-                            </div></center>
+</div></center>
 
 
         
-                        </form> 
+</form> 
           
-                </div>
+</div>
 
-                </div>
-            </div>  
+</div>
+</div>  
 </section>  
 <br>
 <br>
-
-
-        
-        </div>   
+</div>   
 
 
         <!-- jQuery -->
@@ -254,73 +249,68 @@ input[type=submit]:hover {
 
    
 
-      
-<?php
+        <?php
     if ($_SERVER['REQUEST_METHOD']==='POST') { 
+              /* Activar alerta */
+              echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+              echo"<script src='sweetalert2.all.min.js'></script>";
+              echo"<script src='sweetalert2.min.js'></script>";
+              echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
           /* Activar alerta */
-          echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-          echo"<script src='sweetalert2.all.min.js'></script>";
-          echo"<script src='sweetalert2.min.js'></script>";
-          echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
-      /* Activar alerta */
         $enviar=$_POST['enviar'];
         $miconexion=conectar_bd("",'bd_datos');
-       if($enviar!=0){
-        if ($enviar==1 & $_POST['nomb_i'] !='') {
+        if($enviar!=0){
+            if ($enviar==1 & $_POST['nomb_i'] !='' ) {
+                
             
-           
 
-             $nomb_in=$_POST['nomb_i'];
- 
-                echo "---------------------",$nomb_in; 
-                $consulta=consulta($miconexion,"INSERT INTO `cargo`(`nombre_cargo`) VALUES ('$nomb_in')");
+                $nomb_in=$_POST['nomb_i'];
+
+                echo "---------------------",$nomb_in;
+                $consulta=consulta($miconexion,"INSERT INTO `inc_impacto`(`nombre_impacto`) VALUES ('$nomb_in')");
                 if($consulta)
                 {  /* -----------------Alerta para notificar registro ------------------------*/
-                  echo "<script>
-                    Swal.fire({type: 'success',
-                    text: 'Guardado Exitoso',
+                    echo "<script>
+                        Swal.fire({type: 'success',
+                        text: 'Guardado Exitoso',
+                        
+                    }).then(function() {
+                        window.location = 'inc_impacto.php';
+                    });
+                    </script>" ; 
                     
-                }).then(function() {
-                    window.location = 'cargo_inc.php';
-                });
-                </script>" ; 
-                
-                /* -----------------Alerta para notificar registro ------------------------*/
-                                    
-                      } 
-                      else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location = 'cargo_inc.php';
-                              });
-                              </script>" ;
-                      }          
-                  
-        }
-           
-        }
+                    /* -----------------Alerta para notificar registro ------------------------*/
+                                        
+                        } 
+                else{
+                    echo "<script>
+                    Swal.fire({type: 'error',
+                        title: 'error',
+                        text: 'Por favor intente de nuevo',
+                        
+                    }).then(function() {
+                        window.location ='inc_impacto.php';
+                    });
+                    </script>" ;
+            }          
+            
+            
+            }
         if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_impacto` WHERE `id_impacto` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_cargo;
+            $valor=$fila0->id_impacto;
 
-            $consulta=consulta($miconexion,"UPDATE `cargo` SET `nombre_cargo`='$nomb_in1' WHERE id_cargo like '$valor'");
-                # code...
+            $consulta=consulta($miconexion,"UPDATE `inc_impacto` SET `nombre_impacto`='$nomb_in1' WHERE id_impacto like '$valor'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
-                    Swal.
-                    fire({type: 'success',
-                    text: 'Actualizado Exitosamente',
-                    
+                    Swal.fire({type: 'success',
+                        text: 'Actualizado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'cargo_inc.php';
+                    window.location = 'inc_impacto.php';
                 });
                 </script>" ; 
                 
@@ -329,56 +319,63 @@ input[type=submit]:hover {
             } 
             else{
                 echo "<script>
-                Swal.fire({type: 'error',
-                    title: 'error',
-                    text: 'Por favor intente de nuevo',
-                    
-                }).then(function() {
-                    window.location = 'cargo_inc.php';
-                });
-                </script>" ;
-        }          
-                  
+                    Swal.fire({type: 'error',
+                        title: 'error',
+                        text: 'Por favor intente de nuevo',
+                        
+                    }).then(function() {
+                        window.location ='inc_impacto.php';
+                    });
+                    </script>" ;
+            }          
+
         }
-        
         if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `cargo` WHERE `id_cargo` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_impacto` WHERE `id_impacto` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_cargo; 
+            $valor=$fila0->id_impacto; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `cargo` WHERE  id_cargo like '$nomb_in'");
-            # code...
+            $consulta=consulta($miconexion,"DELETE FROM `inc_impacto` WHERE  id_impacto like '$nomb_in'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Eliminado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'cargo_inc.php';
+                    window.location = 'inc_impacto.php';
                 });
                 </script>" ; 
                 
                 /* -----------------Alerta para notificar registro ------------------------*/
                                     
             } 
-         else{
-                          echo "<script>
-                              Swal.fire({type: 'error',
-                                  title: 'error',
-                                  text: 'Por favor intente de nuevo',
-                                  
-                              }).then(function() {
-                                  window.location = 'cargo_inc.php';
-                              });
-                              </script>" ;
-        }          
-                  
+            else{
+            echo "<script>
+                Swal.fire({type: 'error',
+                    title: 'error',
+                    text: 'Por favor intente de nuevo',
+                    
+                }).then(function() {
+                    window.location ='inc_impacto.php';
+                });
+                </script>" ;
+                      }          
+                 
         }
+
+    
+     
+     
     }
     
+
+
+
+
+    }
     ?>
 
     

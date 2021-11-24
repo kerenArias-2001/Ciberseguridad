@@ -163,7 +163,7 @@ input[type=submit]:hover {
             <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                $query = $mysqli -> query ("SELECT * FROM inc_tipo_incidentes");
                 while ($valores = mysqli_fetch_array($query)) {
                     echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
                 
@@ -197,7 +197,7 @@ input[type=submit]:hover {
                 <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                    $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                    $query = $mysqli -> query ("SELECT * FROM inc_tipo_incidentes");
                     while ($valores = mysqli_fetch_array($query)) {
                         echo '<option value="'.$valores[id_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';  
                     } 
@@ -240,7 +240,7 @@ input[type=submit]:hover {
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../js/metisMenu.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
+        <!-- Custom inc_Theme JavaScript -->
         <script src="../js/startmin.js"></script>
         <!-- mostrar y ocultar elementos -->
 
@@ -267,7 +267,7 @@ input[type=submit]:hover {
                 $nomb_in=$_POST['nomb_i'];
 
                 echo "---------------------",$nomb_in;
-                $consulta=consulta($miconexion,"INSERT INTO `tipo_incidentes`(`nombre_tipo_in`) VALUES ('$nomb_in')");
+                $consulta=consulta($miconexion,"INSERT INTO `inc_tipo_incidentes`(`nombre_tipo_in`) VALUES ('$nomb_in')");
                 if($consulta)
                 {  /* -----------------Alerta para notificar registro ------------------------*/
                     echo "<script>
@@ -275,7 +275,7 @@ input[type=submit]:hover {
                         text: 'Guardado Exitoso',
                         
                     }).then(function() {
-                        window.location = 'tipo_inc.php';
+                        window.location = 'inc_tipo.php';
                     });
                     </script>" ; 
                     
@@ -289,7 +289,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='tipo_inc.php';
+                        window.location ='inc_tipo.php';
                     });
                     </script>" ;
             }          
@@ -299,18 +299,18 @@ input[type=submit]:hover {
         if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
             $valor=$fila0->id_tipo_in;
 
-            $consulta=consulta($miconexion,"UPDATE `tipo_incidentes` SET `nombre_tipo_in`='$nomb_in1' WHERE id_tipo_in like '$valor'");
+            $consulta=consulta($miconexion,"UPDATE `inc_tipo_incidentes` SET `nombre_tipo_in`='$nomb_in1' WHERE id_tipo_in like '$valor'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Actualizado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'tipo_inc.php';
+                    window.location = 'inc_tipo.php';
                 });
                 </script>" ; 
                 
@@ -324,7 +324,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='tipo_inc.php';
+                        window.location ='inc_tipo.php';
                     });
                     </script>" ;
             }          
@@ -333,19 +333,19 @@ input[type=submit]:hover {
         if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `inc_tipo_incidentes` WHERE `id_tipo_in` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
             $valor=$fila0->id_tipo_in; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `tipo_incidentes` WHERE  id_tipo_in like '$nomb_in'");
+            $consulta=consulta($miconexion,"DELETE FROM `inc_tipo_incidentes` WHERE  id_tipo_in like '$nomb_in'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Eliminado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'tipo_inc.php';
+                    window.location = 'inc_tipo.php';
                 });
                 </script>" ; 
                 
@@ -359,7 +359,7 @@ input[type=submit]:hover {
                     text: 'Por favor intente de nuevo',
                     
                 }).then(function() {
-                    window.location ='tipo_inc.php';
+                    window.location ='inc_tipo.php';
                 });
                 </script>" ;
                       }          

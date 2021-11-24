@@ -97,7 +97,7 @@ input[type=submit]:hover {
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM estado");
+        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para estado de Incidentes </h2>
+                            <h2 class="page-header"> Modificaciones para nivel_criticidad de Incidentes </h2>
                         </div>
                     </div>
                 <div class="cont-b">
@@ -163,9 +163,9 @@ input[type=submit]:hover {
             <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                $query = $mysqli -> query ("SELECT * FROM estado");
+                $query = $mysqli -> query ("SELECT * FROM act_nivel_criticidad");
                 while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[id_estados].'">'.$valores[nombre_estado].'</option>';
+                    echo '<option value="'.$valores[id_nivel_criticidad].'">'.$valores[nombre_nivel_criticidad].'</option>';
                 
                         
                 } 
@@ -197,9 +197,9 @@ input[type=submit]:hover {
                 <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                    $query = $mysqli -> query ("SELECT * FROM estado");
+                    $query = $mysqli -> query ("SELECT * FROM act_nivel_criticidad");
                     while ($valores = mysqli_fetch_array($query)) {
-                        echo '<option value="'.$valores[id_estados].'">'.$valores[nombre_estado].'</option>';  
+                        echo '<option value="'.$valores[id_nivel_criticidad].'">'.$valores[nombre_nivel_criticidad].'</option>';  
                     } 
   
                 ?>         
@@ -267,7 +267,7 @@ input[type=submit]:hover {
                 $nomb_in=$_POST['nomb_i'];
 
                 echo "---------------------",$nomb_in;
-                $consulta=consulta($miconexion,"INSERT INTO `estado`(`nombre_estado`) VALUES ('$nomb_in')");
+                $consulta=consulta($miconexion,"INSERT INTO `act_nivel_criticidad`(`nombre_nivel_criticidad`) VALUES ('$nomb_in')");
                 if($consulta)
                 {  /* -----------------Alerta para notificar registro ------------------------*/
                     echo "<script>
@@ -275,7 +275,7 @@ input[type=submit]:hover {
                         text: 'Guardado Exitoso',
                         
                     }).then(function() {
-                        window.location = 'tipo_inc.php';
+                        window.location = 'act_nivel_criticidad.php';
                     });
                     </script>" ; 
                     
@@ -289,7 +289,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='tipo_inc.php';
+                        window.location ='act_nivel_criticidad.php';
                     });
                     </script>" ;
             }          
@@ -299,18 +299,18 @@ input[type=submit]:hover {
         if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `estado` WHERE `id_estados` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `act_nivel_criticidad` WHERE `id_nivel_criticidad` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_estados;
+            $valor=$fila0->id_nivel_criticidad;
 
-            $consulta=consulta($miconexion,"UPDATE `estado` SET `nombre_estado`='$nomb_in1' WHERE id_estados like '$valor'");
+            $consulta=consulta($miconexion,"UPDATE `act_nivel_criticidad` SET `nombre_nivel_criticidad`='$nomb_in1' WHERE id_nivel_criticidad like '$valor'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Actualizado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'tipo_inc.php';
+                    window.location = 'act_nivel_criticidad.php';
                 });
                 </script>" ; 
                 
@@ -324,7 +324,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='tipo_inc.php';
+                        window.location ='act_nivel_criticidad.php';
                     });
                     </script>" ;
             }          
@@ -333,19 +333,19 @@ input[type=submit]:hover {
         if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `estado` WHERE `id_estados` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `act_nivel_criticidad` WHERE `id_nivel_criticidad` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_estados; 
+            $valor=$fila0->id_nivel_criticidad; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `estado` WHERE  id_estados like '$nomb_in'");
+            $consulta=consulta($miconexion,"DELETE FROM `act_nivel_criticidad` WHERE  id_nivel_criticidad like '$nomb_in'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Eliminado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'tipo_inc.php';
+                    window.location = 'act_nivel_criticidad.php';
                 });
                 </script>" ; 
                 
@@ -359,7 +359,7 @@ input[type=submit]:hover {
                     text: 'Por favor intente de nuevo',
                     
                 }).then(function() {
-                    window.location ='tipo_inc.php';
+                    window.location ='act_nivel_criticidad.php';
                 });
                 </script>" ;
                       }          
