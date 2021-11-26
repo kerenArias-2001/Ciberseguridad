@@ -72,10 +72,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i>  gestionar Incidentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="../pages/crear_incidente.php">Crear Incidente</a>
+                                    <a href="../pages/inc_crear.php">Crear Incidente</a>
                                 </li>
                                 <li>
-                                    <a href="../pages/morris.html">Consultar Incidente</a>
+                                    <a href="../pages/inc_consultar.php">Consultar Incidente</a>
                                 </li>
                                 <li>
                                     <a href="../pages/morris.html">Modificar Incidente</a>
