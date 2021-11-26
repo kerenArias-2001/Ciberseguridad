@@ -105,3 +105,26 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 ?>
 </html>
 
+<?php
+if ($_SERVER['REQUEST_METHOD']==='POST') {
+    $recuperar=$_POST['recuperar'];
+    if($recuperar==1){
+       
+
+        $correo = $_POST['correo'];
+        $miconexion=conectar_bd("",'bd_ciberseguridad');
+        $queryusuario 	= consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm = '$correo'");
+        $nr 			= mysqli_num_rows($queryusuario); 
+        
+        
+        $dest = "destinatario@gmail.com"; //Email de destino
+        $asunto = "Asunto"; //Asunto
+        $cuerpo = "Cuerpo del mensaje, puedes poner <b>HTML</b> aqui tambien"; //Cuerpo del mensaje
+        //Cabeceras del correo
+        $headers = "From: Juan juan@gmail.com\r\n"; //Quien envia?
+        $headers .= "X-Mailer: PHP5\n";
+        $headers .= 'MIME-Version: 1.0' . "\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; //
+        mail($dest,$asunto,$cuerpo,$headers);
+    }}
+?>

@@ -43,10 +43,11 @@
             </ul>
         </li>
     </ul>
-
+<div class="sb-sidenav-menu">
     <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
+        <div class="" style="position:relative; overflow-y: auto;   " >
+        <div class="abcs" style="height: 550px; overflow: auto;">   
+        <ul class="nav" id="side-menu" >
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
                         <input type="text" class="form-control" placeholder="Search...">
@@ -86,39 +87,39 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar-Modificar-Eliminar <span class="fa arrow"></span></a>
-                            <div class="scroll">
+                            
                                 <ul class="nav nav-third-level">
                                     
                                     <li>
-                                        <a href="../datos/cargo_inc.php">Cargo</a>
+                                        <a href="../datos/inc_cargo.php">Cargo</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/categoria_inc.php">Categoría</a>
+                                        <a href="../datos/inc_categoria.php">Categoría</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/causa_inc.php">Causa</a>
+                                        <a href="../datos/inc_causa.php">Causa</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/codigo_inc.php">Codigo</a>
+                                        <a href="../datos/inc_codigo.php">Codigo</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/escalamiento_inc.php">Escalamiento</a>
+                                        <a href="../datos/inc_escalamiento.php">Escalamiento</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/estado_inc.php">Estado</a>
+                                        <a href="../datos/inc_estado.php">Estado</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/priorizacion_inc.php">Priorización</a>
+                                        <a href="../datos/inc_priorizacion.php">Priorización</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/sede_inc.php">Sede</a>
+                                        <a href="../datos/inc_sede.php">Sede</a>
                                     </li>
                                     <li>
-                                        <a href="../datos/tipo_inc.php">Tipo Incidente</a>
+                                        <a href="../datos/inc_tipo.php">Tipo Incidente</a>
                                     </li>
                                     
                                 </ul>
-                            </div>
+                           
                         </li>
                             
                     </ul>
@@ -193,6 +194,9 @@
             </ul>
         </div>
     </div>
+    </div>
+</div>
+<div class="sesion_a" >Sesión iniciada commo:</div>
 </nav>
 
 <!-- jQuery -->

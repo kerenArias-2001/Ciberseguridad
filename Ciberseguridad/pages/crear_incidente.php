@@ -40,7 +40,7 @@
     include('../nabvar.php');
     ?>
         
-<section id="acuerdo">
+<section id="acuerdo" style="background-color: aqua; height: 562px;">
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
