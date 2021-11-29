@@ -58,13 +58,7 @@
                                 <tr class="fondo_sub2">
                                     <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD <br>
                                     </th>
-                                <td colspan="3">  Código del incidente:
-                                    <?php
-                                        /*    $miconexion=conectar_bd("",'bd_ciberseguridad');               
-                                        $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
-                                        $fila = $guardado->fetch_object();
-                                        $valor=$fila->id_in; */
-                                    ?>                                      
+                                <td colspan="3">  Código del incidente:                                    
                                     <input id="version_i" name="cod_in" type="text" class="form-control3" placeholder='' >
                                     Fecha:
                                     <?php

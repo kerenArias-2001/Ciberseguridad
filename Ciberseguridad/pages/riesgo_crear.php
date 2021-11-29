@@ -1,63 +1,46 @@
 <?php
     include('../funciones.php');
     $enviar=0;    
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title>Riesgo | Ciberseguridad</title>
+    <title>Riesgo | Ciberseguridad</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-<!--        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
- -->       
-       <!-- Estilos de el modal -->
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    </head>
-    <body>
+</head>
+<body>
 
 <div id="wrapper">
     <?php
-    $miconexion=conectar_bd("",'bd_ciberseguridad');
-    session_start();
-    $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
-        
-    /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
-    */        $fila1 = $busqueda->fetch_object(); 
-            $nombre=$fila1->nombre_adm;
-            $i=0;
-            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-            while ($valores = mysqli_fetch_array($query)) {
-                    $i=$i+1;
-            } 
-    /*         echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";
-    */        
-
-    include('../nabvar.php');
+        $miconexion=conectar_bd("",'bd_ciberseguridad');
+        session_start();
+        $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
+            
+        /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
+        */        $fila1 = $busqueda->fetch_object(); 
+                $nombre=$fila1->nombre_adm;
+                $i=0;
+                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                while ($valores = mysqli_fetch_array($query)) {
+                        $i=$i+1;
+                } 
+                    /* echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>"; */        
+        include('../nabvar.php');
     ?>
         
 <section id="acuerdo">
-
-    <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">

@@ -2,8 +2,7 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.14-MariaDB : Database - bd_ciberseguridad
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -37,13 +36,45 @@ CREATE TABLE `administrador` (
   `codigo_empleado_adm` varchar(255) DEFAULT NULL,
   `contraseña_adm` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_adm`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `administrador` */
 
 LOCK TABLES `administrador` WRITE;
 
-insert  into `administrador`(`id_adm`,`create_time`,`update_time`,`tipo_doc_adm`,`num_id_adm`,`nombre_adm`,`apellido_adm`,`telefono_adm`,`direccion_adm`,`correo_adm`,`fecha_nacimiento_adm`,`nacionalidad_adm`,`codigo_empleado_adm`,`contraseña_adm`) values (1,NULL,NULL,'CC',1192811997,'keren','arias',2147483647,'mz 20 casa 17','keren@gmail.com','2001-01-13','colombia','555555','keren');
+insert  into `administrador`(`id_adm`,`create_time`,`update_time`,`tipo_doc_adm`,`num_id_adm`,`nombre_adm`,`apellido_adm`,`telefono_adm`,`direccion_adm`,`correo_adm`,`fecha_nacimiento_adm`,`nacionalidad_adm`,`codigo_empleado_adm`,`contraseña_adm`) values (1,NULL,NULL,'CC',1192811997,'keren','arias',2147483647,'mz 20 casa 17','keren@gmail.com','2001-01-13','colombia','555555','keren'),(2,NULL,NULL,'cc',123456789,'Keren','Arias',55555,'mz 20 casa 17','kearias79@misena.edu.co','2001-01-13','Colombia','333333','1234');
+
+UNLOCK TABLES;
+
+/*Table structure for table `cargo` */
+
+DROP TABLE IF EXISTS `cargo`;
+
+CREATE TABLE `cargo` (
+  `id_cargo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_cargo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_cargo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `cargo` */
+
+LOCK TABLES `cargo` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `categoria` */
+
+DROP TABLE IF EXISTS `categoria`;
+
+CREATE TABLE `categoria` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_categoria` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `categoria` */
+
+LOCK TABLES `categoria` WRITE;
 
 UNLOCK TABLES;
 
@@ -87,6 +118,54 @@ insert  into `clasificacion_integridad`(`id_integridad`,`create_time`,`update_ti
 
 UNLOCK TABLES;
 
+/*Table structure for table `codigo` */
+
+DROP TABLE IF EXISTS `codigo`;
+
+CREATE TABLE `codigo` (
+  `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_codigo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `codigo` */
+
+LOCK TABLES `codigo` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `escalamiento` */
+
+DROP TABLE IF EXISTS `escalamiento`;
+
+CREATE TABLE `escalamiento` (
+  `id_escalamiento` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_escalamiento` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_escalamiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `escalamiento` */
+
+LOCK TABLES `escalamiento` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `estado` */
+
+DROP TABLE IF EXISTS `estado`;
+
+CREATE TABLE `estado` (
+  `id_estado` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_estado` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_estado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `estado` */
+
+LOCK TABLES `estado` WRITE;
+
+UNLOCK TABLES;
+
 /*Table structure for table `gestion_activo` */
 
 DROP TABLE IF EXISTS `gestion_activo`;
@@ -116,26 +195,37 @@ DROP TABLE IF EXISTS `gestion_incidente`;
 
 CREATE TABLE `gestion_incidente` (
   `id_in` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
-  `create_time` datetime DEFAULT NULL COMMENT 'create time',
-  `update_time` datetime DEFAULT NULL COMMENT 'update time',
-  `categoria_in` varchar(255) DEFAULT NULL,
   `codigo_in` varchar(255) DEFAULT NULL,
-  `descripcion_in` varchar(255) DEFAULT NULL,
-  `estado_in` varchar(255) DEFAULT NULL,
-  `priorizacion_in` varchar(255) DEFAULT NULL,
-  `fecha_inc` date DEFAULT NULL,
-  `consecutivo_event_in` varchar(255) DEFAULT NULL,
+  `responsable_in` varchar(255) DEFAULT NULL,
+  `fecha_r` datetime DEFAULT NULL,
+  `nombre_R` varchar(255) DEFAULT NULL,
+  `cargo` varchar(255) DEFAULT NULL,
+  `cod_emp` varchar(255) DEFAULT NULL,
+  `sede` varchar(255) DEFAULT NULL,
+  `email_in` varchar(255) DEFAULT NULL,
+  `categoria_in` int(255) DEFAULT NULL,
   `tipo_in` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `priorizacion_in` varchar(255) DEFAULT NULL,
+  `escalamiento` varchar(255) DEFAULT NULL,
+  `lugar` varchar(255) DEFAULT NULL,
+  `descripcion_in` varchar(255) DEFAULT NULL,
+  `fecha_inc` date DEFAULT NULL,
   `causa_in` varchar(255) DEFAULT NULL,
   `impacto_in` varchar(255) DEFAULT NULL,
   `solu_in` varchar(255) DEFAULT NULL,
-  `obs_in` varchar(255) DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `SN` varchar(255) DEFAULT NULL,
+  `marca` varchar(255) DEFAULT NULL,
+  `modelo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_in`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 /*Data for the table `gestion_incidente` */
 
 LOCK TABLES `gestion_incidente` WRITE;
+
+insert  into `gestion_incidente`(`id_in`,`codigo_in`,`responsable_in`,`fecha_r`,`nombre_R`,`cargo`,`cod_emp`,`sede`,`email_in`,`categoria_in`,`tipo_in`,`estado`,`priorizacion_in`,`escalamiento`,`lugar`,`descripcion_in`,`fecha_inc`,`causa_in`,`impacto_in`,`solu_in`,`observaciones`,`SN`,`marca`,`modelo`) values (6,'111111111111111111111111',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'11111111111111111','2222222222',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'11111111111111','2222222222',NULL,'3333333333333333333','1111111111111111111',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'11111111111111','2222222222',NULL,'3333333333333333333','1111111111111111111','sasdasd',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'11111111111111','2222222222',NULL,'3333333333333333333',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,NULL,NULL,NULL,'1',NULL,'3','4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,NULL,NULL,NULL,'1',NULL,'3','4','5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,NULL,NULL,NULL,'1',NULL,'3','4','5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,9,'5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'9',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'keren12345','','2021-11-08 19:33:00','keren12345','1','keren12345','keren12345','keren@gmail.com',3,'26','2','medio','1','keren12345','keren12345','2021-11-10','keren12345','alto','keren12345','keren12345',NULL,NULL,NULL),(21,'keren12345','','2021-11-08 19:33:00','keren12345','1','keren12345','keren12345','keren@gmail.com',3,'26','2','medio','1','keren12345','keren12345','2021-11-10','keren12345','alto','keren12345','keren12345',NULL,NULL,NULL),(22,'keren12345','','2021-11-08 19:33:00','keren12345','1','keren12345','keren12345','keren@gmail.com',3,'26','2','medio','1','keren12345','keren12345','2021-11-10','keren12345','alto','keren12345','keren12345',NULL,NULL,NULL),(23,'keren12345','keren12345','2021-11-08 19:33:00','keren12345','1','keren12345','keren12345','keren@gmail.com',3,'26','2','medio','1','keren12345','keren12345','2021-11-10','keren12345','alto','keren12345','keren12345',NULL,NULL,NULL);
 
 UNLOCK TABLES;
 
@@ -179,6 +269,38 @@ LOCK TABLES `gestion_riesgo` WRITE;
 
 UNLOCK TABLES;
 
+/*Table structure for table `impacto` */
+
+DROP TABLE IF EXISTS `impacto`;
+
+CREATE TABLE `impacto` (
+  `id_impacto` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_impacto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_impacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `impacto` */
+
+LOCK TABLES `impacto` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `priorizacion` */
+
+DROP TABLE IF EXISTS `priorizacion`;
+
+CREATE TABLE `priorizacion` (
+  `id_priorizacion` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_priorizacion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_priorizacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `priorizacion` */
+
+LOCK TABLES `priorizacion` WRITE;
+
+UNLOCK TABLES;
+
 /*Table structure for table `registro_inv` */
 
 DROP TABLE IF EXISTS `registro_inv`;
@@ -203,6 +325,28 @@ CREATE TABLE `registro_inv` (
 /*Data for the table `registro_inv` */
 
 LOCK TABLES `registro_inv` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `sede` */
+
+DROP TABLE IF EXISTS `sede`;
+
+CREATE TABLE `sede` (
+  `id_sede` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_sede` varchar(255) DEFAULT NULL,
+  `nit_sede` varchar(255) DEFAULT NULL,
+  `pais_sede` varchar(255) DEFAULT NULL,
+  `ciudad_sede` varchar(255) DEFAULT NULL,
+  `barrio_sede` varchar(255) DEFAULT NULL,
+  `direccion_sede` varchar(255) DEFAULT NULL,
+  `telefono_sede` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_sede`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `sede` */
+
+LOCK TABLES `sede` WRITE;
 
 UNLOCK TABLES;
 

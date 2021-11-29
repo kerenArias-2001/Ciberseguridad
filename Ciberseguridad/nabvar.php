@@ -78,7 +78,7 @@
                                     <a href="../pages/inc_consultar.php">Consultar Incidente</a>
                                 </li>
                                 <li>
-                                    <a href="../pages/morris.html">Modificar Incidente</a>
+                                    <a href="../pages/inc_modificar.php">Modificar Incidente</a>
                                 </li>
                                 <li>
                                     <a href="../pages/morris.html">Eliminar Incidente</a>
@@ -156,13 +156,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Módulo Gestión de Riesgos <span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Módulo Gestión de Riesgos<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="crear_riesgo.php">Crear eventos de Riesgos</a>
+                            <a href="riesgo_crear.php">Crear eventos de Riesgos</a>
                         </li>
                         <li>
-                            <a href="https://docs.google.com/spreadsheets/d/1Yk07670QWSzcfR7ZrMUOBlBQ1swClns768AH_b4EXBg/edit#gid=0">Modificar eventos de Riesgos</a>
+                            <a href="riesgo_consultar.php">Modificar eventos de Riesgos</a>
                         </li>
                         <li>
                             <a href="#">Third Level<span class="fa arrow"></span></a>
