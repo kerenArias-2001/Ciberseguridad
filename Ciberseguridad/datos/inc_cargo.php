@@ -13,9 +13,17 @@
         <meta name="author" content="">
 
         <title>Incidentes | Ciberseguridad</title>
+
+        <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
         <link href="../css/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
         <link href="../css/startmin.css" rel="stylesheet">
+    
+       <!-- Estilos de el modal -->
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/datos.css">
@@ -55,7 +63,7 @@
                         </div>
                     </div>
                 <div class="cont-b">
-                    <form  id=""  method="post" action="" >
+                   
 
 <center><div class="text_acta">
 <center> 

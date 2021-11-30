@@ -58,36 +58,29 @@
                                 <tr class="fondo_sub2">
                                     <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD <br>
                                     </th>
-<<<<<<< HEAD
-                                <td colspan="3">  Código del incidente:                                    
-                                    <input id="version_i" name="cod_in" type="text" class="form-control3" placeholder='' >
-                                    Fecha y Hora:
-=======
-                                <td colspan="3">  Código del incidente:     
-                                <?php
+                                <td colspan="3">  Código del incidente:      
+                                                     
+                                            <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                <?php
                                                 $cont=0;
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                                                 $query = $mysqli -> query ("SELECT * FROM inc_codigo");
                                                 while ($valores = mysqli_fetch_array($query)) {
                                                     $cont=$cont+1;                                 
-                                                
+                                                    echo"--------------antes-------".$cont;
                                                  
                                                 }    $cont=$cont+1;
-                                               
-                                              
-                                                ?>                                
-                                    <input id="version_i" name="cod_in" type="text" value='  <?php echo "".$cont;?>' class="form-control3" placeholder=''  readonly="readonly" >
+                                                echo"##########DESPUES#########".$cont;
+                                                    
+                                                ?>         
+                                                                  
+                                    <input id="version_i" name="cod_in" type="text" class="form-control3" placeholder='' >
                                     Fecha:
->>>>>>> 4c304a4ee45e096cb6a50e51f501957e93a0ae59
                                     <?php
                                     // Obteniendo la fecha actual con hora, minutos y segundos en PHP
-                                  
-                                    $zonahoraria = date_default_timezone_set('America/Bogota');
-                                
-                                    $fechaActual = date('m-d-Y h:i:s a', time());
-                                   
+                                    $fechaActual = date('d-m-Y H:i:s');
                                     ?>
-                                    <input id="fecha_r" name="fecha_r"  value='<?php echo "".$fechaActual ;?>' type="text" class="form-control3"  readonly="readonly">
+                                    <input id="fecha_r" name="fecha_r" type="datetime-local" class="form-control3" >
                                     Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                     <input id="resp_i" name="responsable_in" type="text" class="form-control3" >
                                 </td>
@@ -95,15 +88,21 @@
                                 <tr class="fondo_sub">
                                     <td colspan="4" style="text-align: center;">INFORMACIÓN DEL ENCARGADO </td>
                                 </tr>
-                           
                                 <tr>
-                                    <td colspan="2"><label for="rep_i">Nombre de quien reporta:</label></td> 
+                                    <td colspan="2">Fecha y hora del reporte:</td> 
+                                    <td colspan="2">
+                                        <input id="fecha_hora" name="fecha_hora_reporte" type="datetime-local" class="form-control3">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">Nombre de quien reporta:</td> 
                                     <td colspan="2">
                                         <input id="rep_i" name="nombre_quien_reporta" type="text" class="form-control3" >
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label for="m1">Cargo:</label></td>
+                                    <td>Cargo:</td>
                                     <td>
                                         <select id="m1" class="form-control3" name="cargo_in" require/>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
@@ -116,15 +115,13 @@
                                                 ?>         
                                         </select>
                                     </td>
-                                    <td><label for="dep_i">Código del empleado: </label></td>
+                                    <td>Código del empleado:</td>
                                     <td>
-                                   
-                                        <input id="dep_i" name="codigo_emp" type="text" value="" class="form-control3" >  
-                                                                                    
+                                        <input id="dep_i" name="codigo_emp" type="text" class="form-control3" >                                              
                                     </td>
                                 </tr>
                                 <tr>
-                                        <td><label for="sede_i">Sede:</label></td>
+                                        <td>Sede:</td>
                                         <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
                                         <select id="sede_i" class="form-control3" name="sede_in" require/>                        
                                                 
@@ -141,9 +138,9 @@
                                                     ?>         
                                             </select>
                                     </td>
-                                    <td><label for="email_i">E-mail</label></td>
+                                    <td>E-mail:</td>
                                     <td>
-                                        <input id="email_i" name="email_in" type="text" class="form-control3">    
+                                        <input name="email_in" type="text">    
                                     </td>
                                 </tr>
                                 <tr class="fondo_sub">
@@ -418,13 +415,9 @@
              VALUES  ('$codigo_in','$responsable_in','$fecha','$nombre_rep','$cargo_ain','$codigo_emp',
              '$sede_in','$mail_1','$categoria','$tipo','$estado','$priorizacionin','$escalamientoin',
              '$lugarin','$descripcion_in','$fech_hora_in','$causa_in','$impacto_in','$solucion_in',
-             '$observaciones','$SN_in','$marca_in','$modelo_in')");
+             '$observaciones','','','')");
                  if($guardado)
-                  {  $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                    $query = $mysqli -> query ("INSERT INTO `inc_codigo`( `nombre_codigo`) VALUES ('$codigo_in')" );
-                  
-                      
-                    /* -----------------Alerta para notificar registro ------------------------*/
+                  {  /* -----------------Alerta para notificar registro ------------------------*/
                         echo "<script>
                           Swal.fire({type: 'success',
                           text: 'Guardado Exitoso',
