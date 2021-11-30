@@ -16,6 +16,8 @@
     <link href="../css/startmin.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/datos.css">
+
 </head>
 <body>
 
@@ -30,7 +32,7 @@
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+        $query = $mysqli -> query ("SELECT * FROM administrador");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -49,21 +51,29 @@
                 </div>
             </div>
             <div class="cont-b">
-                <form  id=""  method="post" action="" >
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <label for="codigo">codigo</label>
-                   <input id="codigo" name="cod_in" type="text" >
-                   <button type="submit"  name="enviar" value="1"> consultar</button>
-                </form>
-      
-<br>
-<br>
 
+<center> 
+<form  id=""  method="post" action="" >
+
+<section id="agg_in">
+  <div class="row_in">
+    <div class="col-25_in" >
+            <img src="add-button.png" width="50%" height="6%">   
+    </div>
+    <div class="col-75_in">
+    <label for="codigo">Código</label>
+    <input class="form-control3" id="codigo" name="cod_in" type="text" placeholder="ingrese el código del incidente" ><br>
+    </div>
+  </div>
+ 
+  <div class="row_in">
+        <button type="submit" name="enviar" value="1" class="btn_g" >Consultar</button><br>
+
+  </div>
+
+</section >
+</form>
+</center> 
 
         
 </div>   

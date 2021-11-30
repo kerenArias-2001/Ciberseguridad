@@ -60,7 +60,7 @@
                                     </th>
                                 <td colspan="3">  Código del incidente:                                    
                                     <input id="version_i" name="cod_in" type="text" class="form-control3" placeholder='' >
-                                    Fecha:
+                                    Fecha y Hora:
                                     <?php
                                     // Obteniendo la fecha actual con hora, minutos y segundos en PHP
                                     $fechaActual = date('d-m-Y H:i:s');
@@ -81,13 +81,13 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">Nombre de quien reporta:</td> 
+                                    <td colspan="2"><label for="rep_i">Nombre de quien reporta:</label></td> 
                                     <td colspan="2">
                                         <input id="rep_i" name="nombre_quien_reporta" type="text" class="form-control3" >
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Cargo:</td>
+                                    <td><label for="m1">Cargo:</label></td>
                                     <td>
                                         <select id="m1" class="form-control3" name="cargo_in" require/>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
@@ -100,13 +100,13 @@
                                                 ?>         
                                         </select>
                                     </td>
-                                    <td>Código del empleado:</td>
+                                    <td><label for="dep_i">Código del empleado: </label></td>
                                     <td>
                                         <input id="dep_i" name="codigo_emp" type="text" class="form-control3" >                                              
                                     </td>
                                 </tr>
                                 <tr>
-                                        <td>Sede:</td>
+                                        <td><label for="sede_i">Sede:</label></td>
                                         <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
                                         <select id="sede_i" class="form-control3" name="sede_in" require/>                        
                                                 
@@ -123,9 +123,9 @@
                                                     ?>         
                                             </select>
                                     </td>
-                                    <td>E-mail:</td>
+                                    <td><label for="email_i">E-mail</label></td>
                                     <td>
-                                        <input name="email_in" type="text">    
+                                        <input id="email_i" name="email_in" type="text" class="form-control3">    
                                     </td>
                                 </tr>
                                 <tr class="fondo_sub">

@@ -18,64 +18,9 @@
         <link href="../css/startmin.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="../css/datos.css">
     </head>
-    <style>
-
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 75%;
-    float: right;
-}
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-#agg_in {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 54%;
-    margin: 8px;
-}
-.col-25_in {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75_in {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row_in:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-</style>
+  
     <body>
 
 <div id="wrapper">
@@ -89,7 +34,7 @@ input[type=submit]:hover {
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+        $query = $mysqli -> query ("SELECT * FROM administrador");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -115,7 +60,7 @@ input[type=submit]:hover {
 <center><div class="text_acta">
 <center> 
 <section id="agg_in">
-  <form method="post" >
+
   <div class="row_in">
     <div class="col-25_in" >
             <img src="add-button.png" width="50%" height="6%">   
@@ -138,7 +83,7 @@ input[type=submit]:hover {
 
 
 <section id="agg_in" >
-    <form method="post" >
+   
    
    
     <div class="row_in">
@@ -175,7 +120,7 @@ input[type=submit]:hover {
 </section>
 
 <section id="agg_in" >
-    <form method="post" >
+   
     <div class="row_in">
       <div class="col-25_in">
        <!--  <label for="fname">Eliminar tipo de incidente</label> -->

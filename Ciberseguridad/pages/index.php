@@ -19,33 +19,27 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title>Inicio | Ciberseguridad</title>
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <!-- links de sweet alerts -->
-        <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script src='sweetalert2.all.min.js'></script>
-        <script src='sweetalert2.min.js'></script>
-        <link rel='stylesheet' href='sweetalert2.min.css'>
-        <!-- Custom Fonts -->
-<!--         <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
- -->
+    <title>Inicio | Ciberseguridad</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- links de sweet alerts -->
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script src='sweetalert2.all.min.js'></script>
+    <script src='sweetalert2.min.js'></script>
+    <link rel='stylesheet' href='sweetalert2.min.css'>
 </head>
 <body>
 
-    <?php
+<?php
    
     if ( $verificacion0->num_rows>0){
         $verificacion3=consulta($miconexion,"select * from administrador 
@@ -56,19 +50,15 @@
             $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm='{$_SESSION['nusuario']}'");
             $fila1 = $busqueda->fetch_object(); 
             $nombre=$fila1->nombre_adm;
+            $i=0;
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+            $query = $mysqli -> query ("SELECT * FROM administrador");
             while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
-        } 
+            } 
 
-            include('../nabvar.php');
-        
-        /* 
-    $verificacion=consulta($miconexion,"SELECT  EXISTS(select * from administrador where trim(contraseña_adm) like '{$contraseña_adm}'  ) ");
-     $row1=mysqli_fetch_row($verificacion);
-      if ($row1[0]=="0" ) 
-     { } */?>
+include('../nabvar.php');
+?>
             <div id="wrapper">
 
                 <br>
