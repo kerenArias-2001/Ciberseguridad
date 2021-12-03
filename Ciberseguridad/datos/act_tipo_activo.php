@@ -171,7 +171,8 @@ input[type=submit]:hover {
                 } 
     
             ?>         
-        </select><br>
+        </select>
+        <br>
             <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
       </div>
     </div>

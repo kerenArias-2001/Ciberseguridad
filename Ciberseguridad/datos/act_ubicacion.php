@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para confidencialidad de Incidentes </h2>
+                            <h2 class="page-header"> Modificaciones para ubicacion de Incidentes </h2>
                         </div>
                     </div>
                 <div class="cont-b">
@@ -163,9 +163,9 @@ input[type=submit]:hover {
             <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                $query = $mysqli -> query ("SELECT * FROM act_confidencialidad");
+                $query = $mysqli -> query ("SELECT * FROM act_ubicacion");
                 while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[id_confidencialidad].'">'.$valores[nombre_confidencialidad].'</option>';
+                    echo '<option value="'.$valores[id_ubicacion].'">'.$valores[nombre_ubicacion].'</option>';
                 
                         
                 } 
@@ -197,9 +197,9 @@ input[type=submit]:hover {
                 <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                    $query = $mysqli -> query ("SELECT * FROM act_confidencialidad");
+                    $query = $mysqli -> query ("SELECT * FROM act_ubicacion");
                     while ($valores = mysqli_fetch_array($query)) {
-                        echo '<option value="'.$valores[id_confidencialidad].'">'.$valores[nombre_confidencialidad].'</option>';  
+                        echo '<option value="'.$valores[id_ubicacion].'">'.$valores[nombre_ubicacion].'</option>';  
                     } 
   
                 ?>         
@@ -267,7 +267,7 @@ input[type=submit]:hover {
                 $nomb_in=$_POST['nomb_i'];
 
                 echo "---------------------",$nomb_in;
-                $consulta=consulta($miconexion,"INSERT INTO `act_confidencialidad`(`nombre_confidencialidad`) VALUES ('$nomb_in')");
+                $consulta=consulta($miconexion,"INSERT INTO `act_ubicacion`(`nombre_ubicacion`) VALUES ('$nomb_in')");
                 if($consulta)
                 {  /* -----------------Alerta para notificar registro ------------------------*/
                     echo "<script>
@@ -275,7 +275,7 @@ input[type=submit]:hover {
                         text: 'Guardado Exitoso',
                         
                     }).then(function() {
-                        window.location = 'act_confidencialidad.php';
+                        window.location = 'act_ubicacion.php';
                     });
                     </script>" ; 
                     
@@ -289,7 +289,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='act_confidencialidad.php';
+                        window.location ='act_ubicacion.php';
                     });
                     </script>" ;
             }          
@@ -299,18 +299,18 @@ input[type=submit]:hover {
         if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
             $nomb_in1=$_POST['nomb_iM1'];
-            $resultado=consulta($miconexion,"SELECT * FROM `act_confidencialidad` WHERE `id_confidencialidad` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `act_ubicacion` WHERE `id_ubicacion` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_confidencialidad;
+            $valor=$fila0->id_ubicacion;
 
-            $consulta=consulta($miconexion,"UPDATE `act_confidencialidad` SET `nombre_confidencialidad`='$nomb_in1' WHERE id_confidencialidad like '$valor'");
+            $consulta=consulta($miconexion,"UPDATE `act_ubicacion` SET `nombre_ubicacion`='$nomb_in1' WHERE id_ubicacion like '$valor'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Actualizado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'act_confidencialidad.php';
+                    window.location = 'act_ubicacion.php';
                 });
                 </script>" ; 
                 
@@ -324,7 +324,7 @@ input[type=submit]:hover {
                         text: 'Por favor intente de nuevo',
                         
                     }).then(function() {
-                        window.location ='act_confidencialidad.php';
+                        window.location ='act_ubicacion.php';
                     });
                     </script>" ;
             }          
@@ -333,19 +333,19 @@ input[type=submit]:hover {
         if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
            
-            $resultado=consulta($miconexion,"SELECT * FROM `act_confidencialidad` WHERE `id_confidencialidad` like '$nomb_in' ");
+            $resultado=consulta($miconexion,"SELECT * FROM `act_ubicacion` WHERE `id_ubicacion` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
-            $valor=$fila0->id_confidencialidad; 
+            $valor=$fila0->id_ubicacion; 
            
 
-            $consulta=consulta($miconexion,"DELETE FROM `act_confidencialidad` WHERE  id_confidencialidad like '$nomb_in'");
+            $consulta=consulta($miconexion,"DELETE FROM `act_ubicacion` WHERE  id_ubicacion like '$nomb_in'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
                   echo "<script>
                     Swal.fire({type: 'success',
                         text: 'Eliminado Exitosamente',                    
                 }).then(function() {
-                    window.location = 'act_confidencialidad.php';
+                    window.location = 'act_ubicacion.php';
                 });
                 </script>" ; 
                 
@@ -359,7 +359,7 @@ input[type=submit]:hover {
                     text: 'Por favor intente de nuevo',
                     
                 }).then(function() {
-                    window.location ='act_confidencialidad.php';
+                    window.location ='act_ubicacion.php';
                 });
                 </script>" ;
                       }          

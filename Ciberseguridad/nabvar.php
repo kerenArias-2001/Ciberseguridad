@@ -69,19 +69,16 @@
                     <a href="#"><i class="fa fa-tasks fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>           
-                            <a href="#"><i class="fa fa-edit fa-fw"></i>  gestionar Incidentes<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>  Gestionar Incidentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="../pages/inc_crear.php">Crear Incidente</a>
+                                    <a href="../pages/inc_crear.php">Creación de Incidente</a>
                                 </li>
                                 <li>
                                     <a href="../pages/inc_consultar.php">Consultar Incidente</a>
                                 </li>
                                 <li>
-                                    <a href="../pages/inc_modificar.php">Modificar Incidente</a>
-                                </li>
-                                <li>
-                                    <a href="../pages/morris.html">Eliminar Incidente</a>
+                                    <a href="../pages/inc_modificar.php">Modificación de Incidente</a>
                                 </li>
                             </ul>
                         </li>
@@ -128,10 +125,10 @@
                     <a href="#"><i class="fa fa-cogs fa-fw"></i> Módulo Gestión de Activos  <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="crear_activo.php">Eventos de incidentes de seguridad</a>
+                            <a href="../pages/activo_crear.php">Creación Activo</a>
                         </li>
                         <li>
-                            <a href="crear_activo.php">Registro de Actualización de Activos</a>
+                            <a href="crear_activo.php">Modificación de Activos</a>
                         </li>
                         <li>
                             <a href="crear_activo.php">Registro de Actualización de Inventario</a>
@@ -140,16 +137,24 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="../datos/tipo_inc.php">Tipo Incidente</a>
+                                    <a href="../datos/act_nombre.php">Nombre de Activo</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Cargo</a>
+                                <a href="../datos/act_confidencialidad.php">confidencialidad</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Sede</a>
+                                <a href="../datos/act_disponibilidad.php">Disponibilidad</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Codigo</a>
+                                <a href="../datos/act_integridad.php">integridad</a>
+                                </li>
+                               
+                                <li>
+                                    <a href="../datos/act_ubicacion.php">Ubicacion</a>
+                                  
+                                </li>
+                                <li>
+                                <a href="../datos/act_nivel_criticidad.php">nivel de criticidad</a>
                                 </li>
                             </ul>
                         </li>

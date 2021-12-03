@@ -18,3 +18,86 @@
         </script> 
     </body>
 </html>
+
+
+
+<!-- ------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #more {display: none;}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 665px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+    /* width: 92%; */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Dropdown Image</h2>
+<p>Move the mouse over the image below to open the dropdown content.</p>
+
+<div class="dropdown">
+ <a> Confidencialidad</a>
+  <div class="dropdown-content">
+  
+<p>     <b>Información Pública reservada:</b>
+        <span id="dots">...</span><br><span id="more">
+        Disponible solo para un proceso de la entidad y en caso de ser conocida por terceros sin autorización 
+        puede conllevar a un impacto negativo de índole legal, operativa, de pérdida de imagen o económica.<br>
+     
+        <b>Información Pública clasificada:</b><br>
+        Disponible para todos los procesos de la entidad y que en caso de ser conocida por terceros sin autorización puede
+        conllevar un impacto negativo para los procesos de la misma.<br>
+        Esta Información es propia de la entidad o de terceros y puede ser utilizada por todos los funcionarios de la entidad
+        para realizar labores propias de los procesos, pero no puede ser conocidad por terceros sin autorización del propietario.<br>
+        
+        <b>Información Pública:</b><br>
+       Puede ser entregada o publicada sin restricciones a cualquier persona dentro y fuera de la entidad, sin que esto implique 
+       daños a terceros ni a las actividades y procesos de la entidad.<br>
+       <b>No clasificada:</b><br>
+       Activos de Información que deben ser incluidos en el invierno y que aún no han sido clasificados, deben ser tratados como activos de INFORMACIÓN PUBLICA RESERVADA.<br>    
+       </span></p>
+<button onclick="myFunction()" id="myBtn">Leer más</button><br>
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Leer más"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Leer menos"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+
