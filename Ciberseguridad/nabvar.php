@@ -128,7 +128,7 @@
                             <a href="../pages/activo_crear.php">Creación Activo</a>
                         </li>
                         <li>
-                            <a href="crear_activo.php">Modificación de Activos</a>
+                            <a href="../pages/activo_modificar.php">Modificación de Activos</a>
                         </li>
                         <li>
                             <a href="crear_activo.php">Registro de Actualización de Inventario</a>
@@ -155,6 +155,9 @@
                                 </li>
                                 <li>
                                 <a href="../datos/act_nivel_criticidad.php">nivel de criticidad</a>
+                                </li>
+                                <li>
+                                <a href="../datos/act_tipo_activo.php">tipo de activo</a>
                                 </li>
                             </ul>
                         </li>

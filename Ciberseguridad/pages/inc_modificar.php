@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Consultar Incidentes | Ciberseguridad</title>
+    <title>Modificar Incidentes | Ciberseguridad</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/metisMenu.min.css" rel="stylesheet">
     <link href="../css/startmin.css" rel="stylesheet">

@@ -12,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Incidentes | Ciberseguridad</title>
+        <title>Activo | Ciberseguridad</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -97,7 +97,7 @@ input[type=submit]:hover {
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+        $query = $mysqli -> query ("SELECT * FROM administrador");
         while ($valores = mysqli_fetch_array($query)) {
                 $i=$i+1;
         } 
@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para disponibilidad de Incidentes </h2>
+                            <h2 class="page-header"> Modificaciones para disponibilidad de Activo </h2>
                         </div>
                     </div>
                 <div class="cont-b">

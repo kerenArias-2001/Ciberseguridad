@@ -12,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Incidentes | Ciberseguridad</title>
+        <title>Activo | Ciberseguridad</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -114,7 +114,7 @@ input[type=submit]:hover {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="page-header"> Modificaciones para ubicacion de Incidentes </h2>
+                            <h2 class="page-header"> Modificaciones para ubicacion de activo </h2>
                         </div>
                     </div>
                 <div class="cont-b">

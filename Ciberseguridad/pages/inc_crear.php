@@ -16,6 +16,8 @@
     <link href="../css/startmin.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/datos.css">
+
 </head>
 <body>
 
@@ -133,7 +135,7 @@
                                             </select>
                                     </td>
                                     <td><label for="email_i">E-mail</label></td>
-                                    <td>
+                                    <td style="    text-transform: lowercase;">
                                         <input id="email_i" name="email_in" type="text" class="form-control3">    
                                     </td>
                                 </tr>
@@ -147,7 +149,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><label for="cat_in">Categoría:</label></td> 
+                                    <td colspan="2">
+                                
+                                    <div class="dropdown">
+                                        <label for="cat_in">Categoría:</label> </td> 
                                     <td colspan="2"> 
                                         <select id="cat_in" class="form-control3" name="categoria_in" require/>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
@@ -163,7 +168,32 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><label for="tip_i">Tipo:</label></td> 
+                                    <td colspan="2">
+                                    <div class="dropdown">
+                                        <label for="tip_i">Tipo:</label>
+                                            <div class="dropdown-content">
+                                                <p style="text-align: justify; margin: 17px;">     <b> Manejo inadecuado de los datos:</b><br>
+                                                * Compartir información con terceros no autorizados <br>* Almacenamiento de información sensible en medios sin cifrar<br>
+                                                * Almacenar información en repositorios no autorizados (Google Drive, DropBox, Mega, etc..<br>
+                                                    
+                                                        <b>Uso inadecuado de credenciales:</b><br>
+                                                        * Almacenamiento de contraseñas en texto claro<br>
+                                                        * Transmisión de contraseñas en canales inseguros (http, telnet, ftp, smtp)<br>
+                                                    
+                                                        <b>3	Violación a Políticas de Seguridad de la Información:</b><br>	* Acceso a sitios web prohibidos<br>
+                                                            * Descargas ilegales de material con copyright<br>
+                                                            * Envío de correos abusivos o malintencionados<br>
+                                                            * Instalación de software no autorizado<br>
+                                                            * Deshabilitar funcionalidades de seguridad de los equipos
+                                                            <br>
+                                                
+                                                                                                           
+                                                        <b>Acceso no autorizado a los activos de información:</b><br>
+                                                        * Explotación de vulnerabilidades<br> 
+                                                        * Acceso no autorizado a zonas restringidas <br>    
+                                                </p>
+                                            </div>  
+                                        </div>         
                                     <td colspan="2">
                                         <select id="tip_i" class="form-control3" name="tipo_in" require/>                        
                                             

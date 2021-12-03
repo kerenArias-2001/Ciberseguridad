@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.4.20-MariaDB : Database - bd_datos
+MySQL - 5.5.5-10.4.14-MariaDB : Database - bd_datos
 *********************************************************************
 */
 
@@ -16,6 +16,24 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`bd_datos` /*!40100 DEFAULT CHARACTER SE
 
 USE `bd_datos`;
 
+/*Table structure for table `act_codigo` */
+
+DROP TABLE IF EXISTS `act_codigo`;
+
+CREATE TABLE `act_codigo` (
+  `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `nombre_codigo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+/*Data for the table `act_codigo` */
+
+LOCK TABLES `act_codigo` WRITE;
+
+insert  into `act_codigo`(`id_codigo`,`nombre_codigo`) values (1,'1'),(2,'2'),(3,'3');
+
+UNLOCK TABLES;
+
 /*Table structure for table `act_confidencialidad` */
 
 DROP TABLE IF EXISTS `act_confidencialidad`;
@@ -24,11 +42,13 @@ CREATE TABLE `act_confidencialidad` (
   `id_confidencialidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_confidencialidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_confidencialidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_confidencialidad` */
 
 LOCK TABLES `act_confidencialidad` WRITE;
+
+insert  into `act_confidencialidad`(`id_confidencialidad`,`nombre_confidencialidad`) values (2,'reservada');
 
 UNLOCK TABLES;
 
@@ -40,11 +60,13 @@ CREATE TABLE `act_disponibilidad` (
   `id_disponibilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_disponibilidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_disponibilidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_disponibilidad` */
 
 LOCK TABLES `act_disponibilidad` WRITE;
+
+insert  into `act_disponibilidad`(`id_disponibilidad`,`nombre_disponibilidad`) values (2,'confdoks');
 
 UNLOCK TABLES;
 
@@ -56,11 +78,13 @@ CREATE TABLE `act_integridad` (
   `id_integridad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_integridad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_integridad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_integridad` */
 
 LOCK TABLES `act_integridad` WRITE;
+
+insert  into `act_integridad`(`id_integridad`,`nombre_integridad`) values (1,'integridad');
 
 UNLOCK TABLES;
 
@@ -72,11 +96,31 @@ CREATE TABLE `act_nivel_criticidad` (
   `id_nivel_criticidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_nivel_criticidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_nivel_criticidad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_nivel_criticidad` */
 
 LOCK TABLES `act_nivel_criticidad` WRITE;
+
+insert  into `act_nivel_criticidad`(`id_nivel_criticidad`,`nombre_nivel_criticidad`) values (1,'holados'),(2,'alta');
+
+UNLOCK TABLES;
+
+/*Table structure for table `act_nombre` */
+
+DROP TABLE IF EXISTS `act_nombre`;
+
+CREATE TABLE `act_nombre` (
+  `id_nomb_act` int(100) NOT NULL AUTO_INCREMENT,
+  `nombre_activo` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_nomb_act`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `act_nombre` */
+
+LOCK TABLES `act_nombre` WRITE;
+
+insert  into `act_nombre`(`id_nomb_act`,`nombre_activo`) values (2,'Celular');
 
 UNLOCK TABLES;
 
@@ -106,11 +150,13 @@ CREATE TABLE `act_ubicacion` (
   `id_ubicacion` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_ubicacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_ubicacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_ubicacion` */
 
 LOCK TABLES `act_ubicacion` WRITE;
+
+insert  into `act_ubicacion`(`id_ubicacion`,`nombre_ubicacion`) values (1,'mesa');
 
 UNLOCK TABLES;
 
@@ -128,7 +174,7 @@ CREATE TABLE `inc_cargo` (
 
 LOCK TABLES `inc_cargo` WRITE;
 
-insert  into `inc_cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'secretario administrador'),(3,'hoy'),(4,'mañana');
+insert  into `inc_cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'Secretario administrador'),(3,'Funcionario'),(4,'Contratista');
 
 UNLOCK TABLES;
 
@@ -158,11 +204,13 @@ CREATE TABLE `inc_causa` (
   `id_causa` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_causa` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_causa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_causa` */
 
 LOCK TABLES `inc_causa` WRITE;
+
+insert  into `inc_causa`(`id_causa`,`nombre_causa`) values (2,'Casi cae, por piso resbaloso'),(3,'Las violaciones de la seguridad física que resultan en el robo, el daño intencional o la destrucción del equipo');
 
 UNLOCK TABLES;
 
@@ -174,11 +222,13 @@ CREATE TABLE `inc_codigo` (
   `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_codigo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_codigo` */
 
 LOCK TABLES `inc_codigo` WRITE;
+
+insert  into `inc_codigo`(`id_codigo`,`nombre_codigo`) values (3,'  1'),(4,'2'),(5,'3'),(6,'4');
 
 UNLOCK TABLES;
 
@@ -226,11 +276,13 @@ CREATE TABLE `inc_impacto` (
   `id_impacto` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_impacto` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_impacto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_impacto` */
 
 LOCK TABLES `inc_impacto` WRITE;
+
+insert  into `inc_impacto`(`id_impacto`,`nombre_impacto`) values (2,'Alto'),(3,'Medio'),(4,'Bajo');
 
 UNLOCK TABLES;
 
@@ -242,11 +294,13 @@ CREATE TABLE `inc_priorizacion` (
   `id_priorizacion` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_priorizacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_priorizacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_priorizacion` */
 
 LOCK TABLES `inc_priorizacion` WRITE;
+
+insert  into `inc_priorizacion`(`id_priorizacion`,`nombre_priorizacion`) values (2,'Alta'),(3,'medio'),(4,'bajo');
 
 UNLOCK TABLES;
 
@@ -264,13 +318,13 @@ CREATE TABLE `inc_sede` (
   `direccion_sede` varchar(255) DEFAULT NULL,
   `telefono_sede` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_sede`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_sede` */
 
 LOCK TABLES `inc_sede` WRITE;
 
-insert  into `inc_sede`(`id_sede`,`nombre_sede`,`nit_sede`,`pais_sede`,`ciudad_sede`,`barrio_sede`,`direccion_sede`,`telefono_sede`) values (2,'valledupar',NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `inc_sede`(`id_sede`,`nombre_sede`,`nit_sede`,`pais_sede`,`ciudad_sede`,`barrio_sede`,`direccion_sede`,`telefono_sede`) values (2,'valledupar',NULL,NULL,NULL,NULL,NULL,NULL),(4,'Aguachica',NULL,NULL,NULL,NULL,NULL,NULL),(5,'Agustín codazzi',NULL,NULL,NULL,NULL,NULL,NULL),(6,'Becerril',NULL,NULL,NULL,NULL,NULL,NULL);
 
 UNLOCK TABLES;
 
@@ -288,7 +342,7 @@ CREATE TABLE `inc_tipo_incidentes` (
 
 LOCK TABLES `inc_tipo_incidentes` WRITE;
 
-insert  into `inc_tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`) values (2,'Uso inadecuado de credenciales'),(3,'Violación a Políticas de Seguridad de la Información'),(4,'Acceso no autorizado a los activos de información'),(5,'Intrusión'),(6,'Intentos de actividad'),(7,'Ingeniería Social'),(8,'Negación de servicio'),(9,'Vulnerabilidades'),(10,'Malware'),(12,'3');
+insert  into `inc_tipo_incidentes`(`id_tipo_in`,`nombre_tipo_in`) values (2,'Uso inadecuado de credenciales'),(3,'Violación a Políticas de Seguridad de la Información'),(4,'Acceso no autorizado a los activos de información'),(5,'Intrusión'),(6,'Intentos de actividad'),(7,'Ingeniería Social'),(8,'Negación de servicio'),(9,'Vulnerabilidades'),(10,'Malware');
 
 UNLOCK TABLES;
 

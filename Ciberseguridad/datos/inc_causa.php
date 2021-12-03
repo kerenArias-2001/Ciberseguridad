@@ -97,7 +97,7 @@ input[type=submit]:hover {
         $nombre=$fila1->nombre_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-        $query = $mysqli -> query ('SELECT * FROM tipo_incidentes');
+        $query = $mysqli -> query ('SELECT * FROM administrador');
         while ($valores = mysqli_fetch_array($query)) {
             $i=$i+1;
         } 
