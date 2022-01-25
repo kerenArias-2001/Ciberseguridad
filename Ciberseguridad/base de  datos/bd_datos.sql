@@ -24,13 +24,13 @@ CREATE TABLE `act_codigo` (
   `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_codigo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_codigo` */
 
 LOCK TABLES `act_codigo` WRITE;
 
-insert  into `act_codigo`(`id_codigo`,`nombre_codigo`) values (1,'1'),(2,'2'),(3,'3');
+insert  into `act_codigo`(`id_codigo`,`nombre_codigo`) values (1,'1'),(2,'2'),(3,'3'),(4,'4');
 
 UNLOCK TABLES;
 
@@ -42,13 +42,13 @@ CREATE TABLE `act_confidencialidad` (
   `id_confidencialidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_confidencialidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_confidencialidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_confidencialidad` */
 
 LOCK TABLES `act_confidencialidad` WRITE;
 
-insert  into `act_confidencialidad`(`id_confidencialidad`,`nombre_confidencialidad`) values (2,'reservada');
+insert  into `act_confidencialidad`(`id_confidencialidad`,`nombre_confidencialidad`) values (2,'Información publica reservada'),(3,'información publica clasificada'),(4,'información publica'),(5,'información no clasificada');
 
 UNLOCK TABLES;
 
@@ -60,13 +60,13 @@ CREATE TABLE `act_disponibilidad` (
   `id_disponibilidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_disponibilidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_disponibilidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_disponibilidad` */
 
 LOCK TABLES `act_disponibilidad` WRITE;
 
-insert  into `act_disponibilidad`(`id_disponibilidad`,`nombre_disponibilidad`) values (2,'confdoks');
+insert  into `act_disponibilidad`(`id_disponibilidad`,`nombre_disponibilidad`) values (2,'media'),(3,'alta'),(4,'alta');
 
 UNLOCK TABLES;
 
@@ -78,13 +78,13 @@ CREATE TABLE `act_integridad` (
   `id_integridad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_integridad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_integridad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_integridad` */
 
 LOCK TABLES `act_integridad` WRITE;
 
-insert  into `act_integridad`(`id_integridad`,`nombre_integridad`) values (1,'integridad');
+insert  into `act_integridad`(`id_integridad`,`nombre_integridad`) values (1,'integridad'),(2,'bajo'),(4,'Media'),(5,'alta');
 
 UNLOCK TABLES;
 
@@ -96,13 +96,13 @@ CREATE TABLE `act_nivel_criticidad` (
   `id_nivel_criticidad` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_nivel_criticidad` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_nivel_criticidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_nivel_criticidad` */
 
 LOCK TABLES `act_nivel_criticidad` WRITE;
 
-insert  into `act_nivel_criticidad`(`id_nivel_criticidad`,`nombre_nivel_criticidad`) values (1,'holados'),(2,'alta');
+insert  into `act_nivel_criticidad`(`id_nivel_criticidad`,`nombre_nivel_criticidad`) values (2,'alta'),(3,'Media'),(4,'Baja');
 
 UNLOCK TABLES;
 
@@ -114,13 +114,13 @@ CREATE TABLE `act_nombre` (
   `id_nomb_act` int(100) NOT NULL AUTO_INCREMENT,
   `nombre_activo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_nomb_act`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `act_nombre` */
 
 LOCK TABLES `act_nombre` WRITE;
 
-insert  into `act_nombre`(`id_nomb_act`,`nombre_activo`) values (2,'Celular');
+insert  into `act_nombre`(`id_nomb_act`,`nombre_activo`) values (2,'Celular'),(3,'portatil');
 
 UNLOCK TABLES;
 
@@ -132,13 +132,13 @@ CREATE TABLE `act_tipo_activo` (
   `id_tipo_activo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_tipo_activo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_tipo_activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 /*Data for the table `act_tipo_activo` */
 
 LOCK TABLES `act_tipo_activo` WRITE;
 
-insert  into `act_tipo_activo`(`id_tipo_activo`,`nombre_tipo_activo`) values (1,'nombre1'),(2,'Información'),(3,'nombre3'),(4,'nombre3'),(5,'nombre4'),(6,'nombre5'),(17,'nombre6'),(19,'uso inadecuado de señalizaciones de aseo');
+insert  into `act_tipo_activo`(`id_tipo_activo`,`nombre_tipo_activo`) values (2,'Información'),(20,'Tangible'),(21,'no tangible.'),(22,'no corriente.'),(24,'corriente'),(25,'corriente'),(26,'corriente'),(27,'corriente');
 
 UNLOCK TABLES;
 
@@ -168,13 +168,13 @@ CREATE TABLE `inc_cargo` (
   `id_cargo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_cargo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_cargo` */
 
 LOCK TABLES `inc_cargo` WRITE;
 
-insert  into `inc_cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'Secretario administrador'),(3,'Funcionario'),(4,'Contratista');
+insert  into `inc_cargo`(`id_cargo`,`nombre_cargo`) values (1,'Gerente'),(2,'Secretario administrador'),(3,'Funcionario'),(4,'Contratista'),(10,'corriente'),(11,'contador');
 
 UNLOCK TABLES;
 
@@ -186,13 +186,13 @@ CREATE TABLE `inc_categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_categoria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_categoria` */
 
 LOCK TABLES `inc_categoria` WRITE;
 
-insert  into `inc_categoria`(`id_categoria`,`nombre_categoria`) values (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8');
+insert  into `inc_categoria`(`id_categoria`,`nombre_categoria`) values (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(12,'9');
 
 UNLOCK TABLES;
 
@@ -222,13 +222,13 @@ CREATE TABLE `inc_codigo` (
   `id_codigo` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `nombre_codigo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inc_codigo` */
 
 LOCK TABLES `inc_codigo` WRITE;
 
-insert  into `inc_codigo`(`id_codigo`,`nombre_codigo`) values (3,'  1'),(4,'2'),(5,'3'),(6,'4');
+insert  into `inc_codigo`(`id_codigo`,`nombre_codigo`) values (3,'  1'),(4,'2'),(5,'3'),(6,'4'),(7,'5'),(8,'6'),(10,'9');
 
 UNLOCK TABLES;
 

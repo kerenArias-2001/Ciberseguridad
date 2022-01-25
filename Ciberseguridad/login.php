@@ -122,7 +122,7 @@
             </div>
                 <div class="cont-re-ad">
                     <label for="uname"><b>Tipo de documento</b></label>
-                    <select  class="sesion"   name="tipo_id" required>
+                    <select  class="form-control"   name="tipo_id" required>
                         <option value="">Tipo de documento</option>
                         <option value="CC">CC</option>
                         <option value="Ti">CE</option>
@@ -130,31 +130,31 @@
                         <option value="Ti">NUIP</option>
                         <option value="CC">PN</option>
                         <option value="Ti">CE</option>
-                    </select>
+                    </select><br>
                     <label for="uname"><b>Número de identificación</b></label>
-                    <input type="number" class="sesion"  placeholder="Ingrese su identificacion" name="numero_id" required>
+                    <input type="number" class="form-control"  placeholder="Ingrese su identificacion" name="numero_id" required>
                     <label for="uname"><b>Nombres</b></label>
-                    <input class="sesion"  placeholder="Ingrese sus nombres" name="nombre" required>
+                    <input class="form-control"  placeholder="Ingrese sus nombres" name="nombre" required>
                     <label for="uname"><b>Apellidos</b></label>
-                    <input class="sesion"  placeholder="Ingrese sus apellidos" name="apellido" required>
+                    <input class="form-control" placeholder="Ingrese sus apellidos" name="apellido" required>
                     <label for="uname"><b>Télefono</b></label>
-                    <input type="number"  class="sesion"  placeholder="Ingrese su número de télefono" name="telefono" required>
+                    <input type="number"  class="form-control" placeholder="Ingrese su número de télefono" name="telefono" required>
                     <label for="uname"><b>Dirección</b></label>
-                    <input class="sesion"  placeholder="Ingrese su número la dirección" name="direccion" required>
+                    <input class="form-control" placeholder="Ingrese su número la dirección" name="direccion" required>
                 </div>
                 <div class="cont-re-ad2">
                     <label for="uname"><b>Email</b></label>
-                    <input class="sesion" type="email" placeholder="Correo electrónico" name="correo" required>
-                    <label for="psw"><b>Fecha de nacimiento</b></label><br>
-                    <input class="fe_nac" type="date"  name="fecha"  required><br>
+                    <input class="form-control"type="email" placeholder="Correo electrónico" name="correo" required>
+                    <label for="psw"><b>Fecha de nacimiento</b></label>
+                    <input class="form-control" type="date"  name="fecha"  required>
                     <label for="uname"><b>Nacionalidad</b></label>
-                    <input class="sesion"  placeholder="País de nacimiento" name="nacionalidad" required>
+                    <input class="form-control"  placeholder="País de nacimiento" name="nacionalidad" required>
                     <label for="uname"><b>Código de empleado</b></label>
-                    <input class="sesion"  placeholder="Ingrese su código de empleado" name="codigo_em" required>
+                    <input class="form-control"  placeholder="Ingrese su código de empleado" name="codigo_em" required>
                     <label for="psw"><b>Contraseña</b></label>
-                    <input  type="password" placeholder="Digite su contraseña" name="psw" id="psw1" required>
+                    <input class="form-control" type="password" placeholder="Digite su contraseña" name="psw" id="psw1" required>
                     <label for="psw-repeat"><b>Repetir contraseña</b></label>
-                    <input type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw1-repeat" required>
+                    <input class="form-control" type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw1-repeat" required>
                     <label id="mensaje_error"><b></b></label>
                     <button class="login" type="submit" name="enviar" value="1">REGISTRARSE</button>
                 </div>
@@ -165,19 +165,10 @@
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
 <script src="js/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
 <script src="js/startmin.js"></script>
-<!-- mostrar y ocultar elementos -->
 <script src="js/adaptable.js"></script>
-<!-- enviar texto de input a label -->
-<script src="js/enviarTexto.js"></script>
 
 </body>
 

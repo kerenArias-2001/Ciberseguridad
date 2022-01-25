@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Consultar Incidentes | Ciberseguridad</title>
+    <title>Consultar Incidente | Ciberseguridad</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/metisMenu.min.css" rel="stylesheet">
     <link href="../css/startmin.css" rel="stylesheet">
@@ -28,6 +28,7 @@
         $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
         $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -88,12 +89,11 @@
             $row0=mysqli_fetch_row($verificacion0);
             if ($row0[0]>"0" ) {  
           
-            echo "-----------". $codigo_in;
+            
             $consultar=consulta($miconexion,"SELECT * FROM `gestion_incidente` WHERE `codigo_in` like '$codigo_in'");
             $fila0=$consultar->fetch_object(); 
           
             $responsable_in=$fila0->responsable_in;
-            echo "-----------".$responsable_in;
             /* ------------------------------------ */
              $fecha_hora=$fila0->fecha_r;
              $nombre_rep=$fila0->nombre_R;
@@ -286,36 +286,32 @@
 <?php 
 
 /* -----------------Alerta para notificar registro ------------------------*/
-}              
+}   
+else{
+    echo "<script>
+        Swal.fire({type: 'error',
+            title: 'Error en la consulta',
+            text: 'Por favor intente de nuevo',
+            
+        }).then(function() {
+            window.location = '../pages/inc_consultar.php';
+        });
+        </script>" ;
+}               
     } 
-    /*   else{
-        echo "<script>
-            Swal.fire({type: 'error',
-                title: 'error',
-                text: 'Por favor intente de nuevo',
-                
-            }).then(function() {
-                window.location = 'crear_incidente.php';
-            });
-            </script>" ;
-    }   */        
+             
 
     }     
  
 ?>
- <!-- jQuery -->
- <script src="../js/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
+
+
+
+<script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
 <script src="../js/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
 <script src="../js/startmin.js"></script>
-<!-- mostrar y ocultar elementos -->
-
 <!-- enviar texto de input a label -->
 <script src="../js/enviarTexto.js"></script>
   

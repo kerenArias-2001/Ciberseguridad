@@ -21,7 +21,6 @@
 </head>
 <body>
 
-<div id="wrapper">
     <?php
         $miconexion=conectar_bd("",'bd_ciberseguridad');
         session_start();
@@ -30,6 +29,7 @@
 /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
  */        $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -44,7 +44,7 @@
     $guardar=0;
     ?>
         
-<section id="acuerdo" style="background-color: aqua; height: 562px;">
+<section id="" >
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -73,22 +73,6 @@
                 </center>         
             </div>             
 
-
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <!-- mostrar y ocultar elementos -->
-
-        <!-- enviar texto de input a label -->
-        <script src="../js/enviarTexto.js"></script>
 
    
 <?php
@@ -151,8 +135,8 @@
 <!-- ----------------------------------------------------------------------------- -->
 
 
-<center><div class="cont_inc"><br><br>
-    <form  id=""  method="post" action="" >     
+                <center><div class="cont_inc"><br><br>
+                    <form  id=""  method="post" action="" >     
                         <div class="text_acta">
                             <br><br>
                             
@@ -217,7 +201,7 @@
                                 <tr>
                                     <td colspan="2">Categoría:</td> 
                                     <td colspan="2">
-                                        <select id="m1" class="form-control3" name="categoria_in" require/>                        
+                                        <select id="m1" class="form-control3" name="categoria_in" required>                        
                                             <option class="form-control" value='<?php echo"".$categoria;?>'><h1><?php echo"".$categoria;?></h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -233,7 +217,7 @@
                                 <tr>
                                     <td colspan="2">Tipo:</td> 
                                     <td colspan="2">
-                                        <select id="m1" class="form-control3" name="tipo_in" require/>                        
+                                        <select id="m1" class="form-control3" name="tipo_in" required>                        
                                             
                                             <option class="form-control" value='<?php echo"".$tipo;?>'><h1><?php echo"".$tipo;?></h1></option>
                                                 <?php
@@ -250,7 +234,7 @@
                                 <tr>
                                     <td colspan="2">Estado:</td> 
                                     <td colspan="2"> 
-                                    <select id="m1" class="form-control3" name="estado_in" require/>                        
+                                    <select id="m1" class="form-control3" name="estado_in" required>                        
                                             <option class="form-control" value='<?php echo"".$estado;?>'"><h1><?php echo"".$estado;?></h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -269,7 +253,7 @@
                                 <tr>
                                     <td colspan="2">Priorización:</td> 
                                     <td colspan="2">                          
-                                    <select  class="form-control3" name="priorizacion_in" require/>                        
+                                    <select  class="form-control3" name="priorizacion_in" required>                        
                                                 
                                                 <option class="form-control" value='<?php echo"".$priorizacion_in;?>'><h1><?php echo"".$priorizacion_in;?></h1></option>
                                                     <?php
@@ -323,7 +307,7 @@
                                     </td> 
                                     <td colspan="2">
                                       
-                                        <select id="m1" class="form-control3" name="causa_in" require/>                        
+                                        <select id="m1" class="form-control3" name="causa_in" required>                        
                                                 <option class="form-control" value="<?php echo"".$causa_in;?>"><h1><?php echo"".$causa_in;?></h1></option>
                                                     <?php
                                                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -389,6 +373,7 @@
 
                                     </td>
                                 </tr>
+                                
                                 </tr>
                             </table>
                                 <br><br> 
@@ -404,7 +389,20 @@
                 </center>
                     </div>
         </div>
-    </div>  
+        <br>
+        <br> 
+            <footer style="background-color: #cccccc54 !important;/* width: 72%; */height: 56px;">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                        <div style="float: right;">
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 </section> 
    
 
@@ -484,6 +482,11 @@
  
 ?>
 
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
     
     </body>
     

@@ -21,7 +21,6 @@
 </head>
 <body>
 
-<div id="wrapper">
     <?php
         $miconexion=conectar_bd("",'bd_ciberseguridad');
         session_start();
@@ -30,6 +29,7 @@
         /* echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario']; */
         $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -41,7 +41,7 @@
     include('../nabvar.php');
     ?>
         
-<section id="acuerdo" style="background-color: #ccc; height: 562px;">
+<section id="" >
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -54,11 +54,9 @@
                     <center><div class="cont_inc"><br><br>
                         <div class="text_acta">
                             <br><br>
-                            
                             <table>
                                 <tr class="fondo_sub2">
-                                    <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD <br>
-                                    </th>
+                                    <th colspan="3" style="text-align: center;">REPORTES DE INCIDENTES DE SEGURIDAD <br></th>
                                 <td colspan="3">  Código del incidente:     
                                     <?php
                                         $cont=0;
@@ -87,8 +85,7 @@
                                 </tr>
                                 <tr class="fondo_sub">
                                     <td colspan="4" style="text-align: center;">INFORMACIÓN DEL ENCARGADO </td>
-                                </tr>
-                           
+                                </tr>       
                                 <tr>
                                     <td colspan="2"><label for="rep_i">Nombre de quien reporta:</label></td> 
                                     <td colspan="2">
@@ -117,9 +114,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                        <td><label for="sede_i">Sede:</label></td>
-                                        <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
-                                        <select id="sede_i" class="form-control3" name="sede_in" require/>                        
+                                    <td><label for="sede_i">Sede:</label></td>
+                                    <td> <!-- <input type="text" class="texc1" id="inc_8" readonly="readonly"></input> -->
+                                        <select id="sede_i" class="form-control3" name="sede_in" required>                        
                                                 
                                                 <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                                                     <?php
@@ -132,7 +129,7 @@
                                                         } 
                                         
                                                     ?>         
-                                            </select>
+                                        </select>
                                     </td>
                                     <td><label for="email_i">E-mail</label></td>
                                     <td style="    text-transform: lowercase;">
@@ -151,10 +148,13 @@
                                 <tr>
                                     <td colspan="2">
                                 
-                                    <div class="dropdown">
-                                        <label for="cat_in">Categoría:</label> </td> 
+                                        <div class="dropdown">
+                                            <label for="cat_in">Categoría:</label> 
+                                        </div>  
+
+                                    </td> 
                                     <td colspan="2"> 
-                                        <select id="cat_in" class="form-control3" name="categoria_in" require/>                        
+                                        <select id="cat_in" class="form-control3" name="categoria_in" required>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -169,50 +169,51 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                    <div class="dropdown">
-                                        <label for="tip_i">Tipo:</label>
-                                            <div class="dropdown-content">
-                                                <p style="text-align: justify; margin: 17px;">     <b> Manejo inadecuado de los datos:</b><br>
-                                                * Compartir información con terceros no autorizados <br>* Almacenamiento de información sensible en medios sin cifrar<br>
-                                                * Almacenar información en repositorios no autorizados (Google Drive, DropBox, Mega, etc..<br>
-                                                    
-                                                        <b>Uso inadecuado de credenciales:</b><br>
-                                                        * Almacenamiento de contraseñas en texto claro<br>
-                                                        * Transmisión de contraseñas en canales inseguros (http, telnet, ftp, smtp)<br>
-                                                    
-                                                        <b>3	Violación a Políticas de Seguridad de la Información:</b><br>	* Acceso a sitios web prohibidos<br>
-                                                            * Descargas ilegales de material con copyright<br>
-                                                            * Envío de correos abusivos o malintencionados<br>
-                                                            * Instalación de software no autorizado<br>
-                                                            * Deshabilitar funcionalidades de seguridad de los equipos
-                                                            <br>
-                                                
-                                                                                                           
-                                                        <b>Acceso no autorizado a los activos de información:</b><br>
-                                                        * Explotación de vulnerabilidades<br> 
-                                                        * Acceso no autorizado a zonas restringidas <br>    
-                                                </p>
-                                            </div>  
-                                        </div>         
-                                    <td colspan="2">
-                                        <select id="tip_i" class="form-control3" name="tipo_in" require/>                        
-                                            
-                                            <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
-                                                <?php
-                                                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                                                $query = $mysqli -> query ("SELECT * FROM inc_tipo_incidentes");
-                                                while ($valores = mysqli_fetch_array($query)) {
-                                                    echo '<option value="'.$valores[nombre_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                                        <div class="dropdown">
+                                            <label for="tip_i">Tipo:</label>
+                                                <div class="dropdown-content">
+                                                    <p style="text-align: justify; margin: 17px;">     <b> Manejo inadecuado de los datos:</b><br>
+                                                    * Compartir información con terceros no autorizados <br>* Almacenamiento de información sensible en medios sin cifrar<br>
+                                                    * Almacenar información en repositorios no autorizados (Google Drive, DropBox, Mega, etc..<br>
                                                         
-                                                } 
-                                                ?>         
-                                        </select>
+                                                            <b>Uso inadecuado de credenciales:</b><br>
+                                                            * Almacenamiento de contraseñas en texto claro<br>
+                                                            * Transmisión de contraseñas en canales inseguros (http, telnet, ftp, smtp)<br>
+                                                        
+                                                            <b>3	Violación a Políticas de Seguridad de la Información:</b><br>	* Acceso a sitios web prohibidos<br>
+                                                                * Descargas ilegales de material con copyright<br>
+                                                                * Envío de correos abusivos o malintencionados<br>
+                                                                * Instalación de software no autorizado<br>
+                                                                * Deshabilitar funcionalidades de seguridad de los equipos
+                                                                <br>
+                                                    
+                                                                                                            
+                                                            <b>Acceso no autorizado a los activos de información:</b><br>
+                                                            * Explotación de vulnerabilidades<br> 
+                                                            * Acceso no autorizado a zonas restringidas <br>    
+                                                    </p>
+                                                </div>  
+                                        </div>         
+                                        <td colspan="2">
+                                            <select id="tip_i" class="form-control3" name="tipo_in" required>                        
+                                                
+                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                    <?php
+                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                    $query = $mysqli -> query ("SELECT * FROM inc_tipo_incidentes");
+                                                    while ($valores = mysqli_fetch_array($query)) {
+                                                        echo '<option value="'.$valores[nombre_tipo_in].'">'.$valores[nombre_tipo_in].'</option>';
+                                                            
+                                                    } 
+                                                    ?>         
+                                            </select>
+                                        </td>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><label for="estad_i">Estado:</label></td> 
                                     <td colspan="2"> 
-                                        <select id="estad_i" class="form-control3" name="estado_in" require/>                        
+                                        <select id="estad_i" class="form-control3" name="estado_in" required>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -231,24 +232,24 @@
                                 <tr>
                                     <td colspan="2"><label for="prio_i">Priorización:</label></td> 
                                     <td colspan="2">                          
-                                    <select  id="prio_i" class="form-control3" name="importante" require/>                        
-                                                <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
-                                                    <?php
-                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                                                    $query = $mysqli -> query ("SELECT * FROM inc_priorizacion");
-                                                    while ($valores = mysqli_fetch_array($query)) {
-                                                        echo '<option value="'.$valores[nombre_priorizacion].'">'.$valores[nombre_priorizacion].'</option>';
-                                                                
-                                                        } 
-                                            
-                                                    ?>         
-                                            </select>
+                                        <select  id="prio_i" class="form-control3" name="importante" required>                        
+                                            <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
+                                                <?php
+                                                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                $query = $mysqli -> query ("SELECT * FROM inc_priorizacion");
+                                                while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores[nombre_priorizacion].'">'.$valores[nombre_priorizacion].'</option>';
+                                                            
+                                                    } 
+                                        
+                                                ?>         
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><label for="escal_i">Escalamiento:</label></td> 
                                     <td colspan="2"> 
-                                        <select id="escal_i" class="form-control3" name="escal" require>                        
+                                        <select id="escal_i" class="form-control3" name="escal" required>                        
                                             <option class="form-control" value="0"><h1>Seleccione una opción</h1></option>
                                                 <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -279,35 +280,35 @@
                                 <tr>
                                     <td colspan="2"><label for="causa_i">Causa:</label></td> 
                                     <td colspan="2">
-                                    <select id="causa_i" class="form-control3" name="nomb_iM" require/>                        
-                                                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
-                                                    <?php
-                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                                                    $query = $mysqli -> query ("SELECT * FROM inc_causa");
-                                                    while ($valores = mysqli_fetch_array($query)) {
-                                                        echo '<option value="'.$valores[nombre_causa].'">'.$valores[nombre_causa].'</option>';
-                                                                
-                                                        } 
-                                            
-                                                    ?>         
-                                            </select>                                    
-                                        </td>
+                                        <select id="causa_i" class="form-control3" name="nomb_iM" required>                        
+                                            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                                                <?php
+                                                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                $query = $mysqli -> query ("SELECT * FROM inc_causa");
+                                                while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores[nombre_causa].'">'.$valores[nombre_causa].'</option>';
+                                                            
+                                                    } 
+                                        
+                                                ?>         
+                                        </select>                                    
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><label for="impac_i">Impacto:</label></td> 
                                     <td colspan="2">                                 
-                                        <select id="causa_i" class="form-control3" name="impacto_in" require/>                        
-                                                <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
-                                                    <?php
-                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                                                    $query = $mysqli -> query ("SELECT * FROM inc_impacto");
-                                                    while ($valores = mysqli_fetch_array($query)) {
-                                                        echo '<option value="'.$valores[nombre_impacto].'">'.$valores[nombre_impacto].'</option>';
-                                                                
-                                                        } 
-                                            
-                                                    ?>         
-                                            </select>  
+                                        <select id="causa_i" class="form-control3" name="impacto_in" required>                        
+                                            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                                                <?php
+                                                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                $query = $mysqli -> query ("SELECT * FROM inc_impacto");
+                                                while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores[nombre_impacto].'">'.$valores[nombre_impacto].'</option>';
+                                                            
+                                                    } 
+                                        
+                                                ?>         
+                                        </select>  
                                     </td>
                                 </tr>
                                 <tr>
@@ -319,7 +320,7 @@
                                 <tr>
                                     <td colspan="2"><label for="obser_i">Observaciones:</label></td> 
                                     <td colspan="2">
-                                    <textarea class="form-control3" id="obser_i" name="observaciones_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
+                                        <textarea class="form-control3" id="obser_i" name="observaciones_in" rows="8" cols="70" minlength="10" maxlength="200" placeholder="Máximo 200 caracteres" ></textarea>
                                     </td>
                                 </tr>
                                 <tr class="fondo_sub">
@@ -328,11 +329,11 @@
                                 <tr>
                                     <td colspan="1"><label for="serial_i">Serial/Núm:</label></td> 
                                     <td colspan="1">
-                                     <input id="serial_i" name="SN_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
+                                        <input id="serial_i" name="SN_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
                                     </td>
                                     <td colspan="1"><label for="marca_i">Marca:</label></td> 
                                     <td colspan="1">
-                                     <input id="marca_i" name="marca_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
+                                        <input id="marca_i" name="marca_in" type="text" class="form-control3"  minlength="10" maxlength="80"  placeholder="Máximo 80 caracteres" >
                                     </td>
                                 </tr>
                                 <tr>
@@ -353,31 +354,11 @@
                 </form>
             </div>
         </div>
+
+        <br>
+        <br> 
     </div>  
 </section>  
-<br>
-<br>
-
-
-        
-</div>   
-
-
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <!-- mostrar y ocultar elementos -->
-
-        <!-- enviar texto de input a label -->
-        <script src="../js/enviarTexto.js"></script>
 
    
 <?php
@@ -448,7 +429,7 @@
                           text: 'Guardado Exitoso',
                           
                       }).then(function() {
-                          window.location = 'login.php';
+                          window.location = '../pages/inc_crear.php';
                       });
                       </script>" ; 
                       
@@ -468,15 +449,17 @@
                             }          
                         
                                 
-                            } 
-    
-    
-    
+                            }  
             
 }  
 ?>
 
-    
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
+
     </body>
     
 </html>

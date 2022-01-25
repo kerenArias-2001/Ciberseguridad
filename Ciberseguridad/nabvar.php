@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <a class="navbar-brand" href="../pages/index.php">Nombre proyecto</a>
@@ -15,7 +14,7 @@
     <ul class="nav navbar-right navbar-top-links">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> <?php echo "$nombre";?><b class="caret"></b>    
+                <i class="fa fa-user fa-fw"></i> <?php echo "$nombre"."       "."$apellido";?><b class="caret"></b>    
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li class="hidden-xs">
@@ -43,11 +42,13 @@
             </ul>
         </li>
     </ul>
-<div class="sb-sidenav-menu">
+
     <div class="navbar-default sidebar" role="navigation">
-        <div class="" style="position:relative; overflow-y: auto;   " >
-        <div class="abcs" style="height: 550px; overflow: auto;">   
-        <ul class="nav" id="side-menu" >
+        
+    <div class="" style="position:relative; overflow-y: auto;   " >
+        <div class="abcs">   
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
                         <input type="text" class="form-control" placeholder="Search...">
@@ -58,13 +59,31 @@
                         </span>
                     </div>
                 </li>
-                
                 <li>
                     <a href="../pages/index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                 </li>
+
+<!--  -->
                 <li>
-                    <a href="../pages/acuerdos.php"><i class="fa fa-table fa-fw"></i> Gestión de Acuerdos</a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> Acuerdos de Confidencialidad<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>           
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>  Gestionar Acuerdos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                <a href="../pages/acuerdos_crear.php">Crear Acuerdo</a>
+                                </li>
+                                <li>
+                                <a href="../pages/acuerdos_consultar.php">Consultar Acuerdos</a>
+                                </li>
+                            </ul>
+                        </li>
+                            
+                    </ul>
                 </li>
+<!--  -->
+
+
                 <li>
                     <a href="#"><i class="fa fa-tasks fa-fw"></i>  Módulo Gestión de Incidentes<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -120,54 +139,65 @@
                         </li>
                             
                     </ul>
-                </li>
+                 </li>
+<!--  -->
                 <li>
-                    <a href="#"><i class="fa fa-cogs fa-fw"></i> Módulo Gestión de Activos  <span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-cogs fa-fw"></i>  Módulo Gestión de Activos<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="../pages/activo_crear.php">Creación Activo</a>
-                        </li>
-                        <li>
-                            <a href="../pages/activo_modificar.php">Modificación de Activos</a>
-                        </li>
-                        <li>
-                            <a href="crear_activo.php">Registro de Actualización de Inventario</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i>agregar-modificar-eliminar <span class="fa arrow"></span></a>
+                        <li>           
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>  Gestionar Activos<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="../datos/act_nombre.php">Nombre de Activo</a>
+                                <a href="../pages/activo_crear.php">Creación de Activos</a>
                                 </li>
                                 <li>
-                                <a href="../datos/act_confidencialidad.php">confidencialidad</a>
+                                <a href="../pages/activo_consultar.php">Consultar Activos</a>
                                 </li>
                                 <li>
-                                <a href="../datos/act_disponibilidad.php">Disponibilidad</a>
-                                </li>
-                                <li>
-                                <a href="../datos/act_integridad.php">integridad</a>
-                                </li>
-                               
-                                <li>
-                                    <a href="../datos/act_ubicacion.php">Ubicacion</a>
-                                  
-                                </li>
-                                <li>
-                                <a href="../datos/act_nivel_criticidad.php">nivel de criticidad</a>
-                                </li>
-                                <li>
-                                <a href="../datos/act_tipo_activo.php">tipo de activo</a>
+                                <a href="../pages/activo_modificar.php">Modificación de Activos</a>
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar-Modificar-Eliminar <span class="fa arrow"></span></a>
+                            
+                                <ul class="nav nav-third-level">
+                                    
+                                    <li>
+                                    <a href="../datos/act_nombre.php">Nombre de Activo</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_confidencialidad.php">Confidencialidad</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_disponibilidad.php">Disponibilidad</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_integridad.php">Integridad</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_ubicacion.php">Ubicacion</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_nivel_criticidad.php">Nivel de criticidad</a>
+                                    </li>
+                                    <li>
+                                    <a href="../datos/act_tipo_activo.php">Tipo de activo</a>
+                                    </li>
+                                    
+                                </ul>
+                        
+                        </li>
+                            
                     </ul>
                 </li>
+                <!--  -->
+
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Módulo Gestión de Riesgos <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="crear_riesgo.php">Crear eventos de Riesgos</a>
+                            <a href="riesgo_crear.php">Crear eventos de Riesgos</a>
                         </li>
                         <li>
                             <a href="https://docs.google.com/spreadsheets/d/1Yk07670QWSzcfR7ZrMUOBlBQ1swClns768AH_b4EXBg/edit#gid=0">Modificar eventos de Riesgos</a>
@@ -195,16 +225,39 @@
                     <a href="#"><i class="fa fa-chart-bar"></i> Módulo Gestión de Reportes   <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="active" href="blank.html">Generar Reportes</a>
+                            <a class="active" href="#">Generar Reportes</a>
                         </li>
                     </ul>
                 </li>
-            </ul>
+                    </ul>
+            
         </div>
     </div>
     </div>
+    </div>
+    <div class="sesion_a" style="text-align: center; ">  
+            Copyright &copy; Your Website 2020
+                <br>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+                
 </div>
-<div class="sesion_a" >Sesión iniciada commo:</div>
+     
 </nav>
 
+   
+   
+    
+
 <!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/startmin.js"></script>

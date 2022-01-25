@@ -1,63 +1,47 @@
 <?php
     include('../funciones.php');
     $enviar=0;    
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Riesgo | Ciberseguridad</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-        <title>Riesgo | Ciberseguridad</title>
-
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-<!--        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
- -->       
-       <!-- Estilos de el modal -->
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    </head>
-    <body>
+</head>
+<body>
 
 <div id="wrapper">
     <?php
-    $miconexion=conectar_bd("",'bd_ciberseguridad');
-    session_start();
-    $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
-        
-    /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
-    */        $fila1 = $busqueda->fetch_object(); 
-            $nombre=$fila1->nombre_adm;
-            $i=0;
-            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-            $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
-            while ($valores = mysqli_fetch_array($query)) {
+        $miconexion=conectar_bd("",'bd_ciberseguridad');
+        session_start();
+        $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
+            
+        /*  echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];*/        
+                $fila1 = $busqueda->fetch_object(); 
+                $nombre=$fila1->nombre_adm;
+                $apellido=$fila1->apellido_adm;
+                $i=0;
+                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                $query = $mysqli -> query ("SELECT * FROM tipo_incidentes");
+                while ($valores = mysqli_fetch_array($query)) {
                     $i=$i+1;
-            } 
-    /*         echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";
-    */        
-
-    include('../nabvar.php');
+                } 
+        /*  echo "<label class='form-control3'> los datos encontrados  son :".$i."</label>";*/        
+        include('../nabvar.php');
     ?>
         
 <section id="acuerdo">
-
-    <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -65,14 +49,11 @@
                     <h2 class="page-header">Gestión de Riesgos</h2>
                 </div>
             </div>
-            <div class="cont-b">
+        <div class="cont-b">
         <form >
-
             <center><div class="cont_inc"><br><br>
-                    
                 <div class="text_acta">
                     <br><br>
-                    
                     <table>
                         <tr class="fondo_sub2">
                             <th colspan="5" style="text-align: center;">GESTIÓN DE RIESGOS
@@ -84,16 +65,15 @@
                                     $guardado=consulta($miconexion,"SELECT * FROM `gestion_incidente` ");
                                     $fila = $guardado->fetch_object();
                                     $valor=$fila->id_in;
-                                
                                 ?>                                      
-                                  <input id="version_i" name="version_riesgo" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
+                                <input id="version_i" name="version_riesgo" type="text" class="form-control3" placeholder='<?php echo "version actual:".$valor; ?>' disabled>
 
                                       Fecha:
                                       <?php
                                         // Obteniendo la fecha actual con hora, minutos y segundos en PHP
                                         $fechaActual = date('d-m-Y H:i:s');
                                         ?>
-                                      <input id="fecha_r" name="fecha_actual"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
+                                <input id="fecha_r" name="fecha_actual"  class="form-control3" placeholder='<?php echo $fechaActual; ?>' disabled >
 
                                 Responsable:<!--  <input type="text" class="texc1r" id="inc_3" readonly="readonly"></input> -->
                                 <input id="resp_i" name="resp_i2" type="text" class="form-control3" required>
@@ -280,32 +260,26 @@
         
 
         </div>
+        <br>
+        <br> 
+        <footer style="background-color: #cccccc54 !important;/* width: 72%; */height: 56px;">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                    <div style="float: right;">
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>  
 </section>  
 <br>
 <br>
-
-
+</div>   
         
-        </div>   
-        
-
-
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <!-- mostrar y ocultar elementos -->
-
-        <!-- enviar texto de input a label -->
-        <script src="../js/enviarTexto.js"></script>
 
    
         <?php
@@ -331,7 +305,13 @@
         }  
         ?>
 
-    
-    </body>
+ 
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
+ 
+</body>
     
 </html>

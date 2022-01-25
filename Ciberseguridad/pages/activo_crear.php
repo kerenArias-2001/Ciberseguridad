@@ -25,17 +25,18 @@
         $miconexion=conectar_bd("",'bd_ciberseguridad');
         session_start();
         $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
-            $fila1 = $busqueda->fetch_object(); 
-            $nombre=$fila1->nombre_adm;
-            $i=0;
-            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
-            $query = $mysqli -> query ("SELECT * FROM administrador");
-            while ($valores = mysqli_fetch_array($query)) {
-                    $i=$i+1;
-            }    
+        $fila1 = $busqueda->fetch_object(); 
+        $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
+        $i=0;
+        $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+        $query = $mysqli -> query ("SELECT * FROM administrador");
+        while ($valores = mysqli_fetch_array($query)) {
+        $i=$i+1;
+        }    
 
-include('../nabvar.php');
-?>
+        include('../nabvar.php');
+    ?>
        
 <section id="acuerdo">
     <div id="page-wrapper">
@@ -66,18 +67,18 @@ include('../nabvar.php');
                                         }    $cont=$cont+1;
                                         
                                         ?>                                
-                                    <input id="version_i" name="identificador" type="text" value='<?php echo $cont;?>' class="form-control3" placeholder=''  readonly="readonly" >
-                                   Fecha:
-                                    <?php
-                                    // Obteniendo la fecha actual con hora, minutos y segundos en PHP
-                                  
-                                    $zonahoraria = date_default_timezone_set('America/Bogota');
-                                
-                                    $fechaActual = date('m-d-Y h:i:s a', time());
-                                   
-                                    ?>
-                                    <input id="fecha_r" name="fecha"  value='<?php echo "".$fechaActual ;?>' type="text" class="form-control3"  readonly="readonly">
-                                     Responsable:<input id="responsable" name="responsable" type="text" class="form-control3" required>
+                                            <input id="version_i" name="identificador" type="text" value='<?php echo $cont;?>' class="form-control3" placeholder=''  readonly="readonly" >
+                                            Fecha:
+                                            <?php
+                                                // Obteniendo la fecha actual con hora, minutos y segundos en PHP
+                                            
+                                                $zonahoraria = date_default_timezone_set('America/Bogota');
+                                            
+                                                $fechaActual = date('m-d-Y h:i:s a', time());
+                                    
+                                            ?>  
+                                            <input id="fecha_r" name="fecha"  value='<?php echo "".$fechaActual ;?>' type="text" class="form-control3"  readonly="readonly">
+                                            Responsable:<input id="responsable" name="responsable" type="text" class="form-control3" required>
                                     </td>
                                 </tr>
                                 <tr class="fondo_sub">
@@ -126,7 +127,7 @@ include('../nabvar.php');
                                     <td rowspan="3"><label>CALIFICACIÓN</label></td>
                                     <td>
                                         <div class="dropdown">
-                                        <label for="conf_a">Confidencialidad</label>
+                                            <label for="conf_a">Confidencialidad</label>
                                             <div class="dropdown-content">
                                                 <p style="text-align: justify; margin: 17px;">     <b>Información Pública Reservada:</b><br>
                                                         Información disponible solo para un proceso de la entidad y en caso de ser conocida por terceros sin autorización 
@@ -164,8 +165,8 @@ include('../nabvar.php');
                                 </tr>
                                 <tr>
                                     <td>
-                                    <div class="dropdown">
-                                        <label for="integ_a">Integridad</label>
+                                        <div class="dropdown">
+                                            <label for="integ_a">Integridad</label>
                                             <div class="dropdown-content">
                                                 <p style="text-align: justify; margin: 17px;">     <b>A (ALta):</b><br>
                                                         Información cuya pérdida de exactitud y completitud puede conllevar un impacto negativo de índole legal o económica, 
@@ -185,11 +186,11 @@ include('../nabvar.php');
                                                 </p>
                                             </div>  
                                         </div>         
-                                        </td>
+                                    </td>
                                     <td colspan="4"> 
                                         <select id="integ_a"  class="form-control3"  name="integridad" required>  
-                                        <option class="form-control" value=""><h1>Seleccione una opción</h1></option>            
-                                             <?php
+                                            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>            
+                                            <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                                                 $query = $mysqli -> query ("SELECT * FROM act_integridad");
                                                 while ($valores = mysqli_fetch_array($query)) {
@@ -207,8 +208,8 @@ include('../nabvar.php');
                                     <td>
                                     <div class="dropdown">
                                         <label for="disp_a">Disponibilidad</label>
-                                            <div class="dropdown-content">
-                                                <p style="text-align: justify; margin: 17px;">     <b>A (ALta):</b><br>
+                                        <div class="dropdown-content">
+                                            <p style="text-align: justify; margin: 17px;">     <b>A (ALta):</b><br>
                                                         La no disponibilidad de la información puede conllevar un impacto negativo de índole legal o económica, 
                                                         retrasar sus funciones, o generar pérdidas de imagen severas a entes externos.<br>
                                                     
@@ -223,8 +224,8 @@ include('../nabvar.php');
                                                         <b>No Clasificada:</b><br>
                                                         Activos de Información que deben ser incluidos en el inventario y que aún no han sido clasificados, 
                                                         deben ser tratados como activos de Información de Disponibilidad ALTA.<br>    
-                                                </p>
-                                            </div>  
+                                            </p>
+                                        </div>  
                                         </div>         
                                     </td>
                                     <td colspan="4">
@@ -251,24 +252,24 @@ include('../nabvar.php');
                                         <select id="ubi_ac" class="form-control3" name="ubicacion_act" require/>                        
                                             
                                             <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
-                                                <?php
-                                                    $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-                                                    $query = $mysqli -> query ("SELECT * FROM act_ubicacion");
-                                                    while ($valores = mysqli_fetch_array($query)) {
-                                                        echo '<option value="'.$valores[nombre_ubicacion].'">'.$valores[nombre_ubicacion].'</option>';
-                                                    
-                                                            
-                                                    } 
-                                        
-                                                ?>         
+                                            <?php
+                                                $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
+                                                $query = $mysqli -> query ("SELECT * FROM act_ubicacion");
+                                                while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores[nombre_ubicacion].'">'.$valores[nombre_ubicacion].'</option>';
+                                                
+                                                        
+                                                } 
+                                    
+                                            ?>         
                                         </select>
                                         <input id="version_i" name="descr_ubicacion_act2" type="text" class="form-control3" placeholder="Describa la ubicación del activo" required>                                
                                     </td>
                                     <td><label for="niv_act">Nivel de Criticidad:</label></td>
                                     <td colspan="2">
-                                    <select id="niv_act" class="form-control3" name="criticidad_act" require/>                        
+                                        <select id="niv_act" class="form-control3" name="criticidad_act" require/>                        
                                         
-                                        <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
+                                            <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                                             <?php
                                                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                                                 $query = $mysqli -> query ("SELECT * FROM act_nivel_criticidad");
@@ -378,7 +379,7 @@ include('../nabvar.php');
                  if($guardado)
                   {  
                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
-            $query = $mysqli -> query ("INSERT INTO `act_codigo`( `nombre_codigo`) VALUES ('$identificador')" );
+                    $query = $mysqli -> query ("INSERT INTO `act_codigo`( `nombre_codigo`) VALUES ('$identificador')" );
                       
                     /* -----------------Alerta  ------------------------*/
 
@@ -397,7 +398,7 @@ include('../nabvar.php');
                             else{
                                 echo "<script>
                                     Swal.fire({type: 'error',
-                                        title: 'error',
+                                        title: 'Error',
                                         text: 'Por favor intente de nuevo',
                                         
                                     }).then(function() {

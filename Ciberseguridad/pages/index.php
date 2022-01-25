@@ -50,6 +50,7 @@
             $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm='{$_SESSION['nusuario']}'");
             $fila1 = $busqueda->fetch_object(); 
             $nombre=$fila1->nombre_adm;
+            $apellido=$fila1->apellido_adm;
             $i=0;
             $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
             $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -72,28 +73,14 @@ include('../nabvar.php');
     
                                 </section>
                             </div>
-                            <!-- /.col-lg-12 -->
                         </div>
-                        <!-- /.row -->
                     </div>
-                    <!-- /.container-fluid -->
+
                 </div>
-                <!-- /#page-wrapper -->
-    
+
+               
             </div>
-            <!-- /#wrapper -->
-    
-            <!-- jQuery -->
-            <script src="../js/jquery.min.js"></script>
-    
-            <!-- Bootstrap Core JavaScript -->
-            <script src="../js/bootstrap.min.js"></script>
-    
-            <!-- Metis Menu Plugin JavaScript -->
-            <script src="../js/metisMenu.min.js"></script>
-    
-            <!-- Custom Theme JavaScript -->
-            <script src="../js/startmin.js"></script>
+
     <?php
 
 
@@ -125,5 +112,12 @@ else{
 ?>
 
 
-    </body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
+<!-- enviar texto de input a label -->
+<script src="../js/enviarTexto.js"></script>
+
+</body>
 </html>

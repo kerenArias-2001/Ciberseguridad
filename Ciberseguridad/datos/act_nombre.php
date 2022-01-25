@@ -32,6 +32,8 @@
 /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
  */        $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
+
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");

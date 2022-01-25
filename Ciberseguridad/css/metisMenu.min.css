@@ -11,18 +11,89 @@
 
 .abcs{
     /* background-color: black; */
-    height: 525px;
-    overflow: auto;
+/*     height: 525px;
+ */    overflow: auto;
 }
 #acuerdo{
   /*   background-color: aqua; */
     height: 562px;
 }
-.sesion_a {
+/* .sesion_a {
     background-color: #2a679b;
     color: white;
     position: absolute;
     width: 251px;
     top: 610px;
     height: 60px;
+} */
+.sesion_a {
+    background-color: #2a679b;
+    color: white;
+    position: relative;
+    width: auto;
+    text-align: right;
+/*     height: 21px; */
 }
+
+@media (min-width: 768px) {
+
+    .abcs{
+        /* background-color: black; */
+        height: 525px;
+        overflow: auto;
+    }
+    #acuerdo{
+      /*   background-color: aqua; */
+        height: 562px;
+    }
+    .sesion_a {
+        background-color: #2a679b;
+        color: white;
+        position: absolute;
+        width: 251px;
+        top: 584px;
+        height: 74px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    
+    .abcs{
+        /* background-color: black; */
+        height: 525px;
+        overflow: auto;
+    }
+    #acuerdo{
+    /*   background-color: aqua; */
+        height: 562px;
+    }
+    .sesion_a {
+        background-color: #2a679b;
+        color: white;
+        position: absolute;
+        width: 251px;
+        top: 584px;
+        height: 74px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    
+    .abcs{
+        /* background-color: black; */
+        height: 540px;
+        overflow: auto;
+    }
+    #acuerdo{
+    /*   background-color: aqua; */
+        height: 562px;
+    }
+    .sesion_a {
+        background-color: #2a679b;
+        color: white;
+        position: absolute;
+        width: 251px;
+        top: 600px;
+        height: 61px;
+    }
+  }

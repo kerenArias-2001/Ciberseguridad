@@ -1,7 +1,6 @@
 <?php
     include('../funciones.php');
     $enviar=0;    
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,77 +12,14 @@
         <meta name="author" content="">
 
         <title>Activo | Ciberseguridad</title>
-
-        <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
         <link href="../css/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link href="../css/startmin.css" rel="stylesheet">
-    
-       <!-- Estilos de el modal -->
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/datos.css">
 
-    </head>
-    <style>
-
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 75%;
-    float: right;
-}
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-#agg_in {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 54%;
-    margin: 8px;
-}
-.col-25_in {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75_in {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row_in:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-</style>
+</head>
     <body>
 
 <div id="wrapper">
@@ -95,6 +31,7 @@ input[type=submit]:hover {
 /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
  */        $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -132,23 +69,12 @@ input[type=submit]:hover {
         <input class="form-control3" id="incidente" name="nomb_i" type="text" placeholder="ingrese el nombre de incidente" ><br>
         </div>
     </div>
- 
     <div class="row_in">
         <button type="submit" name="enviar" value="1" class="btn_g" >Agregar</button><br>
-
     </div>
-
 </section >
-
-
-
-
-
-
 <section id="agg_in" >
     <form method="post" >
-   
-   
         <div class="row_in">
         <div class="col-25_in">
    <!--      <label for="country">Modificar tipo de incidente</label> -->
@@ -157,31 +83,23 @@ input[type=submit]:hover {
         </label>
       </div>
       <div class="col-75_in">
-        
-        <select id="m1" class="form-control3" name="nomb_iM" require/>                        
-                                                
+        <select id="m1" class="form-control3" name="nomb_iM" require/>                                                                      
             <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
                 $query = $mysqli -> query ("SELECT * FROM act_confidencialidad");
                 while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[id_confidencialidad].'">'.$valores[nombre_confidencialidad].'</option>';
-                
-                        
+                    echo '<option value="'.$valores[id_confidencialidad].'">'.$valores[nombre_confidencialidad].'</option>';      
                 } 
-    
             ?>         
         </select><br>
             <input class="form-control3" id="Mincidente" name="nomb_iM1" type="text" placeholder="ingrese nuevo  tipo"><br>
       </div>
     </div>
-
     <div class="row_in">
           <button type="submit" name="enviar" value="2"  class="btn_g">Actualizar</button><br>
     </div>
-  
 </section>
-
 <section id="agg_in" >
     <form method="post" >
         <div class="row_in">
@@ -192,8 +110,7 @@ input[type=submit]:hover {
             </label>
       </div>
         <div class="col-75_in">
-            <select id="m1" class="form-control3" name="nomb_iE" require/>                        
-                                                
+            <select id="m1" class="form-control3" name="nomb_iE" require/>                                                              
                 <option class="form-control" value=""><h1>Seleccione una opción</h1></option>
                 <?php
                     $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_datos');
@@ -201,54 +118,34 @@ input[type=submit]:hover {
                     while ($valores = mysqli_fetch_array($query)) {
                         echo '<option value="'.$valores[id_confidencialidad].'">'.$valores[nombre_confidencialidad].'</option>';  
                     } 
-  
                 ?>         
             </select><br>
-      
         </div>
     </div>
-   
     <div class="row_in">
           <button type="submit" name="enviar" value="3" class="btn_g" >Eliminar</button><br>
-
     </div>
-  
 </section>
-
 </div></center>
-
-
-        
 </form> 
-          
 </div>
-
 </div>
 </div>  
 </section>  
 <br>
 <br>
 </div>   
-
-
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
-
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>
-
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../js/metisMenu.min.js"></script>
-
         <!-- Custom Theme JavaScript -->
         <script src="../js/startmin.js"></script>
         <!-- mostrar y ocultar elementos -->
-
         <!-- enviar texto de input a label -->
         <script src="../js/enviarTexto.js"></script>
-
-   
-
         <?php
     if ($_SERVER['REQUEST_METHOD']==='POST') { 
               /* Activar alerta */
@@ -261,11 +158,7 @@ input[type=submit]:hover {
         $miconexion=conectar_bd("",'bd_datos');
         if($enviar!=0){
             if ($enviar==1 & $_POST['nomb_i'] !='' ) {
-                
-            
-
                 $nomb_in=$_POST['nomb_i'];
-
                 echo "---------------------",$nomb_in;
                 $consulta=consulta($miconexion,"INSERT INTO `act_confidencialidad`(`nombre_confidencialidad`) VALUES ('$nomb_in')");
                 if($consulta)
@@ -278,23 +171,18 @@ input[type=submit]:hover {
                         window.location = 'act_confidencialidad.php';
                     });
                     </script>" ; 
-                    
-                    /* -----------------Alerta para notificar registro ------------------------*/
-                                        
+                    /* -----------------Alerta para notificar registro ------------------------*/       
                         } 
                 else{
                     echo "<script>
                     Swal.fire({type: 'error',
                         title: 'error',
                         text: 'Por favor intente de nuevo',
-                        
                     }).then(function() {
                         window.location ='act_confidencialidad.php';
                     });
                     </script>" ;
-            }          
-            
-            
+            }                     
             }
         if ($enviar==2 & $_POST['nomb_iM1'] !=''& $_POST['nomb_iM'] !='') {
             $nomb_in=$_POST['nomb_iM'];
@@ -302,7 +190,6 @@ input[type=submit]:hover {
             $resultado=consulta($miconexion,"SELECT * FROM `act_confidencialidad` WHERE `id_confidencialidad` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
             $valor=$fila0->id_confidencialidad;
-
             $consulta=consulta($miconexion,"UPDATE `act_confidencialidad` SET `nombre_confidencialidad`='$nomb_in1' WHERE id_confidencialidad like '$valor'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
@@ -313,31 +200,24 @@ input[type=submit]:hover {
                     window.location = 'act_confidencialidad.php';
                 });
                 </script>" ; 
-                
-                /* -----------------Alerta para notificar registro ------------------------*/
-                                    
+                /* -----------------Alerta para notificar registro ------------------------*/       
             } 
             else{
                 echo "<script>
                     Swal.fire({type: 'error',
                         title: 'error',
                         text: 'Por favor intente de nuevo',
-                        
                     }).then(function() {
                         window.location ='act_confidencialidad.php';
                     });
                     </script>" ;
             }          
-
         }
         if ($enviar==3 & $_POST['nomb_iE'] !='') {
             $nomb_in=$_POST['nomb_iE'];
-           
             $resultado=consulta($miconexion,"SELECT * FROM `act_confidencialidad` WHERE `id_confidencialidad` like '$nomb_in' ");
             $fila0=$resultado->fetch_object(); 
             $valor=$fila0->id_confidencialidad; 
-           
-
             $consulta=consulta($miconexion,"DELETE FROM `act_confidencialidad` WHERE  id_confidencialidad like '$nomb_in'");
             if($consulta)
             {  /* -----------------Alerta para notificar registro ------------------------*/
@@ -348,37 +228,21 @@ input[type=submit]:hover {
                     window.location = 'act_confidencialidad.php';
                 });
                 </script>" ; 
-                
-                /* -----------------Alerta para notificar registro ------------------------*/
-                                    
+                /* -----------------Alerta para notificar registro ------------------------*/       
             } 
             else{
             echo "<script>
                 Swal.fire({type: 'error',
                     title: 'error',
                     text: 'Por favor intente de nuevo',
-                    
                 }).then(function() {
                     window.location ='act_confidencialidad.php';
                 });
                 </script>" ;
                       }          
-                 
         }
-
-    
-     
-     
     }
-    
-
-
-
-
     }
     ?>
-
-    
     </body>
-    
 </html>

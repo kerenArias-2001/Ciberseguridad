@@ -1,6 +1,7 @@
 <?php
     include('../funciones.php');
     $enviar=0;    
+    $control=0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Acuerdos | Ciberseguridad</title>
+        <title>Crear Acuerdos | Ciberseguridad</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/metisMenu.min.css" rel="stylesheet">
         <link href="../css/startmin.css" rel="stylesheet">     
@@ -29,6 +30,7 @@
         $busqueda=consulta($miconexion,"SELECT * FROM administrador WHERE correo_adm ='{$_SESSION['nusuario']}'");
         $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
  ?>
 <div id="wrapper">
 
@@ -42,54 +44,63 @@
                     <h2 class="page-header">Acuerdos de Confidencialidad</h2>
                 </div></center> 
             </div>
-            <center>  
-                <button  id="btncrear" class="btn btn-success ">Crear Acuerdo</button>
-                <button  id="btnmodificar" class="btn btn-success " >Modificar Acuerdo</button>
-            </center> 
             <section id="acuerdo">                            
-                <form>
+            <form  id=""  method="post" action="" >
+
                     <div class="form-group">
-                        <label>Identificación</label>
-                        <input id="cod_i" name="cod_c1" type="number" class="form-control2" placeholder="Número">
+                        <label>Identificación</label> 
+                        <input id="cod_i" name="cod_c1" type="number"  class="form-control2" placeholder="Número" >
                     </div>
                     <div class="form-group">
                         <label>Nombre de la empresa</label>
-                        <input id="name_e" name="name_e1" type="text" class="form-control2" placeholder="Nombre">
+                        <input id="name_e" name="name_e1" type="text" class="form-control2"  placeholder="Nombre">
                     </div>
                     <div class="form-group">
                         <label>Nit</label>
-                        <input id="nit_e" name="nit_e1" type="number" class="form-control2" placeholder="Número">
+                        <input id="nit_e" name="nit_e1" type="text" class="form-control2"  placeholder="Número">
                     </div>
                     <div class="form-group">
                         <label>Representante Legal</label>
-                        <input id="repr_l" name="repr_l1" type="text" class="form-control2" placeholder="Nombre">
+                        <input id="repr_l" name="repr_l1" type="text" class="form-control2"  placeholder="Nombre" style="text-transform: capitalize;">
                     </div>
                     <div class="form-group">
-                        <label>Identificación</label>
-                        <input id="num_i" name="num_i1" type="number" class="form-control2" placeholder="Número">
-                    </div>
-                    <div class="form-group">
-                        <label>Contrato</label>
-                        <input id="num_c" name="num_c1" type="number" class="form-control2" placeholder="Número">
+                        <label>Identificación del representante</label>
+                        <input id="num_i" name="num_i1" type="number" class="form-control2"  placeholder="Número">
                     </div>
                     <div class="form-group">
                         <label>Contrato</label>
-                        <input id="num_c2" name="num_c3" type="number" class="form-control2" placeholder="Número">
+                        <?php
+                            $cont=0;
+                            $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
+                            $query = $mysqli -> query ("SELECT * FROM acuerdos_confidencialidad");
+                            while ($valores = mysqli_fetch_array($query)) {
+                                $cont=$cont+1;                                 
+                                
+                            }    $cont=$cont+1;
+                            
+                            ?>   
+                        <input id="num_c" name="num_c1" type="number" value='<?php echo $cont;?>' class="form-control2" >
+
+                    </div>
+                    <div class="form-group">
+                        <label>Empleador</label>
+                        <input id="num_c2" name="num_c3" type="text" class="form-control2"  placeholder="Nombre" style="text-transform: uppercase;">
                     </div>
                     <br>
+                  
                     
                     <div class="cont_acta"><br><br>   
                         <center><div class="text_acta">
-                            IDENTIFICACIÓN DEL CONTRATISTA: <input type="text" class="texc1" id="tex1" readonly="readonly"></input><br>
-                            NOMBRE DE LA SOCIEDAD: <input type="text" class="texc1" id="tex2" readonly="readonly"></input><br>
-                            NIT: <input type="text" class="texc1" id="tex3" readonly="readonly"></input><br>
-                            REPRESENTANTE LEGAL: <input type="text" class="texc1" id="tex4" readonly="readonly"></input><br>
-                            NÚMERODE IDENTIFICACIÓN: <input type="text" class="texc1" id="tex5" readonly="readonly"></input><br>
-                            CONTRATO DE FIDUCIA MERCANTIL No: <input type="text" class="texc1" id="tex6" readonly="readonly"></input><br> 
-                            de <input type="text" class="texc1" id="tex7" readonly="readonly"></input><br><br>
+                            IDENTIFICACIÓN DEL CONTRATISTA: <input type="text" class="texc1" id="tex1" name="ident" readonly="readonly"></input><br>
+                            NOMBRE DE LA SOCIEDAD: <input type="text" class="texc1" id="tex2" name="nomb" readonly="readonly"></input><br>
+                            NIT: <input type="text" class="texc1" id="tex3" name="nit" readonly="readonly"></input><br>
+                            REPRESENTANTE LEGAL: <input type="text" class="texc1" id="tex4" name="repr" readonly="readonly"></input><br>
+                            NÚMERO DE IDENTIFICACIÓN: <input type="text" class="texc1" id="tex5" name="iden" readonly="readonly"></input><br>
+                            CONTRATO DE FIDUCIA MERCANTIL No: <input type="text" class="texc1" id="tex6" name="cont" readonly="readonly"></input><br> 
                             CLAÚSULAS<br>
                             PRIMERA. El CONTRATISTA se obliga a no divulgar a terceras partes, la “Información confidencial”, que 
-                            reciba por parte de XXXXXXXX, y a darle a dicha información el mismo tratamiento que le darían a la 
+                            reciba por parte de <input type="text" class="texc1" id="tex7" name="empl" readonly="readonly" style="text-transform: uppercase; text-align: center;"></input>
+                            , y a darle a dicha información el mismo tratamiento que le darían a la 
                             información confidencial de su propiedad. Para efectos de la presente acta, “Información Confidencial” 
                             comprende toda la información divulgada por XXXXXXXX ya sea en forma oral, visual, escrita, grabada en 
                             medios magnéticos o en cualquier otra forma tangible y que se encuentre claramente marcada como tal al ser 
@@ -118,69 +129,81 @@
                             Contrato. <br>
                             Suscrita a los XXX días XXX del mes de XXXX de 2014, en Bogotá D.C. <br>
                             Firma: <br>
-                            <input type="file"> <br>
+                            <br><br><br>
+                            
                             CONTRATISTA <br><br>
                             <br><br>
-                        </div></center>
-                    </div>
-                    <center>
+                            <center>
                         <button type="submit" value="1" name="guardar" id="btnNuevaFactura" class="btn btn-success">Guardar</button>
                     </center>
+                    <br>
+                        </div></center>
+                    </div>
+                    
                 </form>
                 <button class="btn btn-success" onclick="enviartexto()" > llenar</button>
             </section>  
             <br>
             <br>
-            <section id="consul_acuerdo">
-                <center>
-                    <div class="sidebar-search2">
-                        <div class="input-group2 custom-search-form">
-                            <input type="text" class="form-control3" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </center>
-            </section>
 
         </div>
     </div> 
 </div>   
-<!-- jQuery -->
-<script src="../js/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../js/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="../js/startmin.js"></script>
-<!-- mostrar y ocultar elementos -->
-<script src="../js/adaptable.js"></script>
-<!-- enviar texto de input a label -->
-<script src="../js/enviarTexto.js"></script>
    
 <?php
     if ($_SERVER['REQUEST_METHOD']==='POST') { 
-    
+        
+    /* Activar alerta */
+    echo"<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+    echo"<script src='sweetalert2.all.min.js'></script>";
+    echo"<script src='sweetalert2.min.js'></script>";
+    echo"<link rel='stylesheet' href='sweetalert2.min.css'>";
+/* Activar alerta */
+
+       
         $control=$_POST['guardar'];
         if ($control==1){
-            $vnombre=$_POST['nom_e'];
-            $vtipod=$_POST['tip_id'];
-            $vcodigoi=$_POST['cod_i'];
-            $vdoc=$_POST['numdoc'];
-            $vrol=$_POST['rol'];
-            $vnit=$_POST['nit'];
-            $vdescrip=$_POST['descrip'];
-            $vobser=$_POST['obser']; 
-            $resultado=consulta($miconexion,"insert into acuerdos (id_acuerdos,num_acuerdo,tipo_acuerdo,observaciones_acuer,nombre_empresa_acuer,fecha,lugar_acuer)
-            values('$tipod_usuario','$numero_usuario', '$nombre_usuario','$apellido_usuario','$tel_usuario','$direccion','$correo_usuario','$fecha_na','$nacionalidad','$codigo_em','$contraseña_adm')");
+            $identificacion=$_POST['ident'];
+        echo " ----------------".$identificacion."--------------------";
+        $nomb_empresa=$_POST['nomb'];
+        $num_nit=$_POST['nit'];
+        $representante=$_POST['repr'];
+        $identificacion2=$_POST['iden'];
+        $contrato=$_POST['cont'];
+        $empleador=$_POST['empl'];
 
+        if ($nomb_empresa!='' & $num_nit!='' & $representante!='' & $identificacion2!='' & $contrato!='' & $empleador!='') {
+           
+      
+     
+            $resultado=consulta($miconexion,"INSERT INTO `acuerdos_confidencialidad`( `identificacion`, `nombre_empresa`, `num_nit`, `representante`, `identificacion2`, `contrato`, `empleador`) 
+            VALUES('$identificacion','$nomb_empresa', '$num_nit','$representante','$identificacion2','$contrato','$empleador')");
+
+                if ($resultado) {
+                    
+                    echo "<script>
+                    Swal.fire({type: 'success',
+                    text: 'Guardado Exitoso',
+                    
+                }).then(function() {
+                    window.location = '../pages/acuerdos_crear.php';
+                });
+                </script>" ; 
+            }
+
+        }
+        else{
+            echo "<script>
+            Swal.fire({type: 'error',
+                title: 'Datos vacíos',
+                text: 'Por favor rellene los datos',
+                
+            }).then(function() {
+                window.location = '../pages/acuerdos_crear.php';
+            });
+            </script>" ;
+        }
         }
 }
      
@@ -188,16 +211,23 @@
 } else{
     echo "<script>
     Swal.fire({type: 'error',
-        title: 'Error de autenticación',
-        text: 'el usuario no tiene acceso',
+        title: 'error',
+        text: 'Por favor intente de nuevo',
         
     }).then(function() {
-        window.location = '../login.php';
+        window.location = '../pages/acuerdos_crear.php';
     });
     </script>" ;
 }
 ?>
   
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
+<!-- enviar texto de input a label -->
+<script src="../js/enviarTexto.js"></script>
 </body>
     
 </html>

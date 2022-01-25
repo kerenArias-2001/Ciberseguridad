@@ -13,22 +13,14 @@
         <meta name="author" content="">
 
         <title>Incidentes | Ciberseguridad</title>
-
-        <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
         <link href="../css/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link href="../css/startmin.css" rel="stylesheet">
-    
-       <!-- Estilos de el modal -->
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/datos.css">
-    </head>
-  
+
+</head>
     <body>
 
 <div id="wrapper">
@@ -40,6 +32,7 @@
 /*         echo"***************+++++++++++++++++++++++*****************************",$_SESSION['nusuario'];
  */        $fila1 = $busqueda->fetch_object(); 
         $nombre=$fila1->nombre_adm;
+        $apellido=$fila1->apellido_adm;
         $i=0;
         $mysqli = new mysqli('127.0.0.1', 'root', '', 'bd_ciberseguridad');
         $query = $mysqli -> query ("SELECT * FROM administrador");
@@ -63,12 +56,12 @@
                         </div>
                     </div>
                 <div class="cont-b">
-                   
+                    <form  id=""  method="post" action="" >
 
 <center><div class="text_acta">
 <center> 
 <section id="agg_in">
-
+  <form method="post" >
   <div class="row_in">
     <div class="col-25_in" >
             <img src="add-button.png" width="50%" height="6%">   
@@ -91,7 +84,7 @@
 
 
 <section id="agg_in" >
-   
+    <form method="post" >
    
    
     <div class="row_in">
@@ -128,7 +121,7 @@
 </section>
 
 <section id="agg_in" >
-   
+    <form method="post" >
     <div class="row_in">
       <div class="col-25_in">
        <!--  <label for="fname">Eliminar tipo de incidente</label> -->
@@ -194,8 +187,6 @@
         <script src="../js/startmin.js"></script>
         <!-- mostrar y ocultar elementos -->
 
-        <!-- enviar texto de input a label -->
-        <script src="../js/enviarTexto.js"></script>
 
    
 
